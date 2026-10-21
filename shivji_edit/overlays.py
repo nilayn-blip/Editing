@@ -269,54 +269,71 @@ def mandala(t, radius=250):
 
 
 # -------------------------------------------------------------- timeline
+# Output timing (see build.sh):
+#   0.00 - 0.90  hook: close-up of the shivling
+#   0.90 - 2.07  wide shot (reframed, title)
+#   2.07 - 4.10  camera push-in, slowed 0.8x
+#   4.10 - 9.50  darshan hold, slowed 0.8x with slow digital push-in
+#   9.50 - end   held last frame, blurred, end card
+CUT_WIDE, CUT_ZOOM, CUT_HOLD, CUT_END = 0.90, 2.07, 4.10, 9.35
+
+
 def frame(t):
     cv = Image.new("RGBA", (W, H), (0, 0, 0, 0))
 
-    # 1) opening title over the wide shot (0.25s - 2.5s)
-    a = window(t, 0.25, 2.5, 0.7, 0.55)
-    if a > 0:
-        cv.alpha_composite(with_alpha(TOP, a))
-        p = ease_out((t - 0.25) / 1.2)
-        cy = 330 - 30 * (1 - p)
-        paste_center(cv, title_deva, W / 2, cy, a, 1.12 - 0.12 * p)
-        paste_center(cv, wipe(line_short, ease_out((t - 0.6) / 0.9)), W / 2, cy + 105, a)
-        paste_center(cv, title_latin, W / 2, cy + 160, a * ease_in_out((t - 0.8) / 0.6))
-
-    # 2) light leak riding the camera punch-in (1.2s - 2.8s)
-    fl = math.sin(math.pi * min(max((t - 1.25) / 1.5, 0), 1)) ** 2 * 0.42
+    # 0) gold flash on the hook -> wide cut
+    fl = math.exp(-((t - CUT_WIDE) / 0.12) ** 2) * 0.75
     if fl > 0.01:
         cv.alpha_composite(flash_frame(fl))
 
-    # 3) god-rays + embers while we hold on the deity
-    ray_a = window(t, 2.4, 8.6, 1.2, 0.8) * 0.20
+    # 1) opening title over the wide shot
+    t_in, t_out = CUT_WIDE + 0.15, CUT_ZOOM + 1.6
+    a = window(t, t_in, t_out, 0.6, 0.6)
+    if a > 0:
+        cv.alpha_composite(with_alpha(TOP, a))
+        p = ease_out((t - t_in) / 1.2)
+        cy = 330 - 30 * (1 - p)
+        paste_center(cv, title_deva, W / 2, cy, a, 1.12 - 0.12 * p)
+        paste_center(cv, wipe(line_short, ease_out((t - t_in - 0.35) / 0.9)), W / 2, cy + 105, a)
+        paste_center(cv, title_latin, W / 2, cy + 160, a * ease_in_out((t - t_in - 0.55) / 0.6))
+
+    # 2) light leak riding the camera push-in
+    fl = math.sin(math.pi * min(max((t - CUT_ZOOM - 0.1) / 1.9, 0), 1)) ** 2 * 0.40
+    if fl > 0.01:
+        cv.alpha_composite(flash_frame(fl))
+
+    # 3) god-rays + embers on the deity (hook and hold)
+    ray_a = (window(t, 0.0, CUT_WIDE, 0.3, 0.15) + window(t, CUT_HOLD - 0.6, DUR, 1.2, 0.8)) * 0.20
     if ray_a > 0:
         cv.alpha_composite(rays_frame(t, ray_a))
-    pa = window(t, 2.2, DUR, 1.0, 0.6)
+    pa = max(window(t, 0.0, CUT_WIDE + 0.3, 0.3, 0.3), window(t, CUT_ZOOM + 0.8, DUR, 1.0, 0.6))
     if pa > 0:
         cv.alpha_composite(particles_frame(t, pa))
 
-    # 4) lower third (3.4s - 7.0s)
-    a = window(t, 3.4, 7.0, 0.45, 0.5)
+    # 4) lower third
+    l_in, l_out = CUT_HOLD + 0.5, CUT_HOLD + 4.5
+    a = window(t, l_in, l_out, 0.45, 0.5)
     if a > 0:
         cv.alpha_composite(with_alpha(BOTTOM, a))
-        rev = ease_out((t - 3.4) / 0.9)
-        cy = 1565 + 40 * (1 - ease_out((t - 3.4) / 0.7))
+        rev = ease_out((t - l_in) / 0.9)
+        cy = 1565 + 40 * (1 - ease_out((t - l_in) / 0.7))
         paste_center(cv, wipe(lower_deva, rev), W / 2, cy, a)
-        paste_center(cv, wipe(line_short, ease_out((t - 3.7) / 0.8)), W / 2, cy + 92, a)
-        paste_center(cv, lower_latin, W / 2, cy + 148, a * ease_in_out((t - 4.0) / 0.6))
+        paste_center(cv, wipe(line_short, ease_out((t - l_in - 0.3) / 0.8)), W / 2, cy + 92, a)
+        paste_center(cv, lower_latin, W / 2, cy + 148, a * ease_in_out((t - l_in - 0.6) / 0.6))
 
-    # 5) end card (9.35s -> end); footage is blurred/darkened in ffmpeg
-    a = window(t, 9.35, DUR + 1, 0.8, 0.1)
+    # 5) end card; footage is blurred/darkened in ffmpeg
+    e = CUT_END
+    a = window(t, e, DUR + 1, 0.8, 0.1)
     if a > 0:
-        p = ease_out((t - 9.35) / 1.4)
+        p = ease_out((t - e) / 1.4)
         cy = 760
         paste_center(cv, mandala(t), W / 2, cy, a * 0.85, 0.85 + 0.15 * p)
         pulse = 1 + 0.02 * math.sin(t * 3)
         paste_center(cv, end_om, W / 2, cy - 10, a, (0.9 + 0.1 * p) * pulse)
-        a2 = a * ease_in_out((t - 9.9) / 0.6)
-        paste_center(cv, end_deva, W / 2, 1170 + 25 * (1 - ease_out((t - 9.9) / 0.8)), a2)
-        paste_center(cv, wipe(line_long, ease_out((t - 10.2) / 0.9)), W / 2, 1268, a2)
-        a3 = a * ease_in_out((t - 10.5) / 0.6)
+        a2 = a * ease_in_out((t - e - 0.55) / 0.6)
+        paste_center(cv, end_deva, W / 2, 1170 + 25 * (1 - ease_out((t - e - 0.55) / 0.8)), a2)
+        paste_center(cv, wipe(line_long, ease_out((t - e - 0.85) / 0.9)), W / 2, 1268, a2)
+        a3 = a * ease_in_out((t - e - 1.15) / 0.6)
         paste_center(cv, end_latin, W / 2, 1330, a3)
         paste_center(cv, end_sub, W / 2, 1392, a3 * 0.9)
 

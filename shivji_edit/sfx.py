@@ -112,6 +112,75 @@ def drone(dur, f0=73.4):
     return y / np.abs(y).max()
 
 
+def tanpura_note(f0, dur=4.2):
+    """Additive tanpura pluck: bright harmonics with the moving 'jawari' buzz peak."""
+    t = t_axis(dur)
+    y = np.zeros_like(t)
+    centre = 4 + 18 * np.exp(-t / 1.4)  # buzz formant sweeps down the harmonics
+    for k in range(1, 36):
+        if f0 * k > 9000:
+            break
+        base = 1 / k ** 0.9
+        buzz = 1 + 2.5 * np.exp(-((k - centre) ** 2) / 10)
+        detune = 1 + 0.0008 * np.sin(2 * np.pi * 0.3 * t + k)
+        y += base * buzz * np.sin(2 * np.pi * f0 * k * detune * t + rng.uniform(0, 6.28))
+    y *= np.exp(-t / 2.2) * np.clip(t / 0.004, 0, 1)
+    return y / np.abs(y).max()
+
+
+def tanpura_bed(dur, sa=146.83, cycle=2.6):
+    """Classic Pa-Sa-Sa-Sa(low) cycle."""
+    out = np.zeros(int(dur * SR) + SR * 5)
+    pattern = [(0.0, sa * 3 / 4), (0.65, sa), (1.0, sa), (1.6, sa / 2)]
+    t0 = 0.0
+    while t0 < dur:
+        for off, f in pattern:
+            n = tanpura_note(f)
+            i = int((t0 + off) * SR)
+            m = min(len(n), len(out) - i)
+            if m > 0:
+                out[i:i + m] += n[:m] * (0.8 if f < sa else 0.6)
+        t0 += cycle
+    out = out[: int(dur * SR)]
+    return out / np.abs(out).max()
+
+
+def om_choir(dur, f0s=(73.42, 146.83, 110.0)):
+    """Formant-synthesised group chant of 'Om': open 'o' vowel closing into a nasal 'm' hum."""
+    t = t_axis(dur)
+    close = np.clip((t / dur - 0.45) / 0.2, 0, 1)  # 0 = 'o', 1 = 'm'
+    formants_o = [(500, 90, 1.0), (850, 110, 0.6), (2500, 200, 0.12)]
+    formants_m = [(260, 60, 1.0), (1000, 150, 0.06), (2300, 200, 0.02)]
+    env = np.clip(t / 0.7, 0, 1) ** 1.3 * np.clip((dur - t) / 1.0, 0, 1)
+    y = np.zeros_like(t)
+    for v, f0 in enumerate(f0s):
+        for voice in range(3):
+            fv = f0 * (1 + 0.003 * (voice - 1))
+            vib = 1 + 0.004 * np.sin(2 * np.pi * (4.8 + 0.4 * voice) * t + v + voice)
+            phase = 2 * np.pi * np.cumsum(fv * vib) / SR
+            for k in range(1, 50):
+                fk = fv * k
+                if fk > 4000:
+                    break
+                g_o = sum(a * np.exp(-((fk - f) ** 2) / (2 * bw ** 2)) for f, bw, a in formants_o)
+                g_m = sum(a * np.exp(-((fk - f) ** 2) / (2 * bw ** 2)) for f, bw, a in formants_m)
+                amp = (1 - close) * g_o + close * g_m * 1.3
+                y += amp * np.sin(k * phase + rng.uniform(0, 6.28)) / k ** 0.5
+    breath = bandpass(rng.standard_normal(len(t)), 400, 1800) * 0.02 * (1 - close)
+    y = (y / np.abs(y).max() + breath) * env
+    return y / np.abs(y).max()
+
+
+def ghanti_scatter(dur, hits=7):
+    """Distant small hand-bells rung by other devotees."""
+    out = np.zeros((int(dur * SR) + SR * 3, 2))
+    for _ in range(hits):
+        at = rng.uniform(0, dur - 0.5)
+        b = temple_bell(rng.uniform(1100, 1700), 2.0)
+        place(out, b, at, rng.uniform(0.25, 0.5), pan=rng.uniform(-0.8, 0.8))
+    return out[: int(dur * SR)]
+
+
 def reverb(x, seconds=2.5, wet=0.35):
     ir_t = t_axis(seconds)
     ir = rng.standard_normal(len(ir_t)) * np.exp(-ir_t / (seconds / 6))
@@ -132,33 +201,41 @@ def place(track, clip, at, gain, pan=0.0):
 
 
 def main(out_path, dur):
-    mix = np.zeros((int(dur * SR) + SR * 4, 2))
+    mix = np.zeros((int(dur * SR) + SR * 6, 2))
+    T = np.arange(mix.shape[0] + SR * 2) / SR
 
-    # bed: low drone fades in, swells under the end card
+    # musical bed: tanpura from the first cut, low drone underneath
+    tp = tanpura_bed(dur + 1)
+    tp_env = np.clip((T[: len(tp)] - 0.9) / 1.5, 0, 1) * np.clip((dur - T[: len(tp)]) / 1.6, 0, 1)
+    place(mix, tp * tp_env, 0.0, 0.16)
     d = drone(dur + 1)
-    env = np.clip(t_axis(dur + 1) / 1.5, 0, 1) * np.clip((dur - t_axis(dur + 1)) / 1.2, 0, 1)
-    place(mix, d * env, 0.0, 0.10)
+    place(mix, d * np.clip(T[: len(d)] / 1.0, 0, 1) * np.clip((dur - T[: len(d)]) / 1.2, 0, 1), 0.0, 0.09)
 
-    # opening: conch + bell under the title
-    place(mix, shankh(), 0.05, 0.40)
-    place(mix, temple_bell(520), 0.45, 0.30, pan=-0.25)
+    # hook (0 - 0.9s): bell strike + chant, riser into the flash cut
+    place(mix, temple_bell(620, 5.0), 0.02, 0.40)
+    place(mix, om_choir(3.6), 0.0, 0.20)
+    place(mix, whoosh(0.6, rise=True), 0.4, 0.20)
 
-    # camera punch-in towards the shivling (1.17s - 2.8s)
-    place(mix, whoosh(1.5, rise=True), 1.05, 0.30)
-    place(mix, temple_bell(620, 5.0), 2.75, 0.38, pan=0.2)  # lands on the darshan
+    # wide shot + title
+    place(mix, shankh(), 0.95, 0.36)
 
-    # hold on the deity: damru roll building to the lower-third
-    place(mix, damru(1.3), 3.35, 0.26, pan=0.15)
-    place(mix, temple_bell(780, 3.5), 4.7, 0.20, pan=-0.3)
+    # slowed push-in (2.07s - 4.1s), lands on the darshan
+    place(mix, whoosh(1.9, rise=True), 2.05, 0.28)
+    place(mix, temple_bell(520, 5.0), 4.05, 0.38, pan=0.15)
 
-    # small reframe (7.2s) and pull-out (8.4s - 9.2s)
-    place(mix, whoosh(0.6, rise=True), 7.05, 0.12)
-    place(mix, whoosh(1.2, rise=False), 8.3, 0.24)
+    # darshan hold (4.1s - 9.5s): damru into the lower third, distant ghantis
+    place(mix, damru(1.3), 4.3, 0.24, pan=0.15)
+    g = ghanti_scatter(5.0)
+    i = int(4.4 * SR)
+    mix[i:i + len(g)] += g * 0.10
+    place(mix, temple_bell(780, 3.5), 6.4, 0.18, pan=-0.3)
 
-    # end card
-    place(mix, temple_bell(520, 5.0), 9.6, 0.36)
-    place(mix, shankh(233, 3.4), 10.4, 0.30)
-    place(mix, temple_bell(780, 4.0), 11.3, 0.18, pan=0.3)
+    # end card (9.35s ->)
+    place(mix, whoosh(0.5, rise=False), 9.2, 0.12)
+    place(mix, temple_bell(520, 5.0), 9.45, 0.36)
+    place(mix, om_choir(3.2), 9.3, 0.22)
+    place(mix, shankh(233, 2.6), 10.1, 0.26)
+    place(mix, temple_bell(780, 3.5), 11.1, 0.16, pan=0.3)
 
     mix[:, 0] = reverb(mix[:, 0], wet=0.30)
     mix[:, 1] = reverb(mix[:, 1], wet=0.30)

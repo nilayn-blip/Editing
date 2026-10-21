@@ -33,7 +33,9 @@ python3 make_index.py
 cd project
 export HYPERFRAMES_BROWSER_PATH=/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell   # resolve the glob
 npx hyperframes@0.8.184 check
-npx hyperframes@0.8.184 render --quality delivery --output ../output/dwadash_jyotirlinga.mp4
+npx hyperframes@0.8.184 render --quality delivery --fps 30 --output /tmp/master.mp4
+# the delivery master is about 114 MB, over GitHub's 100 MB limit; CRF 18 is visually the same at about 56 MB
+ffmpeg -i /tmp/master.mp4 -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p -movflags +faststart -c:a copy ../output/dwadash_jyotirlinga.mp4
 ```
 If you change the score, re-measure with `ffmpeg -i project/assets/soundtrack.mp3 -af ebur128 -f null -` and adjust the gain.
 

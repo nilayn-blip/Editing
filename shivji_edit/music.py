@@ -36,12 +36,12 @@ FLUTE = [
 ]
 
 
-def bansuri(dur):
+def bansuri(dur, notes=FLUTE):
     t = t_axis(dur)
     semi = np.full(len(t), np.nan)
     amp = np.zeros(len(t))
     vib_gate = np.zeros(len(t))
-    for start, note, length in FLUTE:
+    for start, note, length in notes:
         i0, i1 = int(start * SR), min(len(t), int((start + length) * SR))
         semi[i0:i1] = note
         lt = t[i0:i1] - start
@@ -62,7 +62,7 @@ def bansuri(dur):
     breath = bandpass(rng.standard_normal(len(t)), 900, 3200) * 0.10
     chiff = highpass(rng.standard_normal(len(t)), 2500) * 0.15
     attack = np.zeros(len(t))
-    for start, _, _ in FLUTE:
+    for start, _, _ in notes:
         i0 = int(start * SR)
         n = min(len(t) - i0, int(0.05 * SR))
         attack[i0:i0 + n] = np.exp(-np.arange(n) / (0.012 * SR))
@@ -145,7 +145,7 @@ def pad(dur):
 
 
 # ------------------------------------------------------------------ score
-def compose(dur):
+def compose(dur, flute=FLUTE, tabla_span=(4.1, 9.25), run_up_at=0.62, run_down_at=9.25):
     n = int(dur * SR)
     T = t_axis(dur)
     L = np.zeros(n)
@@ -163,13 +163,14 @@ def compose(dur):
     p_env = np.clip((T - 0.6) / 2.0, 0, 1) * (0.75 + 0.25 * np.clip((T - 4.1) / 1.5, 0, 1)) * np.clip((dur - T) / 1.5, 0, 1)
     add(p * p_env, 0, 0.10)
 
-    add(santoor_run([S, R, G, P, D, S + 12, R + 12, G + 12, P + 12], 0.055), 0.62, 0.20, pan=-0.2)
-    add(santoor_run([P + 12, G + 12, R + 12, S + 12, D, P, G, R, S], 0.07), 9.25, 0.16, pan=0.2)
+    add(santoor_run([S, R, G, P, D, S + 12, R + 12, G + 12, P + 12], 0.055), run_up_at, 0.20, pan=-0.2)
+    add(santoor_run([P + 12, G + 12, R + 12, S + 12, D, P, G, R, S], 0.07), run_down_at, 0.16, pan=0.2)
 
-    add(bansuri(dur), 0, 0.30, pan=0.05)
+    add(bansuri(dur, flute), 0, 0.30, pan=0.05)
 
-    tb = tabla(4.1, 9.25)
-    tb_env = np.clip((T[: len(tb)] - 4.1) / 0.8, 0, 1) * np.clip((9.5 - T[: len(tb)]) / 0.4, 0, 1)
+    t0, t1 = tabla_span
+    tb = tabla(t0, t1)
+    tb_env = np.clip((T[: len(tb)] - t0) / 0.8, 0, 1) * np.clip((t1 + 0.25 - T[: len(tb)]) / 0.4, 0, 1)
     add(tb * tb_env, 0, 0.22, pan=-0.1)
 
     return np.stack([L, R_], axis=1)

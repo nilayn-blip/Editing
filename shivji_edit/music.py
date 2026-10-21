@@ -145,7 +145,7 @@ def pad(dur):
 
 
 # ------------------------------------------------------------------ score
-def compose(dur, flute=FLUTE, tabla_span=(4.1, 9.25), run_up_at=0.62, run_down_at=9.25):
+def compose(dur, flute=FLUTE, tabla_span=(4.1, 9.25), run_up_at=0.62, run_down_at=9.25, bol_len=0.395):
     n = int(dur * SR)
     T = t_axis(dur)
     L = np.zeros(n)
@@ -169,7 +169,7 @@ def compose(dur, flute=FLUTE, tabla_span=(4.1, 9.25), run_up_at=0.62, run_down_a
     add(bansuri(dur, flute), 0, 0.30, pan=0.05)
 
     t0, t1 = tabla_span
-    tb = tabla(t0, t1)
+    tb = tabla(t0, t1, bol_len)
     tb_env = np.clip((T[: len(tb)] - t0) / 0.8, 0, 1) * np.clip((t1 + 0.25 - T[: len(tb)]) / 0.4, 0, 1)
     add(tb * tb_env, 0, 0.22, pan=-0.1)
 

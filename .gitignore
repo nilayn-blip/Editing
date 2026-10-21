@@ -3,3 +3,7 @@ __pycache__/
 shivji_edit/mahakal/project/.hyperframes/
 shivji_edit/mahakal/output/work-*/
 shivji_edit/mahakal/output/.*hf-transaction*/
+shivji_edit/jyotirlinga/project/.hyperframes/
+shivji_edit/jyotirlinga/project/snapshots/
+shivji_edit/jyotirlinga/output/work-*/
+shivji_edit/jyotirlinga/output/.*hf-transaction*/

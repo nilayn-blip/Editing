@@ -16,11 +16,17 @@ The photos are from Wikimedia Commons. See [CREDITS.md](CREDITS.md) for each fil
 - `photos.json`: one photo per temple, with its Commons metadata (title, author, licence, URLs) and the focal point used for the 9:16 crop (`object-position`).
 - `make_index.py`: generates `project/index.html` and `CREDITS.md` from `photos.json`. Edit text and timing there, not in the generated HTML.
 - `soundtrack.py`: the score and sound effects for this timeline. It reuses `../music.py` and `../sfx.py`.
+- `tools/`: the photo pipeline. `fetch.py` downloads standard-size Commons thumbnails one at a time, waits out rate limits and records each file's licence metadata. `assemble.py` crops and resizes the photos into `project/assets/p01–p12.jpg` and writes `photos.json`. Focus points are in `focus.json`.
 - `project/`: the HyperFrames project. GSAP, the fonts, the photos and the soundtrack are in `project/assets/`.
 
 ## Rebuild
 ```
-pip install numpy scipy
+pip install numpy scipy pillow
+# photos (only needed to change a photo; Commons rate-limits heavily, so this can take a while)
+python3 -I tools/fetch.py tools/photos_tall.txt /tmp/dl/tall 1920
+python3 -I tools/fetch.py tools/photos_wide.txt /tmp/dl/wide 3840
+python3 -I tools/assemble.py /tmp/dl project 01a,02b,03a,04b,05a,06a,07e,08a,09a,10a,11b,12b
+# sound
 python3 soundtrack.py /tmp/st.wav
 ffmpeg -i /tmp/st.wav -af volume=-0.6dB -c:a libmp3lame -b:a 192k project/assets/soundtrack.mp3   # -14.0 LUFS
 python3 make_index.py
@@ -30,3 +36,8 @@ npx hyperframes@0.8.184 check
 npx hyperframes@0.8.184 render --quality delivery --output ../output/dwadash_jyotirlinga.mp4
 ```
 If you change the score, re-measure with `ffmpeg -i project/assets/soundtrack.mp3 -af ebur128 -f null -` and adjust the gain.
+
+## Notes
+- Kashi Vishwanath uses a public-domain, hand-coloured lantern slide of the Golden Temple from about 1915. Its border is cropped off. The modern Commons photos of the temple were either night shots or didn't show the gold spires.
+- The stotram's own line for Baidyanath reads "परल्यां वैद्यनाथं च" and places the shrine at Parli. This video follows the Deoghar tradition, so beat 9 uses "श्रीवैद्यनाथं तमहं नमामि" from Adi Shankara's longer Dvadasha Jyotirlinga Stotram instead.
+- One photographer's Commons username is in Tamil script. `project/assets/FreeSerif-Tamil.ttf` is a Tamil subset of GNU FreeFont, included so the credits card renders that name.

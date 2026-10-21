@@ -45,6 +45,12 @@ CSS = """
         src: url("assets/Cinzel.ttf") format("truetype");
         font-weight: 400 900;
       }
+      @font-face {
+        /* Tamil glyphs for one photographer's username on the credits card (GNU FreeFont subset) */
+        font-family: "FreeSerif Tamil";
+        src: url("assets/FreeSerif-Tamil.ttf") format("truetype");
+        unicode-range: U+0B80-0BFF, U+200C-200D;
+      }
       * {
         margin: 0;
         padding: 0;
@@ -282,7 +288,7 @@ CSS = """
         margin-bottom: 26px;
       }
       #credits-stack .cr {
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: Georgia, "Times New Roman", "FreeSerif Tamil", serif;
         font-size: 25px;
         line-height: 1.62;
         color: var(--cream);
@@ -300,7 +306,7 @@ CSS = """
         opacity: 0.85;
       }
       #credits-stack .foot {
-        font-family: Georgia, "Times New Roman", serif;
+        font-family: Georgia, "Times New Roman", "FreeSerif Tamil", serif;
         font-size: 21px;
         line-height: 1.5;
         color: var(--cream);
@@ -613,7 +619,7 @@ def build_credits(photos):
         "",
         "The text of the Dwadash Jyotirlinga Stotram shown on screen is a traditional Sanskrit hymn in the public domain.",
         "The music and sound effects are synthesised from scratch by `../music.py`, `../sfx.py` and `soundtrack.py`.",
-        "The fonts, Tiro Devanagari Sanskrit and Cinzel, are under the SIL Open Font License. GSAP is vendored from the earlier Mahakal project.",
+        "The fonts Tiro Devanagari Sanskrit and Cinzel are under the SIL Open Font License; `FreeSerif-Tamil.ttf` is a Tamil subset of GNU FreeFont FreeSerif (GPL with font exception). GSAP is vendored from the earlier Mahakal project.",
         "",
     ]
     return "\n".join(lines)

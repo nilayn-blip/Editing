@@ -146,9 +146,9 @@ line_short = ornament_line(560)
 lower_deva = text_layer("॥ हर हर महादेव ॥", DEVA, 112, glow_r=20)
 lower_latin = text_layer("HAR HAR MAHADEV", LATIN, 42, tracking=12, glow_r=12, solid=(255, 236, 190))
 end_om = text_layer("ॐ", DEVA, 330, glow_r=40)
-end_deva = text_layer("हर हर महादेव", DEVA, 120, glow_r=22)
-end_latin = text_layer("MAHADEV DARSHAN", LATIN, 40, tracking=12, glow_r=10)
-end_sub = text_layer("AHMEDABAD  ·  2026", LATIN, 28, tracking=10, glow_r=8, solid=(255, 236, 190))
+end_deva = text_layer("श्री समर्थेश्वर महादेव", DEVA, 104, glow_r=20)
+end_latin = text_layer("SAMARTHESHWAR MAHADEV", LATIN, 40, tracking=10, glow_r=10)
+end_sub = text_layer("C.G. ROAD  ·  AHMEDABAD", LATIN, 30, tracking=10, glow_r=8, solid=(255, 236, 190))
 line_long = ornament_line(700)
 
 

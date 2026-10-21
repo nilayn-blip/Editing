@@ -207,7 +207,7 @@ def main(out_path, dur):
     # musical bed: tanpura from the first cut, low drone underneath
     tp = tanpura_bed(dur + 1)
     tp_env = np.clip((T[: len(tp)] - 0.9) / 1.5, 0, 1) * np.clip((dur - T[: len(tp)]) / 1.6, 0, 1)
-    place(mix, tp * tp_env, 0.0, 0.16)
+    place(mix, tp * tp_env, 0.0, 0.12)
     d = drone(dur + 1)
     place(mix, d * np.clip(T[: len(d)] / 1.0, 0, 1) * np.clip((dur - T[: len(d)]) / 1.2, 0, 1), 0.0, 0.09)
 
@@ -224,11 +224,15 @@ def main(out_path, dur):
     place(mix, temple_bell(520, 5.0), 4.05, 0.38, pan=0.15)
 
     # darshan hold (4.1s - 9.5s): damru into the lower third, distant ghantis
-    place(mix, damru(1.3), 4.3, 0.24, pan=0.15)
+    place(mix, damru(1.1, 6.0, 18.0), 2.95, 0.20, pan=0.15)  # builds into the tabla entry
     g = ghanti_scatter(5.0)
     i = int(4.4 * SR)
     mix[i:i + len(g)] += g * 0.10
     place(mix, temple_bell(780, 3.5), 6.4, 0.18, pan=-0.3)
+
+    # original score (music.py): santoor, bansuri, tabla, pad
+    from music import compose
+    mix[: int(dur * SR)] += compose(dur)
 
     # end card (9.35s ->)
     place(mix, whoosh(0.5, rise=False), 9.2, 0.12)

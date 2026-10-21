@@ -141,7 +141,8 @@ def wipe(im, frac):
 
 # ------------------------------------------------------------ static assets
 title_deva = text_layer("ॐ नमः शिवाय", DEVA, 132, glow_r=22)
-title_latin = text_layer("OM NAMAH SHIVAYA", LATIN, 44, tracking=10, glow_r=12, solid=(255, 236, 190))
+title_name = text_layer("श्री समर्थेश्वर महादेव", DEVA, 72, glow_r=14)
+title_loc = text_layer("C.G. ROAD  ·  AHMEDABAD", LATIN, 32, tracking=10, glow_r=10, solid=(255, 236, 190))
 line_short = ornament_line(560)
 lower_deva = text_layer("॥ हर हर महादेव ॥", DEVA, 112, glow_r=20)
 lower_latin = text_layer("HAR HAR MAHADEV", LATIN, 42, tracking=12, glow_r=12, solid=(255, 236, 190))
@@ -162,7 +163,7 @@ def bottom_band(h_band=760, max_a=0.75):
     return Image.fromarray(np.dstack([rgb, (a * 255).astype(np.uint8)]), "RGBA")
 
 
-def top_band(h_band=900, max_a=0.72):
+def top_band(h_band=1050, max_a=0.75):
     arr = np.array(bottom_band(h_band, max_a))[::-1]
     return Image.fromarray(np.ascontiguousarray(arr), "RGBA")
 
@@ -295,7 +296,9 @@ def frame(t):
         cy = 330 - 30 * (1 - p)
         paste_center(cv, title_deva, W / 2, cy, a, 1.12 - 0.12 * p)
         paste_center(cv, wipe(line_short, ease_out((t - t_in - 0.35) / 0.9)), W / 2, cy + 105, a)
-        paste_center(cv, title_latin, W / 2, cy + 160, a * ease_in_out((t - t_in - 0.55) / 0.6))
+        a2 = a * ease_in_out((t - t_in - 0.45) / 0.6)
+        paste_center(cv, title_name, W / 2, cy + 178 + 15 * (1 - ease_out((t - t_in - 0.45) / 0.8)), a2)
+        paste_center(cv, title_loc, W / 2, cy + 252, a * ease_in_out((t - t_in - 0.75) / 0.6))
 
     # 2) light leak riding the camera push-in
     fl = math.sin(math.pi * min(max((t - CUT_ZOOM - 0.1) / 1.9, 0), 1)) ** 2 * 0.40

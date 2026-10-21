@@ -168,7 +168,7 @@
 
       /* hook */
       #hook-word {
-        top: 720px;
+        top: 230px;
       }
       #hook-word .deva {
         font-size: 210px;
@@ -501,7 +501,7 @@
       tl.fromTo("#b1-ring", { rotation: -20 }, { rotation: 10, duration: 2.15, ease: "power1.out" }, 4.55);
 
       beat("#b2", 6.75, 2.15);
-      tl.fromTo("#b2-needle", { rotation: 0, transformOrigin: "50% 50%" }, { rotation: 180, duration: 1.0, ease: "back.out(1.6)" }, 6.95);
+      tl.fromTo("#b2-needle", { rotation: 0, svgOrigin: "0 0" }, { rotation: 180, svgOrigin: "0 0", duration: 1.0, ease: "back.out(1.6)" }, 6.95);
       tl.fromTo("#b2-s", { opacity: 0.4 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 3 }, 7.85);
 
       beat("#b3", 8.95, 2.25);
@@ -516,9 +516,9 @@
       tl.fromTo("#vwrap", { filter: "blur(0px) brightness(1) saturate(1)" },
         { filter: "blur(22px) brightness(0.62) saturate(0.85)", duration: 0.9, ease: "power2.inOut" }, CUT_END - 0.1);
       tl.fromTo("#dial", { scale: 0.82, opacity: 0, rotation: -30 }, { scale: 1, opacity: 1, rotation: 0, duration: 1.3, ease: "power3.out" }, CUT_END);
-      tl.fromTo("#dial-ring", { rotation: 0 }, { rotation: 24, duration: 4.3, ease: "none" }, CUT_END);
-      tl.fromTo("#hand-min", { rotation: -120 }, { rotation: 600, duration: 4.3, ease: "power2.out" }, CUT_END);
-      tl.fromTo("#hand-hour", { rotation: -60 }, { rotation: 60, duration: 4.3, ease: "power2.out" }, CUT_END);
+      tl.fromTo("#dial-ring", { rotation: 0, svgOrigin: "0 0" }, { rotation: 24, svgOrigin: "0 0", duration: 4.3, ease: "none" }, CUT_END);
+      tl.fromTo("#hand-min", { rotation: -120, svgOrigin: "0 0" }, { rotation: 600, svgOrigin: "0 0", duration: 4.3, ease: "power2.out" }, CUT_END);
+      tl.fromTo("#hand-hour", { rotation: -60, svgOrigin: "0 0" }, { rotation: 60, svgOrigin: "0 0", duration: 4.3, ease: "power2.out" }, CUT_END);
       tl.fromTo("#end-om .deva", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.9, ease: "power3.out" }, CUT_END + 0.2);
       tl.to("#end-om .deva", { scale: 1.04, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, CUT_END + 1.1);
       tl.fromTo("#end-deva", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, CUT_END + 0.6);

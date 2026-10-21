@@ -7,7 +7,7 @@ Output: `output/shivji_temple_edit.mp4` (12.5 s, 1080x1920, 30 fps, H.264 + AAC,
 |---|---|---|
 | 0.0 – 0.9 s | **Hook:** close-up of the shivling with a slow digital push, god-rays and embers | Bell strike, "Om" chant, riser |
 | 0.9 s | Gold flash cut | — |
-| 0.9 – 2.1 s | Wide shot through the doorway, cropped tight so the donation box/QR stays out of frame. Title **ॐ नमः शिवाय / OM NAMAH SHIVAYA** | Shankh (conch); tanpura starts |
+| 0.9 – 2.1 s | Wide shot through the doorway, cropped tight so the donation box/QR stays out of frame. Title **ॐ नमः शिवाय**, **श्री समर्थेश्वर महादेव**, C.G. ROAD · AHMEDABAD | Shankh (conch); tanpura starts |
 | 2.1 – 4.1 s | Camera push-in slowed to 0.8x with frame blending, plus a warm light leak | Whoosh, then a bell as it lands |
 | 4.1 – 9.5 s | Darshan hold slowed to 0.8x (motion-interpolated) with a slow push-in. Lower third **॥ हर हर महादेव ॥ / HAR HAR MAHADEV** | Damru roll, distant ghantis, bell |
 | 9.4 – 12.5 s | Held close-up, blurred, with an end card: rotating mandala, **ॐ**, श्री समर्थेश्वर महादेव / SAMARTHESHWAR MAHADEV / C.G. ROAD · AHMEDABAD | Bell, "Om" chant, shankh, fade out |
@@ -19,7 +19,9 @@ Also applied:
 - the original audio is noise-reduced and kept low under the tanpura and drone bed
 - loudness is set to -14 LUFS with a -1 dBTP limit
 
-All sound is synthesised in `sfx.py` (tanpura, formant "Om" choir, bells, shankh, damru, whooshes), so there are no third-party samples.
+Music: an original score in `music.py`, built on Raga Shivaranjani with Sa = D. A santoor run plays on the cuts, a bansuri alaap and melody resolve to Sa, soft tabla keherwa plays under the darshan, and a Sa-Pa string pad runs throughout. Because it is composed here from scratch, it is copyright-free.
+
+All sound is synthesised in `sfx.py` and `music.py` (tanpura, formant "Om" choir, bells, shankh, damru, whooshes), so there are no third-party samples.
 
 ## Rebuild
 ```

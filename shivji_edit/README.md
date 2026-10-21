@@ -10,7 +10,7 @@ Output: `output/shivji_temple_edit.mp4` (12.5 s, 1080x1920, 30 fps, H.264 + AAC,
 | 0.9 – 2.1 s | Wide shot through the doorway, cropped tight so the donation box/QR stays out of frame. Title **ॐ नमः शिवाय / OM NAMAH SHIVAYA** | Shankh (conch); tanpura starts |
 | 2.1 – 4.1 s | Camera push-in slowed to 0.8x with frame blending, plus a warm light leak | Whoosh, then a bell as it lands |
 | 4.1 – 9.5 s | Darshan hold slowed to 0.8x (motion-interpolated) with a slow push-in. Lower third **॥ हर हर महादेव ॥ / HAR HAR MAHADEV** | Damru roll, distant ghantis, bell |
-| 9.4 – 12.5 s | Held close-up, blurred, with an end card: rotating mandala, **ॐ**, *हर हर महादेव*, MAHADEV DARSHAN · AHMEDABAD · 2026 | Bell, "Om" chant, shankh, fade out |
+| 9.4 – 12.5 s | Held close-up, blurred, with an end card: rotating mandala, **ॐ**, श्री समर्थेश्वर महादेव / SAMARTHESHWAR MAHADEV / C.G. ROAD · AHMEDABAD | Bell, "Om" chant, shankh, fade out |
 
 Also applied:
 - iPhone HLG HDR converted to SDR with a warm grade, so colours don't wash out on Instagram or WhatsApp

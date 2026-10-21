@@ -1,17 +1,25 @@
 # Shivji temple edit
 
 Source: `IMG_8328.mov` (iPhone, 10.6 s, 1080x1920 HLG HDR).
-Output: `output/shivji_temple_edit.mp4` (13 s, 1080x1920, 30 fps, H.264 + AAC, SDR Rec.709).
+Output: `output/shivji_temple_edit.mp4` (12.5 s, 1080x1920, 30 fps, H.264 + AAC, SDR Rec.709, -14 LUFS).
 
-| Time | Picture | Sound |
+| Output time | Picture | Sound |
 |---|---|---|
-| 0.0 – 2.5 s | Fade in on the wide shot (reframed so the donation box/QR is out of frame). Title **ॐ नमः शिवाय / OM NAMAH SHIVAYA** | Shankh (conch) + temple bell |
-| 1.2 – 2.8 s | Camera push-in, with a warm light leak | Whoosh, then a bell as it lands on the shivling |
-| 2.8 – 8.4 s | God-rays and golden embers. Lower third **॥ हर हर महादेव ॥ / HAR HAR MAHADEV** | Damru roll, bell |
-| 8.4 – 9.2 s | Camera pull-out | Reverse whoosh |
-| 9.4 – 13 s | Blurred freeze with an end card: rotating mandala, **ॐ**, *हर हर महादेव*, MAHADEV DARSHAN · AHMEDABAD · 2026 | Bell + shankh, fade out |
+| 0.0 – 0.9 s | **Hook:** close-up of the shivling with a slow digital push, god-rays and embers | Bell strike, "Om" chant, riser |
+| 0.9 s | Gold flash cut | — |
+| 0.9 – 2.1 s | Wide shot through the doorway, cropped tight so the donation box/QR stays out of frame. Title **ॐ नमः शिवाय / OM NAMAH SHIVAYA** | Shankh (conch); tanpura starts |
+| 2.1 – 4.1 s | Camera push-in slowed to 0.8x with frame blending, plus a warm light leak | Whoosh, then a bell as it lands |
+| 4.1 – 9.5 s | Darshan hold slowed to 0.8x (motion-interpolated) with a slow push-in. Lower third **॥ हर हर महादेव ॥ / HAR HAR MAHADEV** | Damru roll, distant ghantis, bell |
+| 9.4 – 12.5 s | Held close-up, blurred, with an end card: rotating mandala, **ॐ**, *हर हर महादेव*, MAHADEV DARSHAN · AHMEDABAD · 2026 | Bell, "Om" chant, shankh, fade out |
 
-All sound effects are synthesised in `sfx.py`, so there are no third-party samples. The low drone and the original temple audio (kept at about 40 %) run underneath.
+Also applied:
+- iPhone HLG HDR converted to SDR with a warm grade, so colours don't wash out on Instagram or WhatsApp
+- vidstab stabilisation
+- the jerky 7.2 s reframe and the 8.4 s pull-out are cut, so the video ends on the deity
+- the original audio is noise-reduced and kept low under the tanpura and drone bed
+- loudness is set to -14 LUFS with a -1 dBTP limit
+
+All sound is synthesised in `sfx.py` (tanpura, formant "Om" choir, bells, shankh, damru, whooshes), so there are no third-party samples.
 
 ## Rebuild
 ```

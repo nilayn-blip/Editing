@@ -31,7 +31,7 @@ python3 "$HERE/sfx.py" "$WORK/sfx.wav" "$DUR"
 reframe() { # $1 zoom expr, $2 vertical anchor expr (0 = top, 0.5 = centre); both in terms of T (segment time, seconds)
   # zoompan on a 2x supersampled frame (avoids the integer-pixel jitter zoompan has at 1:1)
   local z="${1//T/(in/30)}" y="${2//T/(in/30)}"
-  echo "scale=2160:3840:flags=lanczos,zoompan=z='$z':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)*($y)':d=1:s=1080x1920:fps=30"
+  echo "scale=2160:3840:flags=lanczos,zoompan=z='$z':x='(iw-iw/zoom)/2':y='(ih-ih/zoom)*($y)':d=1:s=1080x1920:fps=30,setpts=N/30/TB"
 }
 TZ="(T+35/30)"
 ZOOM_Z="if(lt($TZ,1.5),1.28,if(lt($TZ,2.4),1.28-0.24*($TZ-1.5)/0.9,1.04))"

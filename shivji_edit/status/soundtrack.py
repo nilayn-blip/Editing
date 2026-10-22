@@ -1,4 +1,4 @@
-"""Peaceful soundtrack for the Mahadev status reel (24.5 s), timed to make_index.py.
+"""Peaceful soundtrack for the Mahadev status reel (26.3 s), timed to make_index.py.
 
 Calm and minimal, like the reference's "peaceful music": tanpura + soft drone + Sa-Pa pad, a slow
 bansuri melody in Raga Shivaranjani, gentle santoor arpeggios on each caption change and a soft bell
@@ -18,22 +18,22 @@ from music import D, G, P, R, S, bansuri, pad, santoor_run  # noqa: E402
 from sfx import SR, drone, om_choir, place, reverb, t_axis, tanpura_bed, temple_bell  # noqa: E402
 
 # Output times; keep in sync with make_index.py
-DUR = 24.5
+DUR = 26.3
 IMG0 = 3.0
-CAPTIONS = (3.0, 9.4, 15.8)
-END = 22.2
+CAPTIONS = (3.0, 10.0, 17.0)
+END = 24.0
 
 FLUTE = [
     # intro, over the black quote card
     (0.6, S, 1.3), (2.0, R, 0.7), (2.7, G, 1.0),
     # "mila to unki kripa"
-    (3.9, P, 1.5), (5.5, G, 0.7), (6.3, R, 0.7), (7.1, S, 1.8),
+    (3.9, P, 1.6), (5.6, G, 0.8), (6.5, R, 0.8), (7.4, S, 2.2),
     # "nahi mila to unki ichchha"
-    (9.9, D - 12, 0.8), (10.8, S, 0.9), (11.8, R, 0.8), (12.7, G, 2.4),
+    (10.5, D - 12, 0.9), (11.5, S, 1.0), (12.6, R, 0.9), (13.6, G, 2.8),
     # "bas bharosa rakho"
-    (16.3, P, 1.0), (17.4, D, 1.0), (18.5, S + 12, 2.0), (20.6, D, 0.6), (21.2, P, 0.9),
+    (17.4, P, 1.1), (18.6, D, 1.1), (19.8, S + 12, 2.2), (22.1, D, 0.7), (22.9, P, 1.0),
     # Har Har Mahadev
-    (22.4, G, 0.6), (23.0, R, 0.6), (23.6, S, 0.9),
+    (24.2, G, 0.6), (24.8, R, 0.6), (25.4, S, 0.8),
 ]
 
 

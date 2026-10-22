@@ -13,10 +13,10 @@ import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 # Output times; keep in sync with soundtrack.py
-DUR = 24.5
-IMG0, IMG_LEN = 3.0, 3.2
-END = 22.2
-CAPTIONS = (3.0, 9.4, 15.8)
+DUR = 26.3
+IMG0, IMG_LEN = 3.0, 3.0  # seven paintings, 3 s each
+END = 24.0
+CAPTIONS = (3.0, 10.0, 17.0)
 
 INTRO = "Life gets a lot easier when you realise…"
 # (Hinglish line as in the reference, Devanagari line)

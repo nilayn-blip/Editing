@@ -2,7 +2,7 @@
 
 Format of a "Mahadev status" short: a black quote card, then moody Shiva paintings with slow push-ins and
 soft dissolves, and one small centred serif quote building word by word ("mila to unki kripa, nahi mila
-to unki ichchha"), ending on ॥ हर हर महादेव ॥. The paintings are public domain / CC0 (Wikimedia Commons).
+to unki ichchha"), ending on ॥ हर हर महादेव ॥. Every caption is spoken by a Hindi TTS narrator (narrate.py). The paintings are public domain / CC0 (Wikimedia Commons).
 
 Usage: python3 make_index.py
 """
@@ -12,19 +12,12 @@ import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-# Output times; keep in sync with soundtrack.py
-DUR = 26.3
-IMG0, IMG_LEN = 3.0, 3.0  # seven paintings, 3 s each
-END = 24.0
-CAPTIONS = (3.0, 10.0, 17.0)
-
-INTRO = "Life gets a lot easier when you realise…"
-# (Hinglish line as in the reference, Devanagari line)
-LINES = [
-    ("mila to unki kripa,", "मिला तो उनकी कृपा,"),
-    ("nahi mila to unki ichchha ”", "नहीं मिला तो उनकी इच्छा"),
-    ("bas bharosa rakho, Mahadev sab dekh rahe hain ”", "बस भरोसा रखो, महादेव सब देख रहे हैं"),
-]
+# Timing comes from the narration (narrate.py writes timing.json); soundtrack.py reads the same file.
+TIMING = json.load(open(os.path.join(HERE, "timing.json")))
+DUR, IMG0, IMG_LEN, END = TIMING["dur"], TIMING["img0"], TIMING["img_len"], TIMING["end"]
+CAPTIONS = TIMING["captions"]
+# one caption per spoken line, mixing Hindi and English as spoken
+SPOKEN = TIMING["lines"]
 
 STAR = ('<svg class="star" viewBox="-10 -10 20 20"><path d="M0,-9 C1,-2 2,-1 9,0 C2,1 1,2 0,9 '
         'C-1,2 -2,1 -9,0 C-2,-1 -1,-2 0,-9Z" fill="#f7c64a" /></svg>')
@@ -121,8 +114,8 @@ CSS = """
         flex-wrap: wrap;
         justify-content: center;
         gap: 0 14px;
-        font-family: Georgia, "Times New Roman", serif;
-        font-size: 44px;
+        font-family: "Tiro Devanagari Sanskrit", Georgia, serif;
+        font-size: 50px;
         line-height: 1.35;
         color: #fbf6ec;
         text-align: center;
@@ -145,8 +138,8 @@ CSS = """
         opacity: 0;
       }
       #intro-cap {
-        top: 922px;
-        font-size: 40px;
+        top: 900px;
+        font-size: 46px;
       }
 
       /* ending */
@@ -259,18 +252,16 @@ def build_html(photos):
 
       <!-- intro: black quote card -->
       <section id="intro" class="clip full" data-start="0" data-duration="{IMG0 + 0.2}" data-track-index="3">
-        {words("intro-cap", INTRO, 922)}
+        {words("intro-cap", SPOKEN[0]["caption"], 900)}
       </section>
 
       <!-- the quote, building word by word -->
       <section id="quote" class="clip full" data-start="{c1}" data-duration="{round(c3 - c1 + 0.2, 2)}" data-track-index="3">
-        {words("cap1", LINES[0][0], 870)}
-        {words("cap2", LINES[1][0], 930)}
-        <div id="hi12" class="hi" style="top: 1012px">{e(LINES[0][1])} {e(LINES[1][1])}</div>
+        {words("cap1", SPOKEN[1]["caption"], 880)}
+        {words("cap2", SPOKEN[2]["caption"], 952)}
       </section>
       <section id="quote2" class="clip full" data-start="{c3}" data-duration="{round(END - c3 + 0.2, 2)}" data-track-index="3">
-        {words("cap3", LINES[2][0], 900)}
-        <div id="hi3" class="hi" style="top: 1012px">{e(LINES[2][1])}</div>
+        {words("cap3", SPOKEN[3]["caption"], 900)}
       </section>
 
       <!-- ending -->
@@ -286,6 +277,8 @@ def build_html(photos):
       // Output times; keep in sync with make_index.py and soundtrack.py
       const DUR = {DUR}, IMG0 = {IMG0}, IMG_LEN = {IMG_LEN}, END = {END}, NPH = {n};
       const C1 = {c1}, C2 = {c2}, C3 = {c3};
+      // narration: [start, duration] of each spoken line; captions reveal word by word across the line
+      const VO = {json.dumps([[l["start"], l["dur"]] for l in SPOKEN])};
 
       // seeded PRNG (determinism: no Math.random)
       let seed = 1008;
@@ -323,11 +316,14 @@ def build_html(photos):
       }});
 
       // word-by-word reveal
-      const reveal = (sel, t0, step) => tl.fromTo(`${{sel}} .w`, {{ opacity: 0, y: 8, filter: "blur(6px)" }},
-        {{ opacity: 1, y: 0, filter: "blur(0px)", duration: 0.55, stagger: step, ease: "power2.out" }}, t0);
+      const reveal = (sel, [t0, len]) => {{
+        const n = document.querySelectorAll(`${{sel}} .w`).length;
+        tl.fromTo(`${{sel}} .w`, {{ opacity: 0, y: 8, filter: "blur(6px)" }},
+          {{ opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45, stagger: (len * 0.92) / n, ease: "power2.out" }}, t0 - 0.05);
+      }};
 
       // intro quote card
-      reveal("#intro-cap", 0.35, 0.28);
+      reveal("#intro-cap", VO[0]);
       tl.to("#intro-cap", {{ opacity: 0, duration: 0.5, ease: "power1.in" }}, IMG0 - 0.55);
 
       // paintings: slow push-in with a gentle drift, long soft dissolves
@@ -343,20 +339,18 @@ def build_html(photos):
       // captions
       tl.fromTo("#center-dim", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.8 }}, C1 - 0.2);
       tl.to("#center-dim", {{ opacity: 0, duration: 0.6 }}, END - 0.4);
-      reveal("#cap1", C1 + 0.4, 0.3);
-      reveal("#cap2", C2 + 0.1, 0.3);
-      tl.fromTo("#hi12", {{ opacity: 0 }}, {{ opacity: 0.95, duration: 0.8 }}, C2 + 1.8);
-      tl.to(["#cap1", "#cap2", "#hi12"], {{ opacity: 0, duration: 0.5, ease: "power1.in" }}, C3 - 0.5);
-      reveal("#cap3", C3 + 0.2, 0.26);
-      tl.fromTo("#hi3", {{ opacity: 0 }}, {{ opacity: 0.95, duration: 0.8 }}, C3 + 2.4);
-      tl.to(["#cap3", "#hi3"], {{ opacity: 0, duration: 0.5, ease: "power1.in" }}, END - 0.5);
+      reveal("#cap1", VO[1]);
+      reveal("#cap2", VO[2]);
+      tl.to(["#cap1", "#cap2"], {{ opacity: 0, duration: 0.5, ease: "power1.in" }}, C3 - 0.5);
+      reveal("#cap3", VO[3]);
+      tl.to("#cap3", {{ opacity: 0, duration: 0.5, ease: "power1.in" }}, END - 0.5);
 
       // watermark
       tl.fromTo("#wm", {{ opacity: 0 }}, {{ opacity: 0.8, duration: 0.8 }}, 0.5);
 
       // ending
       tl.to("#photos", {{ filter: "blur(8px) brightness(0.6)", duration: 0.9, ease: "power2.inOut" }}, END - 0.3);
-      tl.fromTo("#end-deva", {{ opacity: 0, scale: 1.08, y: 20 }}, {{ opacity: 1, scale: 1, y: 0, duration: 0.9, ease: "power3.out" }}, END + 0.1);
+      tl.fromTo("#end-deva", {{ opacity: 0, scale: 1.08, y: 20 }}, {{ opacity: 1, scale: 1, y: 0, duration: 0.9, ease: "power3.out" }}, VO[4][0] - 0.2);
       tl.fromTo("#end-note", {{ opacity: 0 }}, {{ opacity: 0.7, duration: 0.6 }}, END + 0.6);
 
       window.__timelines["main"] = tl;

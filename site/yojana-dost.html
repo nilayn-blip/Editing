@@ -1,0 +1,704 @@
+<title>Yojana Dost</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Find government schemes you may qualify for, in English and Hindi. Independent explainer, not a government website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Mukta:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a bank-passbook ledger. Checker form beside the headline, then scheme "entries" stamped in office-violet ink when you qualify. */
+:root {
+  --paper: #EDF2EF;
+  --sheet: #FAFCFB;
+  --ink: #16202F;
+  --muted: #566170;
+  --rule: #C9D4CF;
+  --stamp: #5631C4;
+  --stamp-soft: #E6E0FA;
+  --turmeric: #C98A10;
+  --turmeric-soft: #FBEFD3;
+  --warn: #A3361F;
+  --warn-soft: #F8E3DD;
+  --display: "Baloo 2", "Mukta", system-ui, sans-serif;
+  --body: "Mukta", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F151B; --sheet: #161E26; --ink: #E6ECE9; --muted: #9AA6B1; --rule: #2B3641;
+    --stamp: #A891FF; --stamp-soft: #2A2348; --turmeric: #EDB443; --turmeric-soft: #33280F;
+    --warn: #F08C73; --warn-soft: #3A1E17; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F151B; --sheet: #161E26; --ink: #E6ECE9; --muted: #9AA6B1; --rule: #2B3641;
+  --stamp: #A891FF; --stamp-soft: #2A2348; --turmeric: #EDB443; --turmeric-soft: #33280F;
+  --warn: #F08C73; --warn-soft: #3A1E17; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--sheet); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: var(--stamp); }
+:focus-visible { outline: 3px solid var(--turmeric); outline-offset: 2px; }
+h1, h2, h3 { font-family: var(--display); line-height: 1.12; text-wrap: balance; margin: 0; }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+/* header */
+header.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--sheet); border-bottom: 1px solid var(--rule); }
+header.top .wrap { display: flex; align-items: center; gap: 12px; padding-block: 10px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 800; font-size: 24px; text-decoration: none; color: var(--ink); margin-right: auto; }
+.brand-mark { width: 34px; height: 34px; border-radius: 50%; border: 2.5px solid var(--stamp); display: grid; place-items: center; color: var(--stamp); font-size: 15px; transform: rotate(-8deg); }
+.lang { display: inline-flex; border: 1px solid var(--rule); border-radius: 999px; overflow: hidden; }
+.lang button { border: 0; background: transparent; color: var(--ink); font: 600 15px var(--body); padding: 6px 14px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--sheet); }
+.btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 10px; padding: 10px 16px; font: 700 16px var(--body); text-decoration: none; cursor: pointer; border: 2px solid var(--ink); background: var(--ink); color: var(--sheet); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.small { padding: 6px 12px; font-size: 14px; border-width: 1.5px; }
+
+.notice { background: var(--turmeric-soft); border-bottom: 1px solid var(--rule); font-size: 14.5px; }
+.notice .wrap { padding-block: 8px; }
+
+/* hero */
+.hero .wrap { display: grid; grid-template-columns: 1fr 1.05fr; gap: 40px; padding-block: 44px 36px; align-items: start; }
+.hero h1 { font-size: clamp(34px, 5.2vw, 56px); font-weight: 800; }
+.hero h1 em { font-style: normal; color: var(--stamp); }
+.hero p.lede { font-size: 19px; color: var(--muted); max-width: 34ch; margin: 16px 0 22px; }
+.trust { display: grid; gap: 10px; padding: 0; margin: 0; list-style: none; font-size: 16px; }
+.trust li { display: flex; gap: 10px; align-items: baseline; }
+.trust b { font-family: var(--mono); font-size: 13px; color: var(--stamp); min-width: 22px; }
+
+.checker { background: var(--sheet); border: 1px solid var(--rule); border-radius: 14px; padding: 22px; box-shadow: 0 1px 0 var(--rule), 0 14px 30px -22px rgba(22,32,47,.45); }
+.checker h2 { font-size: 24px; margin-bottom: 4px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 14px; margin-top: 14px; }
+.field { display: grid; gap: 4px; min-width: 0; }
+.field.full { grid-column: 1 / -1; }
+.field > span, fieldset legend { font-size: 14px; font-weight: 700; color: var(--muted); }
+input[type="number"], select { width: 100%; font: 500 16px var(--body); color: var(--ink); background: var(--paper); border: 1px solid var(--rule); border-radius: 8px; padding: 9px 10px; }
+fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.chip span { display: inline-block; border: 1.5px solid var(--rule); border-radius: 999px; padding: 5px 12px; font-size: 15px; font-weight: 500; background: var(--paper); }
+.chip input:checked + span { border-color: var(--stamp); background: var(--stamp-soft); color: var(--stamp); font-weight: 700; }
+.chip input:focus-visible + span { outline: 3px solid var(--turmeric); outline-offset: 2px; }
+.checks { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 14px; margin-top: 6px; font-size: 15px; }
+.checks label { display: flex; gap: 8px; align-items: flex-start; }
+.checks input { margin-top: 5px; accent-color: var(--stamp); }
+.result { margin-top: 18px; padding-top: 16px; border-top: 1px dashed var(--rule); }
+.result .count { font-family: var(--display); font-size: 22px; font-weight: 700; }
+.result .count b { color: var(--stamp); font-size: 30px; }
+.result ul { list-style: none; padding: 0; margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.result li a { display: inline-block; font-size: 14.5px; padding: 3px 10px; border-radius: 6px; background: var(--stamp-soft); color: var(--stamp); text-decoration: none; font-weight: 700; }
+
+/* browse */
+.browse .wrap { padding-block: 24px 48px; }
+.browse-head { display: flex; flex-wrap: wrap; gap: 14px; align-items: end; justify-content: space-between; margin-bottom: 14px; }
+.browse-head h2 { font-size: 34px; }
+.search { flex: 0 1 320px; min-width: 0; }
+.search input { width: 100%; font: 500 16px var(--body); color: var(--ink); background: var(--sheet); border: 1px solid var(--rule); border-radius: 10px; padding: 10px 12px; }
+.filters { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 18px; scrollbar-width: thin; }
+.filters button { flex: none; border: 1.5px solid var(--rule); background: var(--sheet); color: var(--ink); border-radius: 999px; padding: 6px 14px; font: 600 15px var(--body); cursor: pointer; }
+.filters button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--sheet); }
+.filters .n { font-family: var(--mono); font-size: 12px; opacity: .75; margin-left: 4px; }
+
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.card { position: relative; background: var(--sheet); border: 1px solid var(--rule); border-radius: 12px; padding: 18px 20px 16px; display: grid; gap: 10px; align-content: start; min-width: 0;
+  background-image: repeating-linear-gradient(to bottom, transparent 0 31px, color-mix(in srgb, var(--rule) 45%, transparent) 31px 32px); background-position: 0 58px; }
+.card:target { outline: 3px solid var(--turmeric); }
+.card .meta { display: flex; justify-content: space-between; gap: 10px; }
+.card h3 { font-size: 23px; font-weight: 700; padding-right: 96px; }
+.card .benefit { font-size: 18px; font-weight: 700; background: var(--sheet); }
+.card .who { color: var(--muted); font-size: 16px; background: var(--sheet); margin: 0; }
+.stamp { position: absolute; top: 40px; right: 16px; transform: rotate(-9deg); border: 2.5px solid var(--stamp); color: var(--stamp); border-radius: 6px; padding: 2px 8px; font: 800 13px/1.2 var(--display); text-transform: uppercase; letter-spacing: .04em; text-align: center; max-width: 90px; background: var(--sheet); opacity: .92; }
+.docs { display: flex; flex-wrap: wrap; gap: 6px; }
+.docs span { font-size: 13.5px; border: 1px dashed var(--muted); border-radius: 5px; padding: 1px 8px; background: var(--sheet); }
+details { border-top: 1px solid var(--rule); padding-top: 8px; }
+summary { cursor: pointer; font-weight: 700; color: var(--stamp); }
+details ol { margin: 8px 0 6px; padding-left: 22px; display: grid; gap: 4px; background: var(--sheet); }
+.card-foot { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: space-between; }
+.card-foot .label { text-transform: none; letter-spacing: 0; }
+.empty { padding: 30px; text-align: center; color: var(--muted); border: 1px dashed var(--rule); border-radius: 12px; grid-column: 1 / -1; }
+
+/* scam + follow */
+.bands .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px; padding-block: 0 48px; }
+.band { border-radius: 14px; padding: 22px; min-width: 0; }
+.band h2 { font-size: 26px; margin-bottom: 8px; }
+.band.warn { background: var(--warn-soft); border: 1px solid var(--warn); }
+.band.warn h2 { color: var(--warn); }
+.band.warn ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; }
+.band.follow { background: var(--stamp-soft); border: 1px solid var(--stamp); display: grid; gap: 10px; align-content: start; }
+.band.follow .row { display: flex; flex-wrap: wrap; gap: 10px; }
+.mono { font-family: var(--mono); font-size: 14px; }
+
+footer { border-top: 1px solid var(--rule); background: var(--sheet); font-size: 14.5px; color: var(--muted); }
+footer .wrap { padding-block: 22px; display: grid; gap: 6px; }
+
+.toast { position: fixed; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); background: var(--ink); color: var(--sheet); padding: 8px 16px; border-radius: 8px; font-weight: 600; }
+
+@media (max-width: 860px) {
+  .hero .wrap, .bands .wrap { grid-template-columns: 1fr; gap: 24px; }
+  .cards { grid-template-columns: 1fr; }
+  .hero .wrap { padding-block: 28px 20px; }
+}
+@media (max-width: 460px) {
+  .grid2, .checks { grid-template-columns: 1fr; }
+  header.top .btn { display: none; }
+  .card h3 { padding-right: 84px; font-size: 21px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .stamp { animation: stampIn .35s ease-out both; }
+  @keyframes stampIn { from { transform: rotate(-9deg) scale(1.25); opacity: .4; } to { transform: rotate(-9deg) scale(1); opacity: .92; } }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">यो</span>Yojana Dost</a>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="lang-en" data-lang="en" aria-pressed="true">English</button>
+      <button type="button" id="lang-hi" data-lang="hi" aria-pressed="false">हिंदी</button>
+    </div>
+    <a class="btn small" id="ig-top" href="#" target="_blank" rel="noopener" data-t="follow">Follow on Instagram</a>
+  </div>
+</header>
+<div class="notice"><div class="wrap" data-t="notice">Independent explainer. This is not a government website. Always apply on the official portal linked on each scheme. Details last checked October 2026.</div></div>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="label" data-t="eyebrow">23 central schemes · English &amp; हिंदी</p>
+        <h1 data-t="h1" data-html>Which government schemes can <em>you</em> get?</h1>
+        <p class="lede" data-t="lede">Answer a few quick questions. We show the schemes you may qualify for, the documents to keep ready, and the official place to apply.</p>
+        <ul class="trust">
+          <li><b>01</b><span data-t="t1">Free to use. We never ask for OTP, Aadhaar number or money.</span></li>
+          <li><b>02</b><span data-t="t2">Every scheme links to its official .gov.in portal.</span></li>
+          <li><b>03</b><span data-t="t3">New schemes explained every day on Instagram.</span></li>
+        </ul>
+      </div>
+
+      <form class="checker" id="checker" novalidate>
+        <h2 data-t="checkTitle">Eligibility check</h2>
+        <p class="label" data-t="checkNote">Nothing you enter leaves this page</p>
+        <div class="grid2">
+          <label class="field"><span data-t="age">Age</span><input type="number" id="f-age" min="0" max="110" value="34" inputmode="numeric"></label>
+          <label class="field"><span data-t="gender">Gender</span>
+            <select id="f-gender"><option value="m" data-t="male">Male</option><option value="f" data-t="female">Female</option><option value="o" data-t="other">Other</option></select></label>
+          <label class="field"><span data-t="area">I live in</span>
+            <select id="f-area"><option value="rural" data-t="rural">Village / rural area</option><option value="urban" data-t="urban">Town / city</option></select></label>
+          <label class="field"><span data-t="income">Family income per year</span>
+            <select id="f-income">
+              <option value="0" data-t="inc0">Below ₹1 lakh</option>
+              <option value="1" data-t="inc1" selected>₹1 – 3 lakh</option>
+              <option value="2" data-t="inc2">₹3 – 6 lakh</option>
+              <option value="3" data-t="inc3">₹6 – 9 lakh</option>
+              <option value="4" data-t="inc4">Above ₹9 lakh</option>
+            </select></label>
+          <label class="field full"><span data-t="cat">Social category</span>
+            <select id="f-cat"><option value="gen" data-t="gen">General</option><option value="obc" data-t="obc" selected>OBC</option><option value="sc">SC</option><option value="st">ST</option></select></label>
+          <fieldset class="field full">
+            <legend data-t="iam">I am a… (pick all that apply)</legend>
+            <div class="chips" id="f-roles"></div>
+          </fieldset>
+          <fieldset class="field full">
+            <legend data-t="alsoTrue">Also true for me</legend>
+            <div class="checks">
+              <label><input type="checkbox" id="f-tax"><span data-t="tax">I pay income tax</span></label>
+              <label><input type="checkbox" id="f-pucca" checked><span data-t="pucca">My family owns a pucca house</span></label>
+              <label><input type="checkbox" id="f-girl"><span data-t="girl">I have a daughter under 10</span></label>
+              <label><input type="checkbox" id="f-mother"><span data-t="mother">I am pregnant / a new mother</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="result" aria-live="polite">
+          <div class="count" id="r-count"></div>
+          <ul id="r-list"></ul>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="browse" id="schemes">
+    <div class="wrap">
+      <div class="browse-head">
+        <div>
+          <p class="label" data-t="browseEyebrow">Scheme passbook</p>
+          <h2 data-t="browseTitle">All schemes, explained simply</h2>
+        </div>
+        <label class="search"><span class="label" data-t="searchLabel">Search</span>
+          <input type="search" id="q" data-tp="searchPh" placeholder="Try: loan, pension, girl, solar"></label>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="Filter schemes"></div>
+      <div class="cards" id="cards"></div>
+    </div>
+  </section>
+
+  <section class="bands">
+    <div class="wrap">
+      <div class="band warn">
+        <h2 data-t="scamTitle">Stay safe from scheme scams</h2>
+        <ul>
+          <li data-t="s1">No real scheme asks you to pay money to "approve" or "release" your benefit.</li>
+          <li data-t="s2">Never share an OTP, UPI PIN or bank password with anyone, even an "officer".</li>
+          <li data-t="s3">Apply only on .gov.in / .nic.in websites, at a CSC, bank, post office or panchayat.</li>
+          <li data-t="s4">Report fraud on 1930 or cybercrime.gov.in.</li>
+        </ul>
+      </div>
+      <div class="band follow">
+        <h2 data-t="followTitle">One new scheme every day</h2>
+        <p data-t="followText">60-second reels in Hindi: who gets it, how much, which documents, and how to apply.</p>
+        <div class="row">
+          <a class="btn" id="ig-band" href="#" target="_blank" rel="noopener" data-t="follow">Follow on Instagram</a>
+          <a class="btn ghost" id="wa-band" href="#" target="_blank" rel="noopener" data-t="whatsapp">Join WhatsApp channel</a>
+        </div>
+        <p class="mono" id="handles"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div data-t="foot1">Yojana Dost is an independent information service. We are not affiliated with any ministry or government department. Scheme rules change, so always confirm on the official portal before you apply.</div>
+    <div data-t="foot2">Sources: official scheme portals, myscheme.gov.in and PIB press releases.</div>
+  </div>
+</footer>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+/* EDIT THESE: your own handles. */
+const CONFIG = {
+  instagram: "yojanadost",            // Instagram username without @
+  whatsappChannel: "https://whatsapp.com/channel/", // paste your WhatsApp channel link
+  lastChecked: "October 2026"
+};
+
+const I18N = {
+  en: {},
+  hi: {
+    follow: "Instagram पर फॉलो करें",
+    notice: "स्वतंत्र जानकारी सेवा। यह सरकारी वेबसाइट नहीं है। हर योजना पर दिए गए आधिकारिक पोर्टल पर ही आवेदन करें। जानकारी अक्टूबर 2026 में जाँची गई।",
+    eyebrow: "23 केंद्रीय योजनाएँ · English और हिंदी",
+    h1: "आपको कौन-सी सरकारी <em>योजनाएँ</em> मिल सकती हैं?",
+    lede: "कुछ आसान सवालों के जवाब दें। हम बताएँगे कौन-सी योजनाएँ आपको मिल सकती हैं, कौन-से कागज़ तैयार रखें, और आवेदन कहाँ करें।",
+    t1: "पूरी तरह मुफ्त। हम कभी OTP, आधार नंबर या पैसे नहीं माँगते।",
+    t2: "हर योजना के साथ उसका आधिकारिक .gov.in पोर्टल।",
+    t3: "हर दिन Instagram पर एक नई योजना की जानकारी।",
+    checkTitle: "पात्रता जाँच",
+    checkNote: "आपकी जानकारी इस पेज से बाहर नहीं जाती",
+    age: "उम्र", gender: "लिंग", male: "पुरुष", female: "महिला", other: "अन्य",
+    area: "मैं रहता/रहती हूँ", rural: "गाँव / ग्रामीण क्षेत्र", urban: "कस्बा / शहर",
+    income: "परिवार की सालाना आय", inc0: "₹1 लाख से कम", inc1: "₹1 – 3 लाख", inc2: "₹3 – 6 लाख", inc3: "₹6 – 9 लाख", inc4: "₹9 लाख से ज़्यादा",
+    cat: "सामाजिक वर्ग", gen: "सामान्य", obc: "OBC",
+    iam: "मैं हूँ… (जो लागू हों सब चुनें)", alsoTrue: "यह भी मुझ पर लागू है",
+    tax: "मैं आयकर देता/देती हूँ", pucca: "मेरे परिवार के पास पक्का घर है", girl: "मेरी 10 साल से छोटी बेटी है", mother: "मैं गर्भवती हूँ / हाल में माँ बनी हूँ",
+    browseEyebrow: "योजना पासबुक", browseTitle: "सभी योजनाएँ, आसान भाषा में", searchLabel: "खोजें", searchPh: "जैसे: लोन, पेंशन, बेटी, सोलर",
+    scamTitle: "योजना के नाम पर धोखाधड़ी से बचें",
+    s1: "कोई भी असली योजना लाभ \"पास\" या \"जारी\" करने के लिए पैसे नहीं माँगती।",
+    s2: "OTP, UPI PIN या बैंक पासवर्ड किसी को न बताएँ, चाहे वह खुद को \"अधिकारी\" कहे।",
+    s3: "सिर्फ .gov.in / .nic.in वेबसाइट, CSC, बैंक, डाकघर या पंचायत से आवेदन करें।",
+    s4: "धोखाधड़ी की शिकायत 1930 या cybercrime.gov.in पर करें।",
+    followTitle: "हर दिन एक नई योजना",
+    followText: "हिंदी में 60 सेकंड की रील: किसे मिलेगी, कितना पैसा, कौन-से कागज़, और आवेदन कैसे करें।",
+    whatsapp: "WhatsApp चैनल से जुड़ें",
+    foot1: "योजना दोस्त एक स्वतंत्र जानकारी सेवा है। हमारा किसी मंत्रालय या सरकारी विभाग से संबंध नहीं है। योजना के नियम बदलते रहते हैं, इसलिए आवेदन से पहले आधिकारिक पोर्टल पर पुष्टि करें।",
+    foot2: "स्रोत: आधिकारिक योजना पोर्टल, myscheme.gov.in और PIB प्रेस विज्ञप्तियाँ।"
+  }
+};
+
+const UI = {
+  en: { count: n => n ? `You may qualify for <b>${n}</b> schemes` : "No match yet. Try changing your answers.",
+        mine: "My matches", all: "All", stamp: "You may qualify", docs: "Keep ready", how: "How to apply",
+        official: "Official portal", share: "Copy link", copied: "Link copied", checked: "Last checked",
+        none: "No scheme matches this search. Try another word." },
+  hi: { count: n => n ? `आपको <b>${n}</b> योजनाएँ मिल सकती हैं` : "अभी कोई योजना नहीं मिली। अपने जवाब बदलकर देखें।",
+        mine: "मेरी योजनाएँ", all: "सभी", stamp: "आप पात्र हो सकते हैं", docs: "ये कागज़ तैयार रखें", how: "आवेदन कैसे करें",
+        official: "आधिकारिक पोर्टल", share: "लिंक कॉपी करें", copied: "लिंक कॉपी हो गया", checked: "जाँचा गया",
+        none: "इस खोज से कोई योजना नहीं मिली। कोई और शब्द आज़माएँ।" }
+};
+
+const ROLES = [
+  ["farmer", "Farmer", "किसान"], ["business", "Shop / small business", "दुकानदार / छोटा व्यापार"],
+  ["vendor", "Street vendor", "रेहड़ी-पटरी वाला"], ["artisan", "Artisan / craftsperson", "कारीगर / शिल्पकार"],
+  ["worker", "Daily-wage / unorganised worker", "दिहाड़ी / असंगठित मज़दूर"], ["student", "Student", "छात्र"],
+  ["jobseeker", "Looking for work", "नौकरी की तलाश में"], ["startup", "Startup founder", "स्टार्टअप संस्थापक"]
+];
+
+const CATS = {
+  agri: ["Farmers", "किसान"], biz: ["Business & loans", "व्यापार और ऋण"], work: ["Workers & artisans", "श्रमिक और कारीगर"],
+  health: ["Health", "स्वास्थ्य"], ins: ["Insurance & pension", "बीमा और पेंशन"], house: ["Housing", "आवास"],
+  women: ["Women & girls", "महिलाएँ और बेटियाँ"], energy: ["Electricity", "बिजली"], youth: ["Students & youth", "छात्र और युवा"]
+};
+
+const DOCS = {
+  aadhaar: ["Aadhaar", "आधार"], bank: ["Bank passbook", "बैंक पासबुक"], land: ["Land records", "ज़मीन के कागज़"],
+  pan: ["PAN card", "पैन कार्ड"], ration: ["Ration card", "राशन कार्ड"], income: ["Income certificate", "आय प्रमाण पत्र"],
+  caste: ["Caste certificate (if any)", "जाति प्रमाण पत्र (यदि लागू)"], photo: ["Photo", "फोटो"],
+  mobile: ["Aadhaar-linked mobile", "आधार से जुड़ा मोबाइल"], bizproof: ["Business proof", "व्यापार का प्रमाण"],
+  quotation: ["Machine / stock quotation", "मशीन / माल का कोटेशन"], project: ["Project report", "प्रोजेक्ट रिपोर्ट"],
+  address: ["Address proof", "पते का प्रमाण"], vendor: ["Vending certificate or LoR", "वेंडिंग प्रमाण पत्र या LoR"],
+  jobcard: ["MGNREGA job card", "मनरेगा जॉब कार्ड"], birth: ["Daughter's birth certificate", "बेटी का जन्म प्रमाण पत्र"],
+  mcp: ["MCP card", "मातृ-शिशु सुरक्षा (MCP) कार्ड"], ebill: ["Electricity bill", "बिजली बिल"],
+  edu: ["Education certificates", "शैक्षिक प्रमाण पत्र"], dpiit: ["DPIIT recognition", "DPIIT मान्यता"]
+};
+
+const r = (p, ...roles) => roles.some(x => p.roles.has(x));
+
+const SCHEMES = [
+  { id: "pmkisan", cat: "agri", link: "https://pmkisan.gov.in",
+    name: ["PM-KISAN Samman Nidhi", "पीएम-किसान सम्मान निधि"],
+    benefit: ["₹6,000 a year, paid as three ₹2,000 instalments", "हर साल ₹6,000, ₹2,000 की तीन किस्तों में"],
+    who: ["Farmer families who own cultivable land. Not for income-tax payers, government employees, or professionals like doctors and CAs.",
+          "खेती योग्य ज़मीन वाले किसान परिवार। आयकर देने वाले, सरकारी कर्मचारी और डॉक्टर/CA जैसे पेशेवर पात्र नहीं हैं।"],
+    docs: ["aadhaar", "land", "bank"],
+    steps: [["Go to pmkisan.gov.in and choose ‘New Farmer Registration’, or visit your nearest CSC.", "pmkisan.gov.in पर ‘New Farmer Registration’ चुनें या नज़दीकी CSC जाएँ।"],
+            ["Enter Aadhaar, land details and bank account. The account must be linked to Aadhaar.", "आधार, ज़मीन का ब्योरा और बैंक खाता भरें। खाता आधार से जुड़ा होना चाहिए।"],
+            ["Complete e-KYC by OTP or face authentication. Instalments stop without it.", "OTP या फेस ऑथेंटिकेशन से e-KYC पूरा करें। इसके बिना किस्त रुक जाती है।"]],
+    m: p => r(p, "farmer") && !p.tax },
+  { id: "pmfby", cat: "agri", link: "https://pmfby.gov.in",
+    name: ["PM Fasal Bima Yojana", "प्रधानमंत्री फसल बीमा योजना"],
+    benefit: ["Crop insurance for a small premium: 2% kharif, 1.5% rabi, 5% commercial and horticulture crops", "कम प्रीमियम पर फसल बीमा: खरीफ 2%, रबी 1.5%, व्यावसायिक और बागवानी फसल 5%"],
+    who: ["All farmers growing notified crops in notified areas, including tenant farmers and sharecroppers.", "अधिसूचित क्षेत्रों में अधिसूचित फसल उगाने वाले सभी किसान, बटाईदार और किरायेदार किसान भी।"],
+    docs: ["aadhaar", "land", "bank"],
+    steps: [["Enrol before your state's cut-off date for the season. Dates differ by crop.", "सीज़न की अंतिम तारीख से पहले नामांकन करें। तारीख फसल के अनुसार अलग होती है।"],
+            ["Apply at your bank, a CSC or pmfby.gov.in. Farmers with crop loans are often enrolled by their bank.", "बैंक, CSC या pmfby.gov.in से आवेदन करें। फसल ऋण वाले किसानों का नामांकन अक्सर बैंक करता है।"],
+            ["Report crop loss within 72 hours on the Crop Insurance app or helpline 14447.", "फसल नुकसान की सूचना 72 घंटे के भीतर Crop Insurance ऐप या हेल्पलाइन 14447 पर दें।"]],
+    m: p => r(p, "farmer") },
+  { id: "kcc", cat: "agri", link: "https://pmkisan.gov.in",
+    name: ["Kisan Credit Card (KCC)", "किसान क्रेडिट कार्ड (KCC)"],
+    benefit: ["Crop loans at 7% interest, effectively 4% when you repay on time", "7% ब्याज पर फसल ऋण, समय पर चुकाने पर प्रभावी दर सिर्फ 4%"],
+    who: ["Farmers, tenant farmers, and people in animal husbandry or fisheries.", "किसान, बटाईदार किसान, और पशुपालन या मछली पालन करने वाले।"],
+    docs: ["aadhaar", "land", "photo"],
+    steps: [["Download the KCC form from pmkisan.gov.in or ask for it at any bank branch.", "pmkisan.gov.in से KCC फॉर्म डाउनलोड करें या किसी भी बैंक शाखा से लें।"],
+            ["Submit it with land records and ID at the bank that holds your PM-KISAN account.", "ज़मीन के कागज़ और पहचान पत्र के साथ उसी बैंक में जमा करें जहाँ PM-KISAN खाता है।"],
+            ["Keep the acknowledgement receipt and follow up at the branch.", "पावती रसीद संभालकर रखें और शाखा में संपर्क बनाए रखें।"]],
+    m: p => r(p, "farmer") },
+  { id: "mudra", cat: "biz", link: "https://www.mudra.org.in",
+    name: ["PM Mudra Yojana", "प्रधानमंत्री मुद्रा योजना"],
+    benefit: ["Business loans without collateral: up to ₹50,000 (Shishu), ₹5 lakh (Kishore), ₹10 lakh (Tarun), ₹20 lakh (Tarun Plus)", "बिना गारंटी व्यापार ऋण: ₹50,000 तक (शिशु), ₹5 लाख (किशोर), ₹10 लाख (तरुण), ₹20 लाख (तरुण प्लस)"],
+    who: ["Anyone starting or growing a small non-farm business: shops, services, small manufacturing, food processing, trading.", "छोटा गैर-कृषि व्यापार शुरू करने या बढ़ाने वाला कोई भी: दुकान, सेवा, छोटा उत्पादन, फूड प्रोसेसिंग, ट्रेडिंग।"],
+    docs: ["aadhaar", "pan", "bizproof", "quotation", "bank"],
+    steps: [["Write a one-page plan: what you sell, monthly costs, expected income.", "एक पन्ने का प्लान बनाएँ: क्या बेचेंगे, महीने का खर्च, अनुमानित कमाई।"],
+            ["Apply at any bank, NBFC or MFI branch, or online at jansamarth.in.", "किसी भी बैंक, NBFC या MFI शाखा में या jansamarth.in पर ऑनलाइन आवेदन करें।"],
+            ["Tarun Plus (₹10–20 lakh) is only for people who have fully repaid a Tarun loan.", "तरुण प्लस (₹10–20 लाख) सिर्फ उनके लिए है जिन्होंने तरुण ऋण पूरा चुका दिया है।"]],
+    m: p => p.age >= 18 && r(p, "business", "vendor", "artisan", "startup") },
+  { id: "pmegp", cat: "biz", link: "https://www.kviconline.gov.in/pmegpeportal/",
+    name: ["PMEGP", "प्रधानमंत्री रोज़गार सृजन कार्यक्रम (PMEGP)"],
+    benefit: ["15–35% of your project cost as a subsidy on a bank loan, for projects up to ₹50 lakh (manufacturing) or ₹20 lakh (services)", "बैंक ऋण पर प्रोजेक्ट लागत का 15–35% सब्सिडी; उत्पादन में ₹50 लाख और सेवा में ₹20 लाख तक के प्रोजेक्ट"],
+    who: ["Anyone 18+ setting up a new unit. Rural applicants, women, SC/ST, OBC and minorities get the higher subsidy. Class 8 pass is needed for bigger projects.", "नई यूनिट लगाने वाला 18+ कोई भी व्यक्ति। ग्रामीण, महिला, SC/ST, OBC और अल्पसंख्यकों को ज़्यादा सब्सिडी। बड़े प्रोजेक्ट के लिए 8वीं पास ज़रूरी।"],
+    docs: ["aadhaar", "pan", "project", "caste"],
+    steps: [["Apply on the KVIC PMEGP e-portal with a project report.", "KVIC PMEGP ई-पोर्टल पर प्रोजेक्ट रिपोर्ट के साथ आवेदन करें।"],
+            ["Your application goes to a bank. Attend the interview and a short entrepreneurship training (EDP).", "आवेदन बैंक को जाता है। इंटरव्यू दें और छोटा उद्यमिता प्रशिक्षण (EDP) पूरा करें।"],
+            ["The subsidy is held for 3 years and adjusted once the unit runs well.", "सब्सिडी 3 साल तक रखी जाती है और यूनिट ठीक चलने पर समायोजित होती है।"]],
+    m: p => p.age >= 18 && r(p, "business", "jobseeker", "artisan", "startup") },
+  { id: "standup", cat: "biz", link: "https://www.standupmitra.in",
+    name: ["Stand-Up India", "स्टैंड-अप इंडिया"],
+    benefit: ["Bank loans from ₹10 lakh to ₹1 crore for a new enterprise", "नए उद्यम के लिए ₹10 लाख से ₹1 करोड़ तक का बैंक ऋण"],
+    who: ["SC/ST and women entrepreneurs aged 18+, starting their first business in manufacturing, services, trading or farm-allied work. At least 51% of the business must be theirs.", "18+ उम्र के SC/ST और महिला उद्यमी जो उत्पादन, सेवा, व्यापार या कृषि-संबद्ध क्षेत्र में पहला व्यापार शुरू कर रहे हों। व्यापार में कम से कम 51% हिस्सेदारी उनकी हो।"],
+    docs: ["aadhaar", "pan", "caste", "project", "address"],
+    steps: [["Register on standupmitra.in and choose ‘Apply for loan’.", "standupmitra.in पर रजिस्टर करें और ‘Apply for loan’ चुनें।"],
+            ["The portal connects you to a bank branch, and to help with a project report if you need it.", "पोर्टल आपको बैंक शाखा से और ज़रूरत हो तो प्रोजेक्ट रिपोर्ट में मदद से जोड़ता है।"],
+            ["Keep proof that this is your first business in this sector.", "यह प्रमाण रखें कि इस क्षेत्र में यह आपका पहला व्यापार है।"]],
+    m: p => p.age >= 18 && (p.gender === "f" || p.cat === "sc" || p.cat === "st") && r(p, "business", "startup", "jobseeker") },
+  { id: "seedfund", cat: "biz", link: "https://seedfund.startupindia.gov.in",
+    name: ["Startup India Seed Fund", "स्टार्टअप इंडिया सीड फंड"],
+    benefit: ["Up to ₹20 lakh grant for a prototype, and up to ₹50 lakh as debt or convertible funding, through incubators", "प्रोटोटाइप के लिए ₹20 लाख तक अनुदान, और इनक्यूबेटर के ज़रिए ₹50 लाख तक ऋण या कन्वर्टिबल फंडिंग"],
+    who: ["DPIIT-recognised startups incorporated less than 2 years ago.", "DPIIT मान्यता प्राप्त स्टार्टअप जो 2 साल से कम पुराने हों।"],
+    docs: ["dpiit", "pan", "project"],
+    steps: [["Get DPIIT recognition on startupindia.gov.in.", "startupindia.gov.in पर DPIIT मान्यता लें।"],
+            ["Apply on the Seed Fund portal and pick up to 3 incubators.", "सीड फंड पोर्टल पर आवेदन करें और 3 इनक्यूबेटर तक चुनें।"],
+            ["The incubator reviews your pitch and releases money in milestones.", "इनक्यूबेटर आपकी पिच देखता है और चरणों में पैसा जारी करता है।"]],
+    m: p => r(p, "startup") },
+  { id: "svanidhi", cat: "work", link: "https://pmsvanidhi.mohua.gov.in",
+    name: ["PM SVANidhi", "पीएम स्वनिधि"],
+    benefit: ["Working-capital loans for street vendors in three rounds (₹15,000, ₹25,000, ₹50,000), with 7% interest subsidy and cashback on digital payments", "रेहड़ी-पटरी वालों को तीन चरणों में ऋण (₹15,000, ₹25,000, ₹50,000), 7% ब्याज सब्सिडी और डिजिटल भुगतान पर कैशबैक"],
+    who: ["Street vendors with a vending certificate or ID from the municipality, or a letter of recommendation (LoR).", "नगर निकाय से वेंडिंग प्रमाण पत्र/पहचान पत्र या सिफारिश पत्र (LoR) वाले रेहड़ी-पटरी विक्रेता।"],
+    docs: ["aadhaar", "vendor", "mobile", "bank"],
+    steps: [["Apply at pmsvanidhi.mohua.gov.in, or through a CSC or your municipal office.", "pmsvanidhi.mohua.gov.in पर, या CSC या नगर निगम कार्यालय के ज़रिए आवेदन करें।"],
+            ["Repay on time to unlock the next, larger loan.", "समय पर चुकाएँ, तभी अगला बड़ा ऋण मिलेगा।"],
+            ["Take payments on UPI. You earn cashback and build a credit history.", "बिक्री का भुगतान UPI से लें। कैशबैक मिलेगा और क्रेडिट हिस्ट्री बनेगी।"]],
+    m: p => r(p, "vendor") },
+  { id: "vishwakarma", cat: "work", link: "https://pmvishwakarma.gov.in",
+    name: ["PM Vishwakarma", "पीएम विश्वकर्मा"],
+    benefit: ["₹15,000 toolkit voucher, training with ₹500 a day stipend, and loans of ₹1 lakh then ₹2 lakh at 5% interest", "₹15,000 का टूलकिट वाउचर, ₹500 प्रतिदिन भत्ते के साथ प्रशिक्षण, और 5% ब्याज पर पहले ₹1 लाख फिर ₹2 लाख का ऋण"],
+    who: ["Artisans aged 18+ in 18 traditional trades, such as carpenter, blacksmith, goldsmith, potter, cobbler, tailor, barber, washerman, mason and basket maker. One member per family. Not for government employees.", "18 पारंपरिक व्यवसायों के 18+ कारीगर, जैसे बढ़ई, लोहार, सुनार, कुम्हार, मोची, दर्ज़ी, नाई, धोबी, राजमिस्त्री, टोकरी बनाने वाले। परिवार से एक सदस्य। सरकारी कर्मचारी पात्र नहीं।"],
+    docs: ["aadhaar", "mobile", "bank", "ration"],
+    steps: [["Register at a CSC with Aadhaar and mobile number (biometric check).", "आधार और मोबाइल नंबर के साथ CSC पर रजिस्टर करें (बायोमेट्रिक जाँच)।"],
+            ["The gram panchayat or urban local body verifies your application.", "ग्राम पंचायत या नगर निकाय आपके आवेदन की जाँच करता है।"],
+            ["Get your PM Vishwakarma certificate and ID card, then attend basic training.", "पीएम विश्वकर्मा प्रमाण पत्र और पहचान पत्र लें, फिर बेसिक प्रशिक्षण में जाएँ।"]],
+    m: p => p.age >= 18 && r(p, "artisan") },
+  { id: "eshram", cat: "work", link: "https://eshram.gov.in",
+    name: ["e-Shram card", "ई-श्रम कार्ड"],
+    benefit: ["A free national ID (UAN) for unorganised workers, used to reach you with welfare schemes", "असंगठित मज़दूरों के लिए मुफ्त राष्ट्रीय पहचान (UAN), जिससे कल्याण योजनाएँ आप तक पहुँचती हैं"],
+    who: ["Unorganised workers aged 16–59 who are not EPFO/ESIC members and don't pay income tax: farm labour, construction, gig and delivery workers, domestic workers, vendors.", "16–59 उम्र के असंगठित मज़दूर जो EPFO/ESIC सदस्य नहीं हैं और आयकर नहीं देते: खेत मज़दूर, निर्माण, गिग और डिलीवरी वर्कर, घरेलू कामगार, विक्रेता।"],
+    docs: ["aadhaar", "mobile", "bank"],
+    steps: [["Register free at eshram.gov.in with your Aadhaar-linked mobile, or at a CSC.", "आधार से जुड़े मोबाइल से eshram.gov.in पर या CSC पर मुफ्त रजिस्टर करें।"],
+            ["Add your occupation, skills and bank details.", "अपना काम, कौशल और बैंक विवरण भरें।"],
+            ["Download your e-Shram card. Never pay anyone to make it.", "अपना ई-श्रम कार्ड डाउनलोड करें। इसके लिए किसी को पैसे न दें।"]],
+    m: p => p.age >= 16 && p.age <= 59 && !p.tax && r(p, "worker", "vendor", "artisan", "farmer") },
+  { id: "pmjay", cat: "health", link: "https://beneficiary.nha.gov.in",
+    name: ["Ayushman Bharat PM-JAY", "आयुष्मान भारत पीएम-जय"],
+    benefit: ["Free hospital treatment up to ₹5 lakh per family per year at listed hospitals", "सूचीबद्ध अस्पतालों में प्रति परिवार हर साल ₹5 लाख तक मुफ्त इलाज"],
+    who: ["Poor and vulnerable families listed in the SECC database and state lists. Every citizen aged 70+ qualifies regardless of income (Ayushman Vay Vandana card).", "SECC डेटाबेस और राज्य सूची में शामिल गरीब और वंचित परिवार। 70+ उम्र के हर नागरिक को आय की परवाह किए बिना लाभ (आयुष्मान वय वंदना कार्ड)।"],
+    docs: ["aadhaar", "ration", "mobile"],
+    steps: [["Check your name at beneficiary.nha.gov.in or in the Ayushman app.", "beneficiary.nha.gov.in या आयुष्मान ऐप पर अपना नाम जाँचें।"],
+            ["Complete e-KYC and download your Ayushman card, or get it at a CSC or listed hospital.", "e-KYC पूरा करके आयुष्मान कार्ड डाउनलोड करें, या CSC या सूचीबद्ध अस्पताल से बनवाएँ।"],
+            ["At the hospital, go to the Ayushman Mitra desk. Treatment is cashless.", "अस्पताल में आयुष्मान मित्र डेस्क पर जाएँ। इलाज कैशलेस होता है।"]],
+    m: p => p.age >= 70 || p.income <= 1 },
+  { id: "pmjjby", cat: "ins", link: "https://jansuraksha.gov.in",
+    name: ["PM Jeevan Jyoti Bima Yojana", "प्रधानमंत्री जीवन ज्योति बीमा योजना"],
+    benefit: ["₹2 lakh life cover for ₹436 a year", "₹436 सालाना में ₹2 लाख का जीवन बीमा"],
+    who: ["Anyone aged 18–50 with a bank or post office savings account.", "बैंक या डाकघर बचत खाते वाला 18–50 उम्र का कोई भी व्यक्ति।"],
+    docs: ["aadhaar", "bank"],
+    steps: [["Ask at your bank or post office, or use net banking or the Jan Suraksha portal.", "बैंक या डाकघर में पूछें, या नेट बैंकिंग या जन सुरक्षा पोर्टल का उपयोग करें।"],
+            ["Give consent for auto-debit. The premium is deducted once a year.", "ऑटो-डेबिट की सहमति दें। प्रीमियम साल में एक बार कटता है।"],
+            ["Add a nominee. Cover starts after 30 days for new members (accidents are covered at once).", "नॉमिनी जोड़ें। नए सदस्यों का कवर 30 दिन बाद शुरू होता है (दुर्घटना तुरंत कवर)।"]],
+    m: p => p.age >= 18 && p.age <= 50 },
+  { id: "pmsby", cat: "ins", link: "https://jansuraksha.gov.in",
+    name: ["PM Suraksha Bima Yojana", "प्रधानमंत्री सुरक्षा बीमा योजना"],
+    benefit: ["₹2 lakh accident cover for ₹20 a year", "₹20 सालाना में ₹2 लाख का दुर्घटना बीमा"],
+    who: ["Anyone aged 18–70 with a bank or post office savings account.", "बैंक या डाकघर बचत खाते वाला 18–70 उम्र का कोई भी व्यक्ति।"],
+    docs: ["aadhaar", "bank"],
+    steps: [["Enrol at your bank, post office or the Jan Suraksha portal.", "बैंक, डाकघर या जन सुरक्षा पोर्टल पर नामांकन करें।"],
+            ["Allow auto-debit of ₹20 each year.", "हर साल ₹20 के ऑटो-डेबिट की अनुमति दें।"],
+            ["Covers accidental death or full disability (₹2 lakh) and partial disability (₹1 lakh).", "दुर्घटना में मृत्यु या पूर्ण विकलांगता पर ₹2 लाख, आंशिक विकलांगता पर ₹1 लाख।"]],
+    m: p => p.age >= 18 && p.age <= 70 },
+  { id: "apy", cat: "ins", link: "https://www.pfrda.org.in",
+    name: ["Atal Pension Yojana", "अटल पेंशन योजना"],
+    benefit: ["Guaranteed pension of ₹1,000 to ₹5,000 a month from age 60", "60 साल की उम्र से ₹1,000 से ₹5,000 महीने की गारंटीड पेंशन"],
+    who: ["Indian citizens aged 18–40 with a savings account. Not open to income-tax payers.", "बचत खाते वाले 18–40 उम्र के भारतीय नागरिक। आयकर देने वाले पात्र नहीं।"],
+    docs: ["aadhaar", "bank", "mobile"],
+    steps: [["Fill the APY form at your bank or post office, or through net banking.", "बैंक या डाकघर में या नेट बैंकिंग से APY फॉर्म भरें।"],
+            ["Choose your pension amount. Your monthly contribution depends on your age when you join.", "पेंशन राशि चुनें। मासिक योगदान जुड़ने की उम्र पर निर्भर करता है।"],
+            ["Contributions are auto-debited. Keep enough balance to avoid penalties.", "योगदान अपने-आप कटता है। जुर्माने से बचने के लिए खाते में बैलेंस रखें।"]],
+    m: p => p.age >= 18 && p.age <= 40 && !p.tax },
+  { id: "pmsym", cat: "ins", link: "https://maandhan.in",
+    name: ["PM Shram Yogi Maan-dhan", "प्रधानमंत्री श्रम योगी मान-धन"],
+    benefit: ["₹3,000 monthly pension after 60. You pay ₹55–₹200 a month and the government pays the same amount", "60 के बाद ₹3,000 मासिक पेंशन। आप ₹55–₹200 महीना देते हैं, उतना ही सरकार देती है"],
+    who: ["Unorganised workers aged 18–40 earning up to ₹15,000 a month. Not for EPFO, ESIC or NPS members or taxpayers.", "₹15,000 महीने तक कमाने वाले 18–40 उम्र के असंगठित मज़दूर। EPFO, ESIC, NPS सदस्य या आयकरदाता पात्र नहीं।"],
+    docs: ["aadhaar", "bank", "mobile"],
+    steps: [["Visit a CSC with your Aadhaar and bank passbook.", "आधार और बैंक पासबुक लेकर CSC जाएँ।"],
+            ["Pay the first contribution in cash at the CSC. After that it is auto-debited.", "पहला योगदान CSC पर नकद दें। उसके बाद अपने-आप कटेगा।"],
+            ["You get a Shram Yogi card with your pension account number.", "आपको पेंशन खाता नंबर के साथ श्रम योगी कार्ड मिलता है।"]],
+    m: p => p.age >= 18 && p.age <= 40 && p.income <= 1 && !p.tax && r(p, "worker", "vendor", "artisan") },
+  { id: "pmayu", cat: "house", link: "https://pmay-urban.gov.in",
+    name: ["PMAY-Urban 2.0", "प्रधानमंत्री आवास योजना-शहरी 2.0"],
+    benefit: ["Help of up to ₹2.5 lakh to build or buy a home, or an interest subsidy on a home loan", "घर बनाने या खरीदने के लिए ₹2.5 लाख तक की मदद, या होम लोन पर ब्याज सब्सिडी"],
+    who: ["Urban families with no pucca house anywhere in India, with yearly income up to ₹3 lakh (EWS), ₹6 lakh (LIG) or ₹9 lakh (MIG).", "शहरी परिवार जिनके पास भारत में कहीं पक्का घर नहीं है, और सालाना आय ₹3 लाख (EWS), ₹6 लाख (LIG) या ₹9 लाख (MIG) तक है।"],
+    docs: ["aadhaar", "income", "bank", "address"],
+    steps: [["Apply on pmay-urban.gov.in under ‘Apply for PMAY-U 2.0’.", "pmay-urban.gov.in पर ‘Apply for PMAY-U 2.0’ में आवेदन करें।"],
+            ["Pick your option: build your own house, an affordable housing project, rental housing, or interest subsidy.", "विकल्प चुनें: खुद घर बनाना, किफायती आवास प्रोजेक्ट, किराये का आवास, या ब्याज सब्सिडी।"],
+            ["Your city's municipal body verifies the application.", "आपके शहर का नगर निकाय आवेदन की जाँच करता है।"]],
+    m: p => p.area === "urban" && !p.pucca && p.income <= 3 },
+  { id: "pmayg", cat: "house", link: "https://pmayg.nic.in",
+    name: ["PMAY-Gramin", "प्रधानमंत्री आवास योजना-ग्रामीण"],
+    benefit: ["₹1.2 lakh (plains) or ₹1.3 lakh (hilly and North-East states) to build a pucca house, plus toilet support and MGNREGA wages", "पक्का घर बनाने के लिए ₹1.2 लाख (मैदानी) या ₹1.3 लाख (पहाड़ी और पूर्वोत्तर राज्य), साथ में शौचालय सहायता और मनरेगा मज़दूरी"],
+    who: ["Rural families who are homeless or live in kutcha houses, selected through the Awaas+ survey and checked by the gram sabha.", "बेघर या कच्चे घर में रहने वाले ग्रामीण परिवार, जिनका चयन आवास+ सर्वे से और सत्यापन ग्राम सभा करती है।"],
+    docs: ["aadhaar", "bank", "jobcard"],
+    steps: [["Ask your gram panchayat whether your family is on the Awaas+ list.", "ग्राम पंचायत से पूछें कि आपका परिवार आवास+ सूची में है या नहीं।"],
+            ["If not, ask to be added during the survey, or self-survey on the Awaas+ app when it is open.", "नहीं है तो सर्वे के दौरान नाम जुड़वाएँ, या खुला होने पर आवास+ ऐप पर स्वयं सर्वे करें।"],
+            ["Money comes in instalments to your bank account as construction progresses.", "निर्माण आगे बढ़ने पर पैसा किस्तों में सीधे बैंक खाते में आता है।"]],
+    m: p => p.area === "rural" && !p.pucca && p.income <= 1 },
+  { id: "ujjwala", cat: "women", link: "https://www.pmuy.gov.in",
+    name: ["PM Ujjwala Yojana", "प्रधानमंत्री उज्ज्वला योजना"],
+    benefit: ["Free LPG connection with first refill and stove, plus a subsidy on refills (₹300 per cylinder in 2025–26)", "मुफ्त LPG कनेक्शन, पहली रिफिल और चूल्हा, साथ में रिफिल पर सब्सिडी (2025–26 में ₹300 प्रति सिलेंडर)"],
+    who: ["Adult women from poor households that have no LPG connection.", "गरीब परिवारों की वयस्क महिलाएँ जिनके घर में LPG कनेक्शन नहीं है।"],
+    docs: ["aadhaar", "ration", "bank", "address"],
+    steps: [["Apply at pmuy.gov.in or at any Indane, Bharat Gas or HP Gas distributor.", "pmuy.gov.in पर या किसी भी इंडेन, भारत गैस या एचपी गैस वितरक के पास आवेदन करें।"],
+            ["Submit KYC, your ration card and a self-declaration.", "KYC, राशन कार्ड और स्व-घोषणा पत्र जमा करें।"],
+            ["The subsidy is credited to your bank account for up to 12 refills a year.", "साल में 12 रिफिल तक सब्सिडी बैंक खाते में आती है।"]],
+    m: p => p.gender === "f" && p.age >= 18 && p.income <= 1 },
+  { id: "ssy", cat: "women", link: "https://www.nsiindia.gov.in",
+    name: ["Sukanya Samriddhi Yojana", "सुकन्या समृद्धि योजना"],
+    benefit: ["High-interest, tax-free savings for your daughter. Deposit ₹250 to ₹1.5 lakh a year", "बेटी के लिए ऊँचे ब्याज वाली, टैक्स-फ्री बचत। साल में ₹250 से ₹1.5 लाख जमा करें"],
+    who: ["Parents or guardians of a girl under 10. Up to two girls per family (three in case of twins or triplets).", "10 साल से छोटी बेटी के माता-पिता या अभिभावक। प्रति परिवार दो बेटियाँ (जुड़वाँ/तीन होने पर तीन)।"],
+    docs: ["birth", "aadhaar", "address", "photo"],
+    steps: [["Open the account at a post office or an authorised bank.", "डाकघर या अधिकृत बैंक में खाता खोलें।"],
+            ["Deposit for 15 years. The account matures when she turns 21.", "15 साल तक जमा करें। बेटी के 21 साल होने पर खाता परिपक्व होता है।"],
+            ["Up to 50% can be withdrawn at 18 for her education. The interest rate is set every quarter.", "18 साल पर पढ़ाई के लिए 50% तक निकाल सकते हैं। ब्याज दर हर तिमाही तय होती है।"]],
+    m: p => p.girl },
+  { id: "pmmvy", cat: "women", link: "https://pmmvy.wcd.gov.in",
+    name: ["PM Matru Vandana Yojana", "प्रधानमंत्री मातृ वंदना योजना"],
+    benefit: ["₹5,000 for the first child, and ₹6,000 if the second child is a girl, paid to the mother's bank account", "पहले बच्चे पर ₹5,000, और दूसरी संतान बेटी होने पर ₹6,000, सीधे माँ के बैंक खाते में"],
+    who: ["Pregnant women and new mothers from low-income families, for example SC/ST, BPL, e-Shram, PM-JAY or MGNREGA card holders, or family income under ₹8 lakh.", "कम आय वाले परिवारों की गर्भवती महिलाएँ और नई माताएँ, जैसे SC/ST, BPL, ई-श्रम, पीएम-जय या मनरेगा कार्डधारक, या ₹8 लाख से कम पारिवारिक आय।"],
+    docs: ["aadhaar", "mcp", "bank"],
+    steps: [["Register with your anganwadi worker or ASHA, or on pmmvy.wcd.gov.in.", "आंगनवाड़ी कार्यकर्ता या आशा के पास, या pmmvy.wcd.gov.in पर रजिस्टर करें।"],
+            ["Register the pregnancy early and attend check-ups.", "गर्भावस्था का जल्दी पंजीकरण कराएँ और जाँच कराती रहें।"],
+            ["Money comes in instalments. For a second girl child it is paid after birth.", "पैसा किस्तों में आता है। दूसरी बेटी के लिए जन्म के बाद मिलता है।"]],
+    m: p => p.mother && p.income <= 3 },
+  { id: "suryaghar", cat: "energy", link: "https://pmsuryaghar.gov.in",
+    name: ["PM Surya Ghar: Muft Bijli Yojana", "पीएम सूर्य घर: मुफ्त बिजली योजना"],
+    benefit: ["Subsidy up to ₹78,000 for rooftop solar (₹30,000 per kW for 2 kW, ₹18,000 for the 3rd kW), for up to 300 free units a month", "रूफटॉप सोलर पर ₹78,000 तक सब्सिडी (2 kW तक ₹30,000 प्रति kW, तीसरे kW पर ₹18,000), जिससे हर महीने 300 यूनिट तक मुफ्त बिजली"],
+    who: ["Households that own a house with a suitable roof and an electricity connection, and haven't taken another solar subsidy.", "ऐसे परिवार जिनके अपने घर की छत उपयुक्त हो, बिजली कनेक्शन हो, और कोई दूसरी सोलर सब्सिडी न ली हो।"],
+    docs: ["ebill", "aadhaar", "bank"],
+    steps: [["Register at pmsuryaghar.gov.in with your electricity consumer number.", "बिजली उपभोक्ता नंबर के साथ pmsuryaghar.gov.in पर रजिस्टर करें।"],
+            ["Choose a registered vendor and get the DISCOM approval and net meter.", "पंजीकृत वेंडर चुनें, DISCOM की मंज़ूरी और नेट मीटर लें।"],
+            ["After inspection, the subsidy is paid to your bank account. Low-interest loans are available.", "निरीक्षण के बाद सब्सिडी बैंक खाते में आती है। कम ब्याज पर ऋण भी मिलता है।"]],
+    m: p => p.pucca },
+  { id: "internship", cat: "youth", link: "https://pminternship.mca.gov.in",
+    name: ["PM Internship Scheme", "पीएम इंटर्नशिप योजना"],
+    benefit: ["12-month internship at a top company with ₹5,000 a month and a ₹6,000 one-time grant", "बड़ी कंपनी में 12 महीने की इंटर्नशिप, ₹5,000 महीना और ₹6,000 एकमुश्त अनुदान"],
+    who: ["Youth aged 21–24 not in a full-time job or full-time study, family income under ₹8 lakh, and no family member in a government job. Runs in rounds, so check the portal for open dates.", "21–24 उम्र के युवा जो पूर्णकालिक नौकरी या पढ़ाई में नहीं हैं, पारिवारिक आय ₹8 लाख से कम, और परिवार में कोई सरकारी नौकरी में नहीं। आवेदन राउंड में खुलते हैं, तारीख पोर्टल पर देखें।"],
+    docs: ["aadhaar", "edu", "bank"],
+    steps: [["Register at pminternship.mca.gov.in with Aadhaar e-KYC.", "आधार e-KYC के साथ pminternship.mca.gov.in पर रजिस्टर करें।"],
+            ["Choose up to 5 internships by location and sector.", "स्थान और क्षेत्र के आधार पर 5 इंटर्नशिप तक चुनें।"],
+            ["Companies shortlist you. Accept the offer on the portal.", "कंपनियाँ शॉर्टलिस्ट करती हैं। ऑफर पोर्टल पर स्वीकार करें।"]],
+    m: p => p.age >= 21 && p.age <= 24 && p.income <= 2 && r(p, "jobseeker", "student") },
+  { id: "nsp", cat: "youth", link: "https://scholarships.gov.in",
+    name: ["National Scholarship Portal", "राष्ट्रीय छात्रवृत्ति पोर्टल"],
+    benefit: ["One place to apply for central and many state scholarships: pre-matric, post-matric, merit and minority", "केंद्र और कई राज्यों की छात्रवृत्तियों के लिए एक ही जगह: प्री-मैट्रिक, पोस्ट-मैट्रिक, मेरिट और अल्पसंख्यक"],
+    who: ["School and college students. Each scholarship has its own income and category limits.", "स्कूल और कॉलेज के छात्र। हर छात्रवृत्ति की अपनी आय और वर्ग की शर्तें होती हैं।"],
+    docs: ["aadhaar", "income", "caste", "edu", "bank"],
+    steps: [["Register on scholarships.gov.in with One Time Registration (OTR).", "scholarships.gov.in पर वन टाइम रजिस्ट्रेशन (OTR) करें।"],
+            ["Choose the scholarships you qualify for and upload documents.", "जिन छात्रवृत्तियों के पात्र हैं उन्हें चुनें और कागज़ अपलोड करें।"],
+            ["Your school or college verifies the form. Track status on the portal.", "आपका स्कूल या कॉलेज फॉर्म सत्यापित करता है। स्थिति पोर्टल पर देखें।"]],
+    m: p => r(p, "student") }
+];
+
+/* ---------- state ---------- */
+let lang = "en";
+let filter = "mine";
+let query = "";
+let matches = new Set();
+const L = pair => (lang === "hi" ? pair[1] : pair[0]);
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+try { const saved = localStorage.getItem("yd-lang"); if (saved === "hi" || saved === "en") lang = saved; } catch (e) {}
+
+// Keep the English copy from the HTML so we can switch back.
+document.querySelectorAll("[data-t]").forEach(el => {
+  I18N.en[el.dataset.t] = el.hasAttribute("data-html") ? el.innerHTML : el.textContent;
+});
+I18N.en.searchPh = $("q").placeholder;
+
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-t]").forEach(el => {
+    const v = I18N[lang][el.dataset.t] ?? I18N.en[el.dataset.t];
+    if (v == null) return;
+    if (el.hasAttribute("data-html")) el.innerHTML = v; else el.textContent = v;
+  });
+  $("q").placeholder = I18N[lang].searchPh ?? I18N.en.searchPh;
+  ["en", "hi"].forEach(k => $("lang-" + k).setAttribute("aria-pressed", String(k === lang)));
+  renderRoles();
+  update();
+}
+
+function renderRoles() {
+  const box = $("f-roles");
+  const checked = new Set([...box.querySelectorAll("input:checked")].map(i => i.value));
+  if (!box.children.length) checked.add("farmer");
+  box.innerHTML = ROLES.map(([v, en, hi]) =>
+    `<label class="chip"><input type="checkbox" id="role-${v}" value="${v}"${checked.has(v) ? " checked" : ""}><span>${lang === "hi" ? hi : en}</span></label>`).join("");
+}
+
+function profile() {
+  return {
+    age: parseInt($("f-age").value, 10) || 0,
+    gender: $("f-gender").value, area: $("f-area").value,
+    income: parseInt($("f-income").value, 10), cat: $("f-cat").value,
+    roles: new Set([...$("f-roles").querySelectorAll("input:checked")].map(i => i.value)),
+    tax: $("f-tax").checked, pucca: $("f-pucca").checked, girl: $("f-girl").checked, mother: $("f-mother").checked
+  };
+}
+
+function update() {
+  const p = profile();
+  matches = new Set(SCHEMES.filter(s => s.m(p)).map(s => s.id));
+  $("r-count").innerHTML = UI[lang].count(matches.size);
+  $("r-list").innerHTML = SCHEMES.filter(s => matches.has(s.id))
+    .map(s => `<li><a href="#${s.id}" data-jump="${s.id}">${esc(L(s.name))}</a></li>`).join("");
+  renderFilters();
+  renderCards();
+}
+
+function renderFilters() {
+  const counts = {};
+  SCHEMES.forEach(s => (counts[s.cat] = (counts[s.cat] || 0) + 1));
+  const btn = (key, label, n) => `<button type="button" data-f="${key}" aria-pressed="${filter === key}">${esc(label)}<span class="n">${n}</span></button>`;
+  $("filters").innerHTML = btn("mine", UI[lang].mine, matches.size) + btn("all", UI[lang].all, SCHEMES.length) +
+    Object.keys(CATS).map(k => btn(k, L(CATS[k]), counts[k] || 0)).join("");
+}
+
+function renderCards() {
+  const q = query.trim().toLowerCase();
+  const list = SCHEMES.filter(s => {
+    if (filter === "mine" && !matches.has(s.id)) return false;
+    if (filter !== "mine" && filter !== "all" && s.cat !== filter) return false;
+    if (!q) return true;
+    const hay = [s.name, s.benefit, s.who, CATS[s.cat]].flat().join(" ").toLowerCase();
+    return hay.includes(q);
+  });
+  const u = UI[lang];
+  $("cards").innerHTML = list.length ? list.map((s, i) => `
+    <article class="card" id="${s.id}">
+      <div class="meta"><span class="label">No. ${String(SCHEMES.indexOf(s) + 1).padStart(2, "0")} · ${esc(L(CATS[s.cat]))}</span></div>
+      ${matches.has(s.id) ? `<div class="stamp">${esc(u.stamp)}</div>` : ""}
+      <h3>${esc(L(s.name))}</h3>
+      <div class="benefit">${esc(L(s.benefit))}</div>
+      <p class="who">${esc(L(s.who))}</p>
+      <div><div class="label">${esc(u.docs)}</div><div class="docs">${s.docs.map(d => `<span>${esc(L(DOCS[d]))}</span>`).join("")}</div></div>
+      <details><summary>${esc(u.how)}</summary><ol>${s.steps.map(st => `<li>${esc(L(st))}</li>`).join("")}</ol></details>
+      <div class="card-foot">
+        <a class="btn small" href="${s.link}" target="_blank" rel="noopener">${esc(u.official)} ↗</a>
+        <button type="button" class="btn small ghost" data-share="${s.id}">${esc(u.share)}</button>
+        <span class="label">${esc(u.checked)}: ${esc(CONFIG.lastChecked)}</span>
+      </div>
+    </article>`).join("") : `<div class="empty">${esc(u.none)}</div>`;
+}
+
+function toast(msg) {
+  const t = $("toast"); t.textContent = msg; t.hidden = false;
+  clearTimeout(toast.timer); toast.timer = setTimeout(() => (t.hidden = true), 1800);
+}
+
+function openScheme(id) {
+  const s = SCHEMES.find(x => x.id === id);
+  if (!s) return;
+  if (!document.getElementById(id)) { filter = "all"; query = ""; $("q").value = ""; renderFilters(); renderCards(); }
+  const el = document.getElementById(id);
+  el.querySelector("details").open = true;
+  el.scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+  el.style.outline = "3px solid var(--turmeric)";
+  setTimeout(() => (el.style.outline = ""), 2000);
+}
+
+/* ---------- events ---------- */
+$("checker").addEventListener("input", update);
+$("checker").addEventListener("change", update);
+$("checker").addEventListener("submit", e => e.preventDefault());
+$("filters").addEventListener("click", e => {
+  const b = e.target.closest("button[data-f]"); if (!b) return;
+  filter = b.dataset.f; renderFilters(); renderCards();
+});
+$("q").addEventListener("input", e => {
+  query = e.target.value;
+  if (query && filter === "mine") filter = "all";
+  renderFilters(); renderCards();
+});
+document.querySelector(".lang").addEventListener("click", e => {
+  const b = e.target.closest("button[data-lang]"); if (!b) return;
+  lang = b.dataset.lang;
+  try { localStorage.setItem("yd-lang", lang); } catch (err) {}
+  applyLang();
+});
+document.addEventListener("click", e => {
+  const j = e.target.closest("[data-jump]");
+  if (j) { e.preventDefault(); openScheme(j.dataset.jump); return; }
+  const s = e.target.closest("[data-share]");
+  if (s) {
+    const url = location.href.split("#")[0] + "#" + s.dataset.share;
+    const done = () => toast(UI[lang].copied);
+    try { navigator.clipboard.writeText(url).then(done, () => toast(url)); } catch (err) { toast(url); }
+  }
+});
+
+/* ---------- boot ---------- */
+const ig = "https://www.instagram.com/" + CONFIG.instagram + "/";
+$("ig-top").href = ig; $("ig-band").href = ig; $("wa-band").href = CONFIG.whatsappChannel;
+$("handles").textContent = "@" + CONFIG.instagram;
+applyLang();
+const start = location.hash.replace("#", "");
+if (start && SCHEMES.some(s => s.id === start)) setTimeout(() => openScheme(start), 50);
+</script>

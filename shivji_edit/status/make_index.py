@@ -210,6 +210,12 @@ def words(id_, text, top, extra=""):
     return f'<div id="{id_}" class="cap" style="top: {top}px{extra}">{ws}</div>'
 
 
+def end_note(photos):
+    """Small closing credit: names every painting whose licence asks for attribution."""
+    att = [f'{p["author"]} ({p["license"]})' for p in photos if not p["license"].lower().startswith(("public domain", "cc0"))]
+    return "Paintings via Wikimedia Commons · public domain" + (" · " + ", ".join(att) if att else "")
+
+
 def build_html(photos):
     n = len(photos)
     imgs = "\n".join(
@@ -267,7 +273,7 @@ def build_html(photos):
       <!-- ending -->
       <section id="ending" class="clip full" data-start="{END}" data-duration="{round(DUR - END, 2)}" data-track-index="4">
         <div id="end-deva">॥ हर हर महादेव ॥</div>
-        <div id="end-note">Paintings: public domain · Wikimedia Commons</div>
+        <div id="end-note">{e(end_note(photos))}</div>
       </section>
 
       <div id="black"></div>
@@ -363,8 +369,9 @@ def build_credits(photos):
     lines = [
         "# Credits: Mahadev status reel",
         "",
-        "All paintings come from [Wikimedia Commons](https://commons.wikimedia.org/) and are public domain or CC0, as read",
-        "from the Commons API, so no attribution is legally required. They are credited here anyway. In the video they are",
+        "All paintings come from [Wikimedia Commons](https://commons.wikimedia.org/), used under the licences below, as read",
+        "from the Commons API. Public-domain and CC0 works need no attribution but are credited anyway; CC BY works are",
+        "also credited in the closing note on screen. In the video they are",
         "cropped to 9:16, colour-graded and animated, with captions on top.",
         "",
         "| # | Painting | Author | Licence | Asset |",

@@ -12,7 +12,7 @@ for d in sorted(glob.glob(os.path.join(dl, "*"))):
                 meta[k], where[k] = v, d  # keep the largest download of each photo
 ORDER = sys.argv[3].split(",")
 INSET = {"s4": (0.04, 0.03, 0.04, 0.03), "s6": (0.06, 0.05, 0, 0.02)}  # key: (l, t, r, b): paper borders
-AUTHOR = {"s1": "Unknown artist", "s2": "Nandalal Bose (illustrator)", "s4": "Unknown artist, Kullu school", "s6": "Unknown artist", "i1": "Unknown artist", "i2": "Unknown artist (Tanjore painting)"}  # tidy "Unknown authorUnknown author" etc.
+AUTHOR = {"s1": "Unknown artist", "s2": "Nandalal Bose (illustrator)", "s4": "Unknown artist, Kullu school", "s6": "Unknown artist", "w1": "Wellcome Collection", "w2": "Attributed to the first generation after Manaku and Nainsukh", "w3": "Unknown Kangra muralists", "w4": "Unknown artist"}  # tidy "Unknown authorUnknown author" etc.
 LABEL = {}
 FOCUS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "focus.json")))
 TW, TH = 1300, 2310  # cover box: frame x ~1.2 for the Ken Burns move

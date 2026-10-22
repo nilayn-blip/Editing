@@ -19,3 +19,6 @@ shivji_edit/krishna/project/.hyperframes/
 shivji_edit/krishna/project/snapshots/
 shivji_edit/krishna/output/work-*/
 shivji_edit/krishna/output/.*hf-transaction*/
+shivji_edit/reels/*/.dl/
+shivji_edit/reels/*/.work/
+shivji_edit/reels/*/project/.hyperframes/

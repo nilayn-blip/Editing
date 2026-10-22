@@ -1,0 +1,51 @@
+# Content plan: @nirva_nataless
+
+One reel per day for Instagram (@nirva_nataless), about Shiva and Vedic/Puranic folklore and tales, until the page
+reaches **10,000 followers**. The owner says when it does; the follower count can't be read from this
+environment.
+
+Each reel is made with `reel_kit/kit.py` (see `reels/HOWTO.md`) and lives in `reels/NN-slug/`.
+After it is made, tick it below and fill in the date and path.
+
+## Formats (alternate them)
+- **Quote reel** (about 25–30 s): a black hook card, then 3 short spoken lines building to one feeling, then a
+  closing chant. Like `status/` (Mahadev) and `krishna/`.
+- **Story reel** (about 40–55 s): a hook question, then 5–7 one-line beats telling a tale from the Puranas or
+  Upanishads in plain spoken Hindi with a few English words, ending on a one-line lesson and a chant. These do
+  well for saves and shares.
+
+## Queue
+| # | Format | Topic | Hook idea | End chant | Raga | Done |
+|---|---|---|---|---|---|---|
+| 01 | Story | **Neelkanth**: why Shiva's throat is blue (Samudra Manthan, the halahala poison) | "Shiva का गला नीला क्यों है?" | ॥ हर हर महादेव ॥ | shivaranjani | |
+| 02 | Quote | सत्यम् शिवम् सुंदरम्: "जो सत्य है, वही शिव है…" | "जब मन बहुत heavy हो…" | ॥ सत्यम् शिवम् सुंदरम् ॥ | durga | |
+| 03 | Story | **Gangavatarana**: Bhagiratha's tapasya; Shiva catches Ganga in his jata | "Ganga धरती पर कैसे आईं?" | ॥ हर हर गंगे ॥ | yaman | |
+| 04 | Quote | Krishna: "कर्म करो, फल की चिंता मत करो" (Gita 2.47, in plain words) | "जब result आपके हाथ में ना हो…" | ॥ जय श्री कृष्ण ॥ | bhupali | |
+| 05 | Story | **Markandeya**: the boy who embraced the lingam and defeated Yama (Mahamrityunjaya) | "एक बच्चा जिसने मौत को हरा दिया" | ॐ त्र्यम्बकं यजामहे… | bhairav | |
+| 06 | Quote | Mahadev and patience: "भोले की भक्ति में देर है, अंधेर नहीं" | "अगर प्रार्थना का जवाब नहीं आ रहा…" | ॥ हर हर महादेव ॥ | shivaranjani | |
+| 07 | Story | **Nachiketa and Yama** (Katha Upanishad): the boy who asked Death what happens after death | "Yamraj से सवाल पूछने वाला बच्चा" | ॥ ॐ ॥ | malkauns | |
+| 08 | Story | **Ardhanarishvara**: Shiva and Parvati as one | "आधा शिव, आधी शक्ति" | ॥ ॐ नमः शिवाय ॥ | yaman | |
+| 09 | Story | **Lingodbhava**: Brahma and Vishnu search for the end of the pillar of light | "Shiva का आदि और अंत किसी को नहीं मिला" | ॥ हर हर महादेव ॥ | malkauns | |
+| 10 | Quote | Radha–Krishna love: "प्रेम में पाना ज़रूरी नहीं…" | "सच्चा प्रेम क्या है?" | ॥ राधे राधे ॥ | bhupali | |
+| 11 | Story | **Kamadeva** turned to ash by Shiva's third eye | "Shiva की तीसरी आँख खुली तो…" | ॥ हर हर महादेव ॥ | bhairav | |
+| 12 | Story | **Ravana lifts Kailash** and the Shiva Tandava Stotram is born | "Ravana ने Kailash उठाया, फिर…" | ॥ जय शिव शंकर ॥ | malkauns | |
+| 13 | Quote | "शिव कोई व्यक्ति नहीं, एक अवस्था हैं" (stillness, letting go) | "जब सब छूट जाए…" | ॥ ॐ नमः शिवाय ॥ | shivaranjani | |
+| 14 | Story | **Sati and Daksha's yajna**: the origin of the Shakti Peethas | "Shiva का सबसे बड़ा दुःख" | ॥ जय माँ शक्ति ॥ | bhairav | |
+| 15 | Story | **Kannappa**: the hunter who offered his own eyes | "सबसे बड़ा भक्त कौन?" | ॥ हर हर महादेव ॥ | durga | |
+| 16 | Story | **Birth of Ganesha**: Parvati's guard and Shiva's trident | "Ganesha का सिर हाथी का क्यों है?" | ॥ गणपति बाप्पा मोरया ॥ | bhupali | |
+| 17 | Story | **Prahlad and Narasimha**: faith that fire could not burn | "भरोसा क्या होता है?" | ॥ जय नरसिंह देव ॥ | bhairav | |
+| 18 | Story | **Dhruva**: the five-year-old whose devotion became the Pole Star | "Dhruv तारा अटल क्यों है?" | ॥ ॐ नमो भगवते वासुदेवाय ॥ | yaman | |
+| 19 | Story | **Savitri and Satyavan**: love that argued with Yama | "जिसने यमराज से पति वापस ले लिया" | ॥ जय माँ सावित्री ॥ | malkauns | |
+| 20 | Quote | Kashi: "जहाँ मृत्यु भी मोक्ष है" | "एक शहर जिसे शिव कभी नहीं छोड़ते" | ॥ हर हर महादेव ॥ | shivaranjani | |
+| 21 | Story | **Shiva as Kirata and Arjuna**: earning the Pashupatastra | "जब Arjuna Shiva से लड़ बैठे" | ॥ हर हर महादेव ॥ | durga | |
+| 22 | Quote | The Gayatri Mantra with its meaning in simple Hindi | "दुनिया का सबसे powerful मंत्र" | ॥ ॐ भूर्भुवः स्वः ॥ | bhairav | |
+| 23 | Story | **Nandi**: why the bull always faces Shiva | "Nandi के कान में wish क्यों कहते हैं?" | ॥ हर हर महादेव ॥ | durga | |
+| 24 | Story | **Tripurantaka**: one arrow, three cities | "Shiva का एक तीर, तीन नगर" | ॥ जय त्रिपुरारी ॥ | malkauns | |
+| 25 | Quote | Bhagavad Gita 2.20: "आत्मा ना जन्म लेती है, ना मरती है" | "जब किसी अपने को खो दो…" | ॥ जय श्री कृष्ण ॥ | yaman | |
+
+When the queue runs out, add new tales in the same spirit (Puranas, Upanishads, Mahabharata and Ramayana side
+stories, the 12 Jyotirlinga legends one at a time, the Navadurga). Never repeat a topic that is already ticked.
+
+## Made
+| # | Date | Path |
+|---|---|---|

@@ -34,7 +34,7 @@ cd project
 export HYPERFRAMES_BROWSER_PATH=/opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell   # resolve the glob
 npx hyperframes@0.8.184 check
 npx hyperframes@0.8.184 render --quality delivery --fps 30 --output /tmp/master.mp4
-ffmpeg -i /tmp/master.mp4 -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p -movflags +faststart -c:a copy ../output/om_namah_shivaya.mp4
+ffmpeg -i /tmp/master.mp4 -c:v libx264 -preset slow -crf 20 -tune film -pix_fmt yuv420p -movflags +faststart -c:a copy ../output/om_namah_shivaya.mp4   # grain makes CRF 18 ~82 MB; CRF 20 ~54 MB
 ```
 
 ## Posting tips

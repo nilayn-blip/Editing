@@ -11,8 +11,8 @@ for d in sorted(glob.glob(os.path.join(dl, "*"))):
             if k not in meta or os.path.getsize(fn) > os.path.getsize(os.path.join(where[k], k + ".jpg")):
                 meta[k], where[k] = v, d  # keep the largest download of each photo
 ORDER = sys.argv[3].split(",")
-INSET = {}  # key: (l, t, r, b) fractions to crop off
-AUTHOR = {"s1": "Unknown artist", "s6": "Unknown artist (Cleveland Museum of Art)"}  # tidy "Unknown authorUnknown author" etc.
+INSET = {"s4": (0.04, 0.03, 0.04, 0.03), "s6": (0.06, 0.05, 0, 0.02)}  # key: (l, t, r, b): paper borders
+AUTHOR = {"s1": "Unknown artist", "s2": "Nandalal Bose (illustrator)", "s4": "Unknown artist, Kullu school", "s6": "Unknown artist"}  # tidy "Unknown authorUnknown author" etc.
 LABEL = {}
 FOCUS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "focus.json")))
 TW, TH = 1300, 2310  # cover box: frame x ~1.2 for the Ken Burns move

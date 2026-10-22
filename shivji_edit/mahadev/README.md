@@ -26,7 +26,7 @@ The photos are from Wikimedia Commons. See [CREDITS.md](CREDITS.md).
 ```
 pip install numpy scipy pillow
 python3 -I tools/fetch.py tools/photos.txt /tmp/dl/a 1920        # only to change photos
-python3 -I tools/assemble.py /tmp/dl project m1,m2,m3,m4,m5,m6
+python3 -I tools/assemble.py /tmp/dl project m1b,m2,m3,m4,m5b,m6
 python3 soundtrack.py /tmp/st.wav
 ffmpeg -i /tmp/st.wav -af "volume=1.4dB,alimiter=limit=0.84:level=false" -c:a libmp3lame -b:a 192k project/assets/soundtrack.mp3   # -14.0 LUFS
 python3 make_index.py

@@ -11,7 +11,7 @@ for d in sorted(glob.glob(os.path.join(dl, "*"))):
             if k not in meta or os.path.getsize(fn) > os.path.getsize(os.path.join(where[k], k + ".jpg")):
                 meta[k], where[k] = v, d  # keep the largest download of each photo
 ORDER = sys.argv[3].split(",")
-INSET = {"s4": (0.04, 0.03, 0.04, 0.03), "s6": (0.06, 0.05, 0, 0.02)}  # key: (l, t, r, b): paper borders
+INSET = {"w2": (0.16, 0.2, 0.16, 0.13), "s4": (0.04, 0.03, 0.04, 0.03), "s6": (0.06, 0.05, 0, 0.02)}  # key: (l, t, r, b): paper borders
 AUTHOR = {"s1": "Unknown artist", "s2": "Nandalal Bose (illustrator)", "s4": "Unknown artist, Kullu school", "s6": "Unknown artist", "w1": "Raja Ravi Varma (print; Wellcome Collection)", "w2": "Attributed to the first generation after Manaku and Nainsukh", "w3": "Unknown Kangra muralists", "w4": "Unknown artist"}  # tidy "Unknown authorUnknown author" etc.
 LABEL = {}
 FOCUS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "focus.json")))

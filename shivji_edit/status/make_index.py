@@ -277,8 +277,8 @@ def build_html(photos):
       // Output times; keep in sync with make_index.py and soundtrack.py
       const DUR = {DUR}, IMG0 = {IMG0}, IMG_LEN = {IMG_LEN}, END = {END}, NPH = {n};
       const C1 = {c1}, C2 = {c2}, C3 = {c3};
-      // narration: [start, duration] of each spoken line; captions reveal word by word across the line
-      const VO = {json.dumps([[l["start"], l["dur"]] for l in SPOKEN])};
+      // narration: [start, duration, words] of each spoken line; captions reveal word by word across the line
+      const VO = {json.dumps([[l["start"], l["dur"], len(l["caption"].split())] for l in SPOKEN])};
 
       // seeded PRNG (determinism: no Math.random)
       let seed = 1008;
@@ -316,8 +316,7 @@ def build_html(photos):
       }});
 
       // word-by-word reveal
-      const reveal = (sel, [t0, len]) => {{
-        const n = document.querySelectorAll(`${{sel}} .w`).length;
+      const reveal = (sel, [t0, len, n]) => {{
         tl.fromTo(`${{sel}} .w`, {{ opacity: 0, y: 8, filter: "blur(6px)" }},
           {{ opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45, stagger: (len * 0.92) / n, ease: "power2.out" }}, t0 - 0.05);
       }};

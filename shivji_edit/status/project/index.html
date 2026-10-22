@@ -239,8 +239,8 @@
       // Output times; keep in sync with make_index.py and soundtrack.py
       const DUR = 29.0, IMG0 = 5.01, IMG_LEN = 3.0, END = 26.01, NPH = 7;
       const C1 = 5.01, C2 = 12.01, C3 = 19.01;
-      // narration: [start, duration] of each spoken line; captions reveal word by word across the line
-      const VO = [[0.5, 3.913], [5.51, 1.405], [12.31, 1.95], [19.41, 2.984], [26.51, 1.289]];
+      // narration: [start, duration, words] of each spoken line; captions reveal word by word across the line
+      const VO = [[0.5, 3.913, 11], [5.51, 1.405, 4], [12.31, 1.95, 6], [19.41, 2.984, 9], [26.51, 1.289, 5]];
 
       // seeded PRNG (determinism: no Math.random)
       let seed = 1008;
@@ -278,8 +278,7 @@
       });
 
       // word-by-word reveal
-      const reveal = (sel, [t0, len]) => {
-        const n = document.querySelectorAll(`${sel} .w`).length;
+      const reveal = (sel, [t0, len, n]) => {
         tl.fromTo(`${sel} .w`, { opacity: 0, y: 8, filter: "blur(6px)" },
           { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45, stagger: (len * 0.92) / n, ease: "power2.out" }, t0 - 0.05);
       };

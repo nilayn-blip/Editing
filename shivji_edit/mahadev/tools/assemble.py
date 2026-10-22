@@ -14,7 +14,8 @@ ORDER = sys.argv[3].split(",")
 INSET = {}  # key: (l, t, r, b) fractions to crop off
 AUTHOR = {"m2": "Wolfgang Maehr", "m4": "Tim Evanson"}  # Commons "Artist" includes place / link text
 LABEL = {"m1": "Murudeshwar", "m2": "Haridwar", "m3": "Shivaratri, Kolkata", "m4": "Nataraja",
-         "m5": "Adiyogi", "m6": "Mount Kailash"}
+         "m5": "Adiyogi", "m6": "Mount Kailash",
+         "m1b": "Murudeshwar", "m5b": "Adiyogi", "m5c": "Adiyogi"}
 FOCUS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "focus.json")))
 TW, TH = 1300, 2310  # cover box: frame x ~1.2 for the Ken Burns move
 photos = []

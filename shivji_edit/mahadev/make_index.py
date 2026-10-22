@@ -256,12 +256,17 @@ CSS = """
       /* syllable tracker: न म शि वा य lighting up one by one */
       #tracker {
         position: absolute;
-        left: 0;
-        right: 0;
-        top: 236px;
+        left: 290px;
+        width: 500px;
+        top: 226px;
+        padding: 4px 0 0;
         display: flex;
         justify-content: center;
         gap: 34px;
+        border-radius: 60px;
+        background: rgba(12, 4, 0, 0.62);
+        box-shadow: 0 0 30px rgba(12, 4, 0, 0.6);
+        border: 1px solid rgba(247, 198, 74, 0.35);
       }
       #tracker .tk {
         font-family: "Tiro Devanagari Sanskrit", serif;
@@ -499,7 +504,7 @@ def build_html(photos):
         <div id="grade" class="full"></div>
         <div id="band-top" class="band-top"></div>
         <div id="band-bottom" class="band-bottom"></div>
-        <div id="rays"></div>
+        <div id="rays" data-layout-allow-overflow></div>
         <div id="haze1" class="haze" style="left: -260px; top: 1100px"></div>
         <div id="haze2" class="haze" style="left: 420px; top: 1300px"></div>
         <div id="haze3" class="haze" style="left: 80px; top: 600px"></div>
@@ -532,7 +537,7 @@ def build_html(photos):
 
       <!-- climax: the five syllables gather into the mantra -->
       <section id="climax" class="clip full" data-start="{CLIMAX}" data-duration="{round(END - CLIMAX + 0.2, 2)}" data-track-index="4">
-        <svg id="mandala" viewBox="-400 -400 800 800">
+        <svg id="mandala" data-layout-allow-overflow viewBox="-400 -400 800 800">
           <g id="mandala-spin"></g>
         </svg>
         <div id="climax-om"><div class="deva">ॐ</div></div>
@@ -685,10 +690,11 @@ def build_html(photos):
         tl.fromTo(`${{id}} .gloss`, {{ opacity: 0 }}, {{ opacity: 0.9, duration: 0.6 }}, t0 + 1.2);
         tl.to([`${{id}} .syl`, `${{id}} .stack`], {{ opacity: 0, duration: 0.4, ease: "power1.in" }}, t0 + BEAT_LEN - 0.45);
         // tracker: this syllable lights up and stays lit
-        tl.fromTo(`#tk${{k}}`, {{ opacity: 0.25, scale: 0.8 }}, {{ opacity: 1, scale: 1.25, duration: 0.5, ease: "back.out(2)" }}, t0 + 0.1);
+        tl.fromTo(`#tk${{k}}`, {{ opacity: 0.6, scale: 0.8 }}, {{ opacity: 1, scale: 1.25, duration: 0.5, ease: "back.out(2)" }}, t0 + 0.1);
         tl.to(`#tk${{k}}`, {{ scale: 1, duration: 0.6, ease: "sine.inOut" }}, t0 + 0.6);
       }});
-      tl.fromTo("#tracker .tk", {{ opacity: 0 }}, {{ opacity: 0.25, duration: 0.6, stagger: 0.08 }}, 1.3);
+      tl.fromTo("#tracker", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.6 }}, 1.3);
+      tl.fromTo("#tracker .tk", {{ opacity: 0 }}, {{ opacity: 0.6, duration: 0.6, stagger: 0.08 }}, 1.3);
 
       // climax: burst of light, mandala, Om, then the mantra gathers syllable by syllable
       tl.fromTo("#burst", {{ opacity: 0 }}, {{ opacity: 0.95, duration: 0.25, ease: "power2.in" }}, CLIMAX - 0.15);

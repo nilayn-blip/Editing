@@ -11,3 +11,7 @@ shivji_edit/mahadev/project/.hyperframes/
 shivji_edit/mahadev/project/snapshots/
 shivji_edit/mahadev/output/work-*/
 shivji_edit/mahadev/output/.*hf-transaction*/
+shivji_edit/status/project/.hyperframes/
+shivji_edit/status/project/snapshots/
+shivji_edit/status/output/work-*/
+shivji_edit/status/output/.*hf-transaction*/

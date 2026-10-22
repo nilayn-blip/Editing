@@ -1,0 +1,50 @@
+{
+ "voice": "pratham_hi_IN-pratham-medium.onnx",
+ "length_scale": 1.12,
+ "dur": 28.57,
+ "img0": 4.41,
+ "img_len": 3.0,
+ "captions": [
+  4.41,
+  11.41,
+  18.41
+ ],
+ "end": 25.41,
+ "lines": [
+  {
+   "spoken": "लाइफ़ में जब सब उलझ जाए, तो बस याद रखना...",
+   "caption": "Life में जब सब उलझ जाए, तो बस याद रखना…",
+   "start": 0.5,
+   "dur": 3.309,
+   "wav": "narration/l0.wav"
+  },
+  {
+   "spoken": "जो हुआ, अच्छा हुआ,",
+   "caption": "जो हुआ, अच्छा हुआ,",
+   "start": 4.91,
+   "dur": 2.02,
+   "wav": "narration/l1.wav"
+  },
+  {
+   "spoken": "जो हो रहा है, अच्छा हो रहा है,",
+   "caption": "जो हो रहा है, अच्छा हो रहा है,",
+   "start": 11.71,
+   "dur": 2.508,
+   "wav": "narration/l2.wav"
+  },
+  {
+   "spoken": "जो होगा, वो भी अच्छा होगा... बस ट्रस्ट रखो।",
+   "caption": "जो होगा, वो भी अच्छा होगा… बस trust रखो ”",
+   "start": 18.81,
+   "dur": 3.402,
+   "wav": "narration/l3.wav"
+  },
+  {
+   "spoken": "जय श्री कृष्ण।",
+   "caption": "॥ जय श्री कृष्ण ॥",
+   "start": 25.91,
+   "dur": 1.463,
+   "wav": "narration/l4.wav"
+  }
+ ]
+}

@@ -15,3 +15,7 @@ shivji_edit/status/project/.hyperframes/
 shivji_edit/status/project/snapshots/
 shivji_edit/status/output/work-*/
 shivji_edit/status/output/.*hf-transaction*/
+shivji_edit/krishna/project/.hyperframes/
+shivji_edit/krishna/project/snapshots/
+shivji_edit/krishna/output/work-*/
+shivji_edit/krishna/output/.*hf-transaction*/

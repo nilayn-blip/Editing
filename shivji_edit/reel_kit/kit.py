@@ -8,10 +8,12 @@ TTS narrator, an original raga score that dips under the voice, and an end card 
 Usage (from shivji_edit/):
   python3 reel_kit/kit.py reels/NN-slug all          # every step below, in order
   python3 reel_kit/kit.py reels/NN-slug STEP [...]   # fetch | assemble | narrate | sound | build | render
+  python3 reel_kit/kit.py reels/NN-slug myvoice REC.m4a sound build render   # use the owner's own recording
 
-reel.json fields: slug, title, raga (see RAGAS), end_sound ("om" | "ghanti"), intro {spoken, caption},
+reel.json fields: slug, title, pace ("short" 15-20 s | "medium"), hook_style ("bold" | "elegant"),
+hook_over_image (default: true for short), raga (see RAGAS), end_sound ("om" | "ghanti"), intro {spoken, caption},
 lines [{spoken, caption}], end {spoken, caption}, paintings [{key, file, focus?, inset?, author?}],
-caption_post (Instagram caption with hashtags). "spoken" is what the voice reads (English words spelt in
+caption_post (Instagram caption with hashtags). In captions, *word* is highlighted in gold. "spoken" is what the voice reads (English words spelt in
 Devanagari); "caption" is what appears on screen (Hindi with English words, as people speak).
 """
 import glob
@@ -126,22 +128,94 @@ def step_narrate(d, r, length_scale=1.12):
         run(["piper", "-m", model, "-c", model + ".json", "--length-scale", str(length_scale),
              "--sentence-silence", "0.1", "-f", path], input=it["spoken"].encode(), stderr=subprocess.DEVNULL)
         durs.append(round(wav_len(path), 3))
-    # intro on the black card; then one segment per line (long enough for the voice plus a breath); end card
-    img0 = round(max(3.0, 0.5 + durs[0] + 0.6), 2)
+    write_timing(d, r, items, durs, voice="tts")
+
+
+# pace profiles: lead-in, hook gap, minimum segment, breath after a line, voice offset in a segment, tail
+PACES = {
+    "medium": dict(lead=0.5, hook_gap=0.6, hook_min=3.0, seg_min=5.0, breath=2.4, offset=0.45, tail=1.8),
+    "short": dict(lead=0.3, hook_gap=0.35, hook_min=2.0, seg_min=3.2, breath=1.3, offset=0.3, tail=1.3),
+}
+
+
+def write_timing(d, r, items, durs, voice):
+    """One segment per line, long enough for the voice plus a breath; the hook and the end card around them."""
+    P = PACES[r.get("pace", "medium")]
+    img0 = round(max(P["hook_min"], P["lead"] + durs[0] + P["hook_gap"]), 2)
     t, segs = img0, []
     for dd in durs[1:-1]:
-        seg = round(max(5.0, dd + 2.4), 2)
+        seg = round(max(P["seg_min"], dd + P["breath"]), 2)
         segs.append([round(t, 2), seg])
         t += seg
     end = round(t, 2)
-    starts = [0.5] + [s + 0.45 for s, _ in segs] + [end + 0.5]
-    dur = round(end + 0.5 + durs[-1] + 1.8, 2)
-    timing = dict(dur=dur, img0=img0, end=end, segments=segs,
-                  img_len=round((end - img0) / len(r["paintings"]), 3),
+    starts = [P["lead"]] + [s + P["offset"] for s, _ in segs] + [end + P["offset"]]
+    dur = round(end + P["offset"] + durs[-1] + P["tail"], 2)
+    hook_img = bool(r.get("hook_over_image", r.get("pace") == "short"))
+    img_start = 0.0 if hook_img else img0  # paintings/photos start under the hook when it sits on an image
+    n_img = len(r["paintings"])
+    if hook_img and n_img == len(segs) + 2:  # one image per beat: hook, each line, end card
+        img_times = [0.0] + [s for s, _ in segs] + [end]
+    elif not hook_img and n_img == len(segs) + 1:  # one per line, the last one also under the end card
+        img_times = [s for s, _ in segs] + [end]
+    else:  # spread evenly
+        img_times = [round(img_start + k * (end - img_start) / n_img, 3) for k in range(n_img)]
+    timing = dict(dur=dur, img0=img0, img_start=img_start, hook_over_image=hook_img, end=end, segments=segs,
+                  img_times=img_times, img_len=round((end - img_start) / n_img, 3), voice=voice,
                   lines=[dict(spoken=it["spoken"], caption=it["caption"], start=round(s, 2), dur=dd, wav=f"narration/l{i}.wav")
                          for i, (it, s, dd) in enumerate(zip(items, starts, durs))])
     json.dump(timing, open(os.path.join(d, "timing.json"), "w"), indent=1, ensure_ascii=False)
-    print(json.dumps({k: timing[k] for k in ("dur", "img0", "end", "img_len")}))
+    print(json.dumps({k: timing[k] for k in ("dur", "img0", "end", "img_len", "voice")}))
+
+
+def step_myvoice(d, r, src):
+    """Use the owner's own recording: one take, all lines in order (hook, lines, end), ~1 s pause between lines.
+
+    Cleans it (rumble cut, denoise, gentle compression, level), splits it at the pauses into one file per
+    line, and rewrites timing.json so captions follow the real voice. Run `sound build render` afterwards.
+    """
+    import numpy as np
+    from scipy.io import wavfile
+    items = [r["intro"]] + r["lines"] + [r["end"]]
+    out = os.path.join(d, "narration")
+    os.makedirs(out, exist_ok=True)
+    clean = os.path.join(d, ".work", "myvoice_clean.wav")
+    os.makedirs(os.path.dirname(clean), exist_ok=True)
+    run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", src, "-ac", "1", "-ar", "48000", "-af",
+         "highpass=f=80,afftdn=nf=-25,acompressor=threshold=-20dB:ratio=3:attack=10:release=200,loudnorm=I=-18:TP=-2", clean])
+    sr, x = wavfile.read(clean)
+    x = x.astype(float) / 32768
+    hop = int(0.02 * sr)
+    rms = np.sqrt(np.convolve(x ** 2, np.ones(hop) / hop, mode="same"))[::hop]
+    thr = max(np.percentile(rms, 20) * 3, rms.max() * 0.04)
+    voiced = rms > thr
+    # voiced regions, bridging pauses shorter than 0.35 s (breaths inside a line)
+    regs, i = [], 0
+    while i < len(voiced):
+        if voiced[i]:
+            j = i
+            while j < len(voiced) and voiced[j]:
+                j += 1
+            if regs and (i - regs[-1][1]) * 0.02 < 0.35:
+                regs[-1][1] = j
+            else:
+                regs.append([i, j])
+            i = j
+        else:
+            i += 1
+    regs = [g for g in regs if (g[1] - g[0]) * 0.02 > 0.25]  # drop clicks
+    n = len(items)
+    while len(regs) > n:  # merge across the shortest pause until one region per line
+        k = min(range(len(regs) - 1), key=lambda k: regs[k + 1][0] - regs[k][1])
+        regs[k:k + 2] = [[regs[k][0], regs[k + 1][1]]]
+    if len(regs) < n:
+        sys.exit(f"heard {len(regs)} lines but the script has {n}: please re-record with a clear ~1 s pause between lines")
+    durs = []
+    for k, (a, b) in enumerate(regs):
+        a, b = max(0, a * hop - int(0.08 * sr)), min(len(x), b * hop + int(0.12 * sr))
+        seg = x[a:b] * np.clip(np.minimum(np.arange(b - a), np.arange(b - a)[::-1]) / (0.01 * sr), 0, 1)
+        wavfile.write(os.path.join(out, f"l{k}.wav"), sr, (seg * 32767).astype(np.int16))
+        durs.append(round((b - a) / sr, 3))
+    write_timing(d, r, items, durs, voice="owner")
 
 
 # ---------------------------------------------------------------- soundtrack
@@ -260,13 +334,15 @@ def e(s):
 
 
 def words(id_, text, top, extra_cls=""):
-    ws = "".join(f'<span class="w">{e(w)}</span>' for w in text.split())
+    """Caption words as spans for the word-by-word reveal; *word* is highlighted in gold."""
+    ws = "".join(f'<span class="w hl">{e(w.replace("*", ""))}</span>' if "*" in w else f'<span class="w">{e(w)}</span>'
+                 for w in text.split())
     return f'<div id="{id_}" class="cap {extra_cls}" style="top: {top}px">{ws}</div>'
 
 
 def end_note(photos):
     att = [f'{p["author"]} ({p["license"]})' for p in photos if not p["license"].lower().startswith(("public domain", "cc0"))]
-    return "Paintings via Wikimedia Commons · public domain" + (" · " + ", ".join(att) if att else "")
+    return "Images via Wikimedia Commons · public domain" + (" · " + ", ".join(att) if att else "")
 
 
 def build_html(r, T_, photos):
@@ -314,7 +390,7 @@ def build_html(r, T_, photos):
       </div>
 
       <section id="intro" class="clip full" data-start="0" data-duration="{T_["img0"] + 0.2}" data-track-index="3">
-        {words("cap0", L[0]["caption"], 880, "intro")}
+        {words("cap0", L[0]["caption"], 820 if r.get("hook_style", "bold") == "bold" else 880, "hook" if r.get("hook_style", "bold") == "bold" else "intro")}
       </section>
 {chr(10).join(secs)}
 
@@ -329,7 +405,8 @@ def build_html(r, T_, photos):
     </div>
 
     <script>
-      const DUR = {T_["dur"]}, IMG0 = {T_["img0"]}, IMG_LEN = {T_["img_len"]}, END = {T_["end"]}, NPH = {n};
+      const DUR = {T_["dur"]}, IMG0 = {T_["img0"]}, IMG_START = {T_.get("img_start", T_["img0"])}, END = {T_["end"]}, NPH = {n};
+      const IMG_T = {json.dumps(T_["img_times"])};  // start time of each image
       // narration: [start, duration, words] per spoken line; segments: [start, length]
       const VO = {json.dumps(vo)};
       const SEG = {json.dumps(T_["segments"])};
@@ -370,15 +447,16 @@ def build_html(r, T_, photos):
       tl.to("#cap0", {{ opacity: 0, duration: 0.5, ease: "power1.in" }}, IMG0 - 0.55);
 
       for (let k = 0; k < NPH; k++) {{
-        const t0 = IMG0 + k * IMG_LEN;
-        const len = k === NPH - 1 ? DUR - t0 : IMG_LEN;
+        const t0 = IMG_T[k];
+        const len = (k === NPH - 1 ? DUR : IMG_T[k + 1]) - t0;
         const dir = k % 2 ? 1 : -1;
-        tl.fromTo(`#ph${{k + 1}}`, {{ opacity: 0 }}, {{ opacity: 1, duration: k === 0 ? 1.0 : 0.9, ease: "sine.inOut" }}, t0 - 0.45);
-        tl.fromTo(`#img${{k + 1}}`, {{ scale: 1.04, x: -dir * 14, y: 0 }}, {{ scale: 1.16, x: dir * 14, y: -18, duration: len + 0.9, ease: "none" }}, t0 - 0.45);
+        const tin = Math.max(0, t0 - 0.45);
+        tl.fromTo(`#ph${{k + 1}}`, {{ opacity: 0 }}, {{ opacity: 1, duration: k === 0 ? (IMG_START === 0 ? 0.4 : 1.0) : 0.9, ease: "sine.inOut" }}, tin);
+        tl.fromTo(`#img${{k + 1}}`, {{ scale: 1.04, x: -dir * 14, y: 0 }}, {{ scale: 1.16, x: dir * 14, y: -18, duration: len + 0.9, ease: "none" }}, tin);
         if (k > 0) tl.set(`#ph${{k}}`, {{ opacity: 0 }}, t0 + 0.5);
       }}
 
-      tl.fromTo("#center-dim", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.8 }}, IMG0 - 0.2);
+      tl.fromTo("#center-dim", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.8 }}, IMG_START === 0 ? 0 : IMG0 - 0.2);
       tl.to("#center-dim", {{ opacity: 0, duration: 0.6 }}, END - 0.4);
       SEG.forEach(([s, len], i) => {{
         reveal(`#cap${{i + 1}}`, VO[i + 1]);
@@ -479,7 +557,7 @@ def scaffold(d):
 
 
 STEPS = {"fetch": step_fetch, "assemble": step_assemble, "narrate": step_narrate, "sound": step_sound,
-         "build": step_build, "render": step_render}
+         "build": step_build, "render": step_render}  # plus: myvoice RECORDING (replaces narrate)
 
 
 def main():
@@ -489,6 +567,9 @@ def main():
         steps = list(STEPS)
     scaffold(d)
     r = load(d)
+    if steps[0] == "myvoice":
+        step_myvoice(d, r, os.path.abspath(steps[1]))
+        steps = steps[2:]
     for s in steps:
         print(f"== {s}", flush=True)
         STEPS[s](d, r)

@@ -14,23 +14,29 @@ The Hindi voice (`hi_IN-pratham-medium`, about 60 MB) downloads from huggingface
 Take the first unticked row in `CONTENT_PLAN.md` and use the next free number: `reels/NN-slug/`.
 
 ## 3. Write the script (reel.json)
-Copy `reels/_example/reel.json` and edit it.
-- `intro`: a scroll-stopping hook, max about 10 words, shown on a black card.
-- `lines`: 3 for a quote reel; 5–7 for a story reel. One idea per line, max about 12 words, in natural spoken
-  Hindi with a few common English words (Life, trust, easy, heavy, result…). In `caption`, write English
-  words in Latin script. In `spoken`, spell the same words in Devanagari (लाइफ़, ट्रस्ट…) so the voice says them
-  naturally. Never show the same line twice in two scripts.
+Copy `reels/01-neelkanth/reel.json` and edit it. The format is **short and punchy, 15–20 s**
+(`"pace": "short"`, `"hook_style": "bold"`).
+- `intro`: the hook, a scroll-stopping question or statement in max about 7 words. It is shown big and bold
+  over the first image. Mark the key word with `*…*` to make it gold, e.g. `Shiva का *गला* नीला क्यों है?`
+- `lines`: exactly **3** lines, one beat each, max about 12 words. Even a story is told in 3 beats: problem,
+  turn, meaning. Use natural spoken Hindi with a few common English words. In `caption`, write English
+  words in Latin script and optionally mark one key word with `*…*`. In `spoken`, spell the same words in
+  Devanagari so the voice says them naturally. Never show the same line twice in two scripts.
 - `end`: the closing chant, e.g. `॥ हर हर महादेव ॥` (spoken without the ॥ marks).
-- Keep it devotional and accurate to the scriptures. No claims about miracles cures, no politics, nothing
+- Keep it devotional and accurate to the scriptures. No claims about miracle cures, no politics, nothing
   against any community.
-- `caption_post`: the Instagram caption: one line from the reel, a short sentence of context, a question to
-  invite comments, and about 10 hashtags (#mahadev #harharmahadev #shiva #bholenath #sanatandharma, plus
-  topic-specific ones).
+- `caption_post`: the Instagram caption: the hook line, 1–2 sentences telling the tale, a comment prompt
+  ("कमेंट में लिखिए: हर हर महादेव"), and about 10 hashtags.
 
-## 4. Find paintings (Wikimedia Commons only)
-Use only CC0, public domain, CC BY or CC BY-SA files. Prefer classic Indian paintings (Raja Ravi Varma,
-Pahari/Kangra, Rajput, Mughal-era, Kalighat, Bengal school, museum collections) for a consistent, beautiful
-look. Portrait or near-square works crop best to 9:16.
+## 4. Find images (Wikimedia Commons only)
+Use only CC0, public domain, CC BY or CC BY-SA files. Use **5 images, one per beat**: hook, line 1, line 2,
+line 3, end. The kit then changes images exactly on the line changes.
+- **Hook and end: real photos.** Temple, idol, shrine, aarti, Kailash, Ganga or Kashi ghats: striking,
+  high-resolution photos (for example the big Murudeshwar Shiva, Adiyogi, Kedarnath, Mahakal and other
+  temples).
+- **Lines: classic paintings** that show the story moment (Raja Ravi Varma, Pahari/Kangra, Rajput,
+  Kalighat, Bengal school, museum collections).
+Portrait or near-square images crop best to 9:16.
 ```
 python3 -I reel_kit/tools/wm.py "query one" "query two"     # lists title, size, licence, author
 ```
@@ -62,12 +68,23 @@ python3 reel_kit/kit.py reels/NN-slug render     # check + render + encode + voi
 ```
 Both videos must be 1080x1920 at 30 fps, and `reel.mp4` must measure about -14 LUFS.
 
-## 6. Deliver
-- `git add` the reel folder (the `.dl` and `.work` folders are ignored), tick the row in `CONTENT_PLAN.md`,
-  add it to the **Made** table, commit and push to the branch.
-- Send both `output/reel.mp4` and `output/reel_voice_only.mp4` to the user with the SendUserFile tool
-  (status `proactive`). Put the `caption_post` text in the caption so they can copy it straight into
-  Instagram.
+## 6. Deliver: draft first, then the owner's own voice
+The owner narrates the reels in their own voice. So:
+1. Build and render the **draft** with the computer voice (`narrate`), as above. Commit and push it.
+2. Send the draft `output/reel.mp4` to the user with SendUserFile (status `proactive`), together with the
+   **recording script**: the hook, the 3 lines and the end chant, numbered, in Devanagari as they should be
+   spoken. Add these recording tips: "record in one take on your phone, in a quiet room, phone about 15–20 cm
+   from your mouth, calm and slow, with about a 1-second pause between lines; send the voice note or audio
+   file here". Include the `caption_post` text so it's ready for Instagram.
+3. When the recording arrives in the session, run:
+   ```
+   python3 reel_kit/kit.py reels/NN-slug myvoice /path/to/recording.m4a sound build render
+   ```
+   This cleans the audio, splits it at the pauses, syncs captions to the real voice and renders the final reel.
+   If it reports the wrong number of lines, ask the user to re-record with clearer pauses. Check the
+   snapshots again, then commit and push and send the final `reel.mp4` and `reel_voice_only.mp4`.
+4. Tick the row in `CONTENT_PLAN.md` and add it to the **Made** table (mark it `draft` until the owner's voice
+   is in).
 - If something blocks the reel (for example Wikimedia blocks downloads for hours), say so plainly in the
   final message. Don't send a half-made reel.
 

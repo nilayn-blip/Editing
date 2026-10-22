@@ -7,17 +7,18 @@ environment.
 Each reel is made with `reel_kit/kit.py` (see `reels/HOWTO.md`) and lives in `reels/NN-slug/`.
 After it is made, tick it below and fill in the date and path.
 
-## Formats (alternate them)
-- **Quote reel** (about 25–30 s): a black hook card, then 3 short spoken lines building to one feeling, then a
-  closing chant. Like `status/` (Mahadev) and `krishna/`.
-- **Story reel** (about 40–55 s): a hook question, then 5–7 one-line beats telling a tale from the Puranas or
-  Upanishads in plain spoken Hindi with a few English words, ending on a one-line lesson and a chant. These do
-  well for saves and shares.
+## Format: short and punchy (15–20 s)
+- A **bold hook** over a real temple or idol photo, with the key word in gold.
+- **3 lines**, one beat each, in elegant word-by-word captions over classic paintings.
+- The closing chant over a real photo, with @nirva_nataless and "Follow for more".
+- The **owner's own voice**: each reel is first sent as a draft with a computer voice and a recording script,
+  then finished with the owner's recording.
+Stories are told in 3 beats (problem, turn, meaning). Quotes build to one feeling.
 
 ## Queue
 | # | Format | Topic | Hook idea | End chant | Raga | Done |
 |---|---|---|---|---|---|---|
-| 01 | Story | **Neelkanth**: why Shiva's throat is blue (Samudra Manthan, the halahala poison) | "Shiva का गला नीला क्यों है?" | ॥ हर हर महादेव ॥ | shivaranjani | |
+| 01 | Story | **Neelkanth**: why Shiva's throat is blue (Samudra Manthan, the halahala poison) | "Shiva का गला नीला क्यों है?" | ॥ हर हर महादेव ॥ | shivaranjani | ✔ |
 | 02 | Quote | सत्यम् शिवम् सुंदरम्: "जो सत्य है, वही शिव है…" | "जब मन बहुत heavy हो…" | ॥ सत्यम् शिवम् सुंदरम् ॥ | durga | |
 | 03 | Story | **Gangavatarana**: Bhagiratha's tapasya; Shiva catches Ganga in his jata | "Ganga धरती पर कैसे आईं?" | ॥ हर हर गंगे ॥ | yaman | |
 | 04 | Quote | Krishna: "कर्म करो, फल की चिंता मत करो" (Gita 2.47, in plain words) | "जब result आपके हाथ में ना हो…" | ॥ जय श्री कृष्ण ॥ | bhupali | |
@@ -49,3 +50,4 @@ stories, the 12 Jyotirlinga legends one at a time, the Navadurga). Never repeat 
 ## Made
 | # | Date | Path |
 |---|---|---|
+| 01 | 2026-10-22 | `reels/01-neelkanth/` (draft, computer voice: waiting for the owner's recording) |

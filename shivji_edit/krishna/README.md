@@ -17,7 +17,7 @@ Outputs (~28.5 s, 1080x1920, 30 fps, for Instagram Reels; watermark **Nirvana âœ
 The lines are the popular "Gita saar" summary of the Bhagavad Gita's teaching.
 
 ## Sources
-- **Paintings:** seven public-domain or CC0 Krishna paintings from Wikimedia Commons, including Kangra, Kishangarh and Pahari works and Krishna giving the Gita to Arjuna. See [CREDITS.md](CREDITS.md).
+- **Paintings:** six public-domain or CC0 Krishna paintings (3.5 s each) from Wikimedia Commons, including Kangra, Kishangarh and Pahari works and Krishna giving the Gita to Arjuna. See [CREDITS.md](CREDITS.md).
 - **Narration:** [Piper](https://github.com/rhasspy/piper) TTS, voice `hi_IN-pratham-medium`. The voice was trained on data under **CC BY-NC-SA 4.0**, so it is fine for a personal, non-commercial Instagram account. For paid or brand content, record the five lines yourself.
 - **Music:** original and synthesised (`soundtrack.py`). The bansuri, Krishna's flute, plays in **Raga Bhupali**, with tanpura, pad and santoor, and ghungroo-like bells on the closing line. The music dips under the voice.
 
@@ -26,7 +26,7 @@ Same as `../status/README.md`, using this folder:
 ```
 python3 narrate.py /path/to/hi_IN-pratham-medium.onnx
 python3 -I tools/fetch.py tools/photos.txt /tmp/dl/a 1920
-python3 -I tools/assemble.py /tmp/dl project k1,k2,k4,k5,k6,k7,k3
+python3 -I tools/assemble.py /tmp/dl project k1,k2,k4,k5,k6,k3
 python3 soundtrack.py /tmp/st.wav && python3 soundtrack.py /tmp/vo.wav --voice-only
 ffmpeg -i /tmp/st.wav -af "volume=-0.1dB,alimiter=limit=0.84:level=false" -c:a libmp3lame -b:a 192k project/assets/soundtrack.mp3   # -14 LUFS
 python3 make_index.py

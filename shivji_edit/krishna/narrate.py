@@ -25,7 +25,7 @@ LINES = [
     ("जो होगा, वो भी अच्छा होगा... बस ट्रस्ट रखो।", "जो होगा, वो भी अच्छा होगा… बस trust रखो \u201d"),
     ("जय श्री कृष्ण।", "॥ जय श्री कृष्ण ॥"),
 ]
-N_IMG, IMG_LEN = 7, 3.0
+N_IMG, IMG_LEN = 6, 3.5
 
 
 def wav_len(path):
@@ -43,7 +43,7 @@ def main(model, length_scale=1.12):
                        stderr=subprocess.DEVNULL)
         durs.append(round(wav_len(path), 3))
 
-    # intro line on the black card, then seven paintings at 3 s; captions change every 7 s
+    # intro line on the black card, then six paintings at 3.5 s; captions change every 7 s
     l0 = 0.5
     img0 = round(max(3.0, l0 + durs[0] + 0.6), 2)
     caps = [img0, round(img0 + 7.0, 2), round(img0 + 14.0, 2)]

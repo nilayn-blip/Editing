@@ -55,7 +55,31 @@ def run(cmd, **kw):
 
 
 # ---------------------------------------------------------------- fetch / assemble
+def used_elsewhere(d):
+    """Commons titles already used in any other video in shivji_edit/ (every image must be new)."""
+    used = {}
+    for pj in glob.glob(os.path.join(ROOT, "**", "photos.json"), recursive=True):
+        if os.path.dirname(os.path.abspath(pj)) == os.path.abspath(d) or "/.dl/" in pj or "_example" in pj:
+            continue
+        for p in json.load(open(pj)):
+            t = p.get("title")
+            if t:
+                used[t.replace("_", " ")] = os.path.relpath(pj, ROOT)
+    return used
+
+
+def check_new_images(d, r):
+    used = used_elsewhere(d)
+    dup = [(p["file"], used[p["file"].replace("_", " ")]) for p in r["paintings"] if p["file"].replace("_", " ") in used]
+    if dup:
+        sys.exit("these images were already used; pick different ones:\n" + "\n".join(f"  {f}  (in {w})" for f, w in dup))
+    files = [p["file"] for p in r["paintings"]]
+    if len(set(files)) != len(files):
+        sys.exit("the same image appears twice in this reel")
+
+
 def step_fetch(d, r):
+    check_new_images(d, r)
     lst = os.path.join(d, ".dl", "list.txt")
     os.makedirs(os.path.dirname(lst), exist_ok=True)
     with open(lst, "w") as f:
@@ -70,6 +94,7 @@ def step_fetch(d, r):
 
 def step_assemble(d, r):
     from PIL import Image
+    check_new_images(d, r)
     meta = json.load(open(os.path.join(d, ".dl", "a", "meta.json")))
     assets = os.path.join(d, "project", "assets")
     for f in glob.glob(os.path.join(assets, "p[0-9][0-9].jpg")):

@@ -40,8 +40,8 @@ Portrait or near-square images crop best to 9:16.
 ```
 python3 -I reel_kit/tools/wm.py "query one" "query two"     # lists title, size, licence, author
 ```
-Searches are rate-limited. Use 3–6 focused queries, and look at what has already been fetched in other
-`reels/*/.dl` folders first. Do not reuse a painting that was used in the last 10 reels. Pick 6–8
+Searches are rate-limited. Use 3–6 focused queries. **Every image must be new: never reuse an image that
+appears in any earlier video** (the kit checks every `photos.json` under `shivji_edit/` and refuses duplicates). Pick 6–8
 paintings that match the lines in order, and list them in `paintings` (key p1, p2…, `file` = "File:…" title).
 
 ## 5. Build

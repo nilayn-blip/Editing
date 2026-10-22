@@ -31,7 +31,7 @@ if items: json.dump(meta, open(mp, "w"), indent=1, ensure_ascii=False)
 for key, m in meta.items():
     fn = os.path.join(out, key + ".jpg")
     if "/thumb/" not in m["thumb"]:  # requested width >= original: never pull originals, use the 1280 bucket
-        base, name = m["original"].rsplit("/", 1)
+        base, name = m["original"].split("?")[0].rsplit("/", 1)
         m["thumb"] = base.replace("/commons/", "/commons/thumb/") + "/" + name + "/1280px-" + name
     if os.path.exists(fn) and os.path.getsize(fn) > 5000: continue
     backoff = 60

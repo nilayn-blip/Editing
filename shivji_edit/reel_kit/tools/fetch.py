@@ -9,7 +9,7 @@ os.makedirs(out, exist_ok=True)
 items = [l.strip().split("|", 1) for l in open(lst) if l.strip()]
 meta = {}
 mp = os.path.join(out, "meta.json")
-if os.path.exists(mp) and len(json.load(open(mp))) >= len(items): meta = json.load(open(mp)); items = []
+if os.path.exists(mp): meta = json.load(open(mp)); items = [(k, t) for k, t in items if k not in meta]  # only look up new keys
 for i in range(0, len(items), 40):
     chunk = items[i:i + 40]
     d = api({"action": "query", "titles": "|".join(t for _, t in chunk), "prop": "imageinfo",

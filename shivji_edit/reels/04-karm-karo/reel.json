@@ -5,23 +5,43 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Dwarkadhish Temple Gujarat.jpg"
+   "file": "File:Dwarkadhish Temple Gujarat.jpg",
+   "focus": "22% 62%"
   },
   {
    "key": "a",
-   "file": "File:Sri Krishna preaching Gita Upadesh to Arjun - Unknown, Kashmir School - Google Cultural Institute.jpg"
+   "file": "File:Sri Krishna preaching Gita Upadesh to Arjun - Unknown, Kashmir School - Google Cultural Institute.jpg",
+   "inset": [
+    0.05,
+    0.09,
+    0.03,
+    0.08
+   ],
+   "focus": "28% 50%",
+   "author": "Unknown artist, Kashmir school"
   },
   {
    "key": "b",
-   "file": "File:Arjuna BattlesWith the Kauravas At Kuruksheta Bhagavad Gita.jpg"
+   "file": "File:Arjuna BattlesWith the Kauravas At Kuruksheta Bhagavad Gita.jpg",
+   "focus": "45% 60%",
+   "author": "Unknown artist"
   },
   {
    "key": "c",
-   "file": "File:A scene from the Mahabharata; Arjuna requests instruction fr Wellcome V0045044.jpg"
+   "file": "File:A scene from the Mahabharata; Arjuna requests instruction fr Wellcome V0045044.jpg",
+   "inset": [
+    0.03,
+    0.06,
+    0.03,
+    0.13
+   ],
+   "focus": "42% 45%",
+   "author": "Wellcome Collection"
   },
   {
-   "key": "e",
-   "file": "File:Geeta upadesh sthali 3, Jyotisar, Kurukshetra 5.jpg"
+   "key": "e2",
+   "file": "File:Marble chariot.jpg",
+   "focus": "50% 50%"
   }
  ],
  "slug": "04-karm-karo",

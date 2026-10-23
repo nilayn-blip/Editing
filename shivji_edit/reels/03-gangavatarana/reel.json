@@ -1,0 +1,57 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "om",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Ganga Aarti at Dashashwamedh Ghat 52.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Bhagiratha Penance.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Shiva Bearing the Descent of the Ganges River, folio from a Hindi manuscript by the saint Narayan LACMA M.86.345.6.jpg"
+  },
+  {
+   "key": "bw",
+   "file": "File:Gangā and the river Ganges falling from heaven, while S Wellcome V0045134.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Gangadhara sculpture of Cave 1 of Elephanta Caves.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Gangotri (ganga river).jpg"
+  }
+ ],
+ "slug": "03-gangavatarana",
+ "title": "Gangavatarana: how Ganga came to Earth",
+ "raga": "yaman",
+ "intro": {
+  "spoken": "गंगा धरती पर कैसे आईं?",
+  "caption": "Ganga *धरती* पर कैसे आईं?"
+ },
+ "lines": [
+  {
+   "spoken": "राजा भगीरथ की तपस्या से गंगा स्वर्ग से उतरीं, पर उनका वेग धरती को बहा देता,",
+   "caption": "राजा भगीरथ की तपस्या से गंगा स्वर्ग से उतरीं… पर उनका वेग धरती को बहा देता,"
+  },
+  {
+   "spoken": "तब महादेव ने गंगा को अपनी जटाओं में बाँध लिया,",
+   "caption": "तब महादेव ने गंगा को अपनी जटाओं में बाँध लिया,"
+  },
+  {
+   "spoken": "और धीरे से धरती पर उतारा, इसीलिए वो गंगाधर हैं।",
+   "caption": "और धीरे से धरती पर उतारा… इसीलिए वो *गंगाधर* हैं ”"
+  }
+ ],
+ "end": {
+  "spoken": "हर हर गंगे।",
+  "caption": "॥ हर हर गंगे ॥"
+ },
+ "caption_post": "Ganga धरती पर कैसे आईं? 🌊 राजा भगीरथ की कठोर तपस्या से माँ गंगा स्वर्ग से उतरीं, पर उनका वेग पूरी धरती बहा देता — तब महादेव ने उन्हें अपनी जटाओं में धारण किया और धीरे से धरती पर छोड़ा। इसीलिए शिव गंगाधर कहलाते हैं 🙏 कमेंट में लिखिए: हर हर गंगे #ganga #gangadhar #mahadev #harharmahadev #bhagirath #shiva #gangamaiya #sanatandharma #shivkatha #spiritualshorts"
+}

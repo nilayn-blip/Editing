@@ -1,0 +1,53 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "om",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Kedarnathtempleatnight.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Vishnu's great vision of Shiva.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Mural depicting Uma-Maheshvara, from Ramtatwali Dham, Hoshiarpur district, Punjab, circa 19th century.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Parvati Shiva family, Pahari school, Kangra style chitra.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Mount Kailash, Tibet.jpg"
+  }
+ ],
+ "slug": "02-satyam-shivam-sundaram",
+ "title": "Satyam Shivam Sundaram",
+ "raga": "durga",
+ "intro": {
+  "spoken": "जब मन बहुत हैवी हो...",
+  "caption": "जब मन बहुत *heavy* हो…"
+ },
+ "lines": [
+  {
+   "spoken": "जो सत्य है, वही शिव है,",
+   "caption": "जो सत्य है, वही शिव है,"
+  },
+  {
+   "spoken": "जो शिव है, वही सुंदर है,",
+   "caption": "जो शिव है, वही सुंदर है,"
+  },
+  {
+   "spoken": "और जो सुंदर है, वो कभी खोता नहीं।",
+   "caption": "और जो सुंदर है… वो कभी *खोता* नहीं ”"
+  }
+ ],
+ "end": {
+  "spoken": "सत्यम् शिवम् सुंदरम्।",
+  "caption": "॥ सत्यम् शिवम् सुंदरम् ॥"
+ },
+ "caption_post": "जब मन बहुत heavy हो… बस याद रखो — जो सत्य है, वही शिव है, और जो शिव है, वही सुंदर है 🙏 सत्यम् शिवम् सुंदरम्। अगर ये आपके दिल को छू गया, तो कमेंट में लिखिए: ॐ नमः शिवाय 🔱 #mahadev #satyamshivamsundaram #harharmahadev #shiva #bholenath #omnamahshivaya #shivbhakt #sanatandharma #spiritualquotes #mahakal"
+}

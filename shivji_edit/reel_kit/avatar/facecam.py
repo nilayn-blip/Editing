@@ -52,6 +52,9 @@ ys, xs = np.nonzero(m > 128)
 head_top, head_l, head_r = ys.min(), np.percentile(xs[ys < ys.min() + 0.3 * H], 2), np.percentile(xs[ys < ys.min() + 0.3 * H], 98)
 fade = np.clip((H - 1 - np.arange(H)) / (H * 0.04), 0, 1)[:, None]  # soften only the very bottom edge
 Image.fromarray((m * fade).clip(0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1.0)).save(os.path.join(work, "matte.png"))
+# depth-of-field layer mask: none behind the hook caption, ramping in over 260 px (no visible seam)
+ramp = np.clip((np.arange(1920) - 380) / 260, 0, 1)[:, None] * np.ones((1, 1080))
+Image.fromarray((ramp * 255).astype(np.uint8)).save(os.path.join(work, "dof.png"))
 
 # bust size: head about 340 px wide, standing on the bottom edge (face around y = 1250)
 k = 340 / max(1.0, head_r - head_l)
@@ -83,9 +86,10 @@ t_in, t_out = IMG0 - 0.35, END - 0.25
 fc = (
     f"[0:v]split=2[base][bg];"
     # portrait-mode depth: the hook photo softens and dims a little behind the speaker
-    f"[bg]trim=0:{IMG0 + 0.1:.2f},setpts=PTS-STARTPTS,crop=1080:1480:0:440,gblur=sigma=4,eq=brightness=-0.05,format=rgba,"
+    f"[bg]trim=0:{IMG0 + 0.1:.2f},setpts=PTS-STARTPTS,gblur=sigma=4,eq=brightness=-0.05,format=rgba[bgb];"
+    f"[4:v]format=gray[dm];[bgb][dm]alphamerge,"
     f"fade=t=in:st=0:d=0.35:alpha=1,fade=t=out:st={t_in:.2f}:d=0.4:alpha=1[soft];"
-    f"[base][soft]overlay=0:440:eof_action=pass[v0];"  # below the hook caption
+    f"[base][soft]overlay=0:0:eof_action=pass[v0];"
     f"[1:v]fps=30,split=2[fa][fb];"
     # hook bust: matte, gentle grade toward the photo's light, fade in/out
     f"[fa]trim=0:{IMG0 + 0.1:.2f},setpts=PTS-STARTPTS,eq=saturation=0.85:brightness=-0.05:gamma=0.95,colorbalance=rs=-0.04:bs=0.04:rm=-0.03:bm=0.03,format=rgba[fa2];"
@@ -103,6 +107,7 @@ fc = (
 run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", reel, "-i", face,
      "-loop", "1", "-t", f"{IMG0 + 0.2:.2f}", "-i", os.path.join(work, "matte.png"),
      "-loop", "1", "-t", f"{DUR}", "-i", os.path.join(work, "ring.png"),
+     "-loop", "1", "-t", f"{IMG0 + 0.2:.2f}", "-i", os.path.join(work, "dof.png"),
      "-filter_complex", fc, "-map", "[v]", "-map", "0:a", "-c:v", "libx264", "-preset", "slow", "-crf", "20", "-tune", "film",
      "-profile:v", "high", "-c:a", "copy", "-movflags", "+faststart", "-t", f"{DUR}", out])
 print("wrote", out, f"(bust {bw}x{bh} at {bx},{by}; portrait crop {side} at {x0},{y0})")

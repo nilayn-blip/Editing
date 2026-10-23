@@ -43,6 +43,12 @@ Stories are told in 3 beats (problem, turn, meaning). Quotes build to one feelin
 | 23 | Story | **Nandi**: why the bull always faces Shiva | "Nandi के कान में wish क्यों कहते हैं?" | ॥ हर हर महादेव ॥ | durga | |
 | 24 | Story | **Tripurantaka**: one arrow, three cities | "Shiva का एक तीर, तीन नगर" | ॥ जय त्रिपुरारी ॥ | malkauns | |
 | 25 | Quote | Bhagavad Gita 2.20: "आत्मा ना जन्म लेती है, ना मरती है" | "जब किसी अपने को खो दो…" | ॥ जय श्री कृष्ण ॥ | yaman | |
+| 26 | Story | **Somnath**: Chandra's curse, and why the moon rests on Shiva's head | "चाँद Shiva के सिर पर क्यों है?" | ॥ जय सोमनाथ ॥ | shivaranjani | |
+| 27 | Story | **Mahakal of Ujjain**: Shiva rises from the earth to destroy Dushana | "महाकाल को महाकाल क्यों कहते हैं?" | ॥ जय महाकाल ॥ | bhairav | |
+| 28 | Story | **Mahishasura Mardini**: Durga born from the gods' radiance | "जिसे कोई देवता नहीं हरा सका…" | ॥ जय माँ दुर्गा ॥ | durga | |
+| 29 | Story | **Hanuman as Rudravatar**: Shiva's eleventh Rudra serves Rama | "Hanuman जी Shiva का रूप क्यों हैं?" | ॥ जय बजरंगबली ॥ | yaman | |
+| 30 | Quote | **Nataraja**: the meaning of the cosmic dance | "Shiva नाचते क्यों हैं?" | ॥ ॐ नमः शिवाय ॥ | malkauns | |
+| 31 | Story | **Rameshwaram**: Rama worships the sand lingam made by Sita | "जब Ram ने Shiva की पूजा की" | ॥ जय श्री राम ॥ | bhupali | |
 
 When the queue runs out, add new tales in the same spirit (Puranas, Upanishads, Mahabharata and Ramayana side
 stories, the 12 Jyotirlinga legends one at a time, the Navadurga). Never repeat a topic that is already ticked.

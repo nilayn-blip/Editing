@@ -17,8 +17,8 @@ uv venv -p python3.11 voice && VIRTUAL_ENV=/opt/ai/voice uv pip install --index-
 # face: SadTalker (Apache-2.0) with GFPGAN face restoration
 git clone --depth 1 https://github.com/OpenTalker/SadTalker.git && uv venv -p python3.11 talk && \
   VIRTUAL_ENV=/opt/ai/talk uv pip install --index-strategy unsafe-best-match --extra-index-url https://download.pytorch.org/whl/cpu \
-  "torch==2.1.2+cpu" "torchvision==0.16.2+cpu" "torchaudio==2.1.2+cpu" numpy==1.23.4 face_alignment==1.3.5 imageio==2.19.3 \
-  imageio-ffmpeg==0.4.7 librosa==0.9.2 numba resampy==0.3.1 pydub==0.25.1 scipy==1.10.1 kornia==0.6.8 tqdm yacs==0.1.8 \
+  "torch==2.1.2+cpu" "torchvision==0.16.2+cpu" "torchaudio==2.1.2+cpu" numpy==1.23.4 face_alignment==1.3.5 imageio==2.34.2 \
+  imageio-ffmpeg==0.5.1 librosa==0.9.2 numba resampy==0.3.1 pydub==0.25.1 scipy==1.10.1 kornia==0.6.8 tqdm yacs==0.1.8 \
   pyyaml joblib==1.1.0 scikit-image==0.19.3 basicsr==1.4.2 facexlib==0.3.0 gfpgan av safetensors "setuptools<70" && \
   (cd SadTalker && bash scripts/download_models.sh)
 # background removal for the hook cut-out
@@ -43,9 +43,12 @@ reel_kit/avatar/make_reel.sh reels/NN-slug reel_kit/avatar/private/voicepack ree
   closest to the script and that sounds closest to the owner. Scores go to `.work/avatar/voice.json`.
 - `kit.py myvoice … sound build render` syncs the captions to that voice and renders the reel (`"facecam": true` moves
   the hook caption to the top and adds a dark band behind it).
-- SadTalker animates the face photo to the reel's own voice track, so lips line up from t = 0.
+- SadTalker animates the face photo to the reel's own voice track, so lips line up from t = 0. Its built-in
+  enhancer is skipped (~8 s/frame on CPU); `fast_enhance.py` restores only the hook frames, the only place the face
+  is shown full size.
 - `facecam.py` composites it: `output/reel_face.mp4`. Set `"facecam_side": "left" | "right" | "center"` in
   reel.json to keep the hook photo's subject visible beside the owner.
 
 Face photo: front-facing, eye level, even light, mouth closed, head and shoulders (the best of the owner's photos).
-Time on this 4-core CPU: voice about 5–10 min, face about 45–60 min per 20 s reel.
+Time on this 4-core CPU: voice about 5–10 min, face about 50 min per 20 s reel (+ about 5 min to restore the hook).
+Test a new setup on a 2-second clip first: SadTalker only writes its video at the very end.

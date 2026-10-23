@@ -4,7 +4,7 @@
 # Needs the three envs from README.md (/opt/ai/voice, /opt/ai/talk + /opt/ai/SadTalker, /opt/ai/seg).
 set -euo pipefail
 cd "$(dirname "$0")/../.."  # shivji_edit/
-D=$1; PACK=$2; PHOTO=$3
+D=$1; PACK=$(realpath "$2"); PHOTO=$(realpath "$3")
 AV=reel_kit/avatar
 W=$D/.work/avatar; mkdir -p "$W"
 
@@ -21,8 +21,12 @@ python3 reel_kit/kit.py "$D" myvoice "$W/voice.wav" sound build render
 
 # 3. lip-synced talking head, driven by the reel's own placed voice track so it lines up from t=0
 ( cd /opt/ai/SadTalker && /opt/ai/talk/bin/python inference.py --driven_audio "$OLDPWD/$D/.work/voice_only.wav" \
-    --source_image "$PHOTO" --result_dir "$OLDPWD/$W/talk" --preprocess full --still --enhancer gfpgan --size 256 --cpu )
-FACE=$(ls -t "$W"/talk/*.mp4 | head -1)
+    --source_image "$PHOTO" --result_dir "$OLDPWD/$W/talk" --preprocess full --still --size 256 --cpu )
+RAW=$(ls -t "$W"/talk/*.mp4 | head -1)
+# restore the face only where it is shown full size (the hook)
+IMG0=$(python3 -c "import json;print(json.load(open('$D/timing.json'))['img0'] + 0.3)")
+( cd /opt/ai/SadTalker && /opt/ai/talk/bin/python "$OLDPWD/$AV/fast_enhance.py" "$OLDPWD/$RAW" "$OLDPWD/$W/face.mp4" "$IMG0" )
+FACE=$W/face.mp4
 
 # 4. composite: cut-out under the hook, round portrait under the lines
 /opt/ai/seg/bin/python $AV/facecam.py "$D" "$FACE"

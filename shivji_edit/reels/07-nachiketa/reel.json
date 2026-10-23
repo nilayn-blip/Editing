@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Yama on buffalo.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Myths of the Hindus & Buddhists - Yama and Nachiketas.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Gursahai (attributed to), The Court of Yama, God of Death, ca. 1800, Guler, LACMA.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Yama teaches Nasiketha.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Sunrise in the Himalaya.jpg"
+  }
+ ],
  "slug": "07-nachiketa",
  "title": "Nachiketa: the boy who questioned Death",
  "raga": "malkauns",

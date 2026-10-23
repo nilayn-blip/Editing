@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Diwali diya.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Krishna and Arjuna on Chariot Painting.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Vishnu Vishvarupa.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:18th century Bhagavad Gita and bhasya, Sanskrit, Kannada script, Karnataka.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:An oil lamp 17 10 2010.JPG"
+  }
+ ],
  "slug": "25-atma-amar",
  "title": "Gita 2.20: the soul is never born and never dies",
  "raga": "yaman",

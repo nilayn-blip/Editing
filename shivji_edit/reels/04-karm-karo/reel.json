@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Dwarkadhish Temple Gujarat.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Sri Krishna preaching Gita Upadesh to Arjun - Unknown, Kashmir School - Google Cultural Institute.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Arjuna BattlesWith the Kauravas At Kuruksheta Bhagavad Gita.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:A scene from the Mahabharata; Arjuna requests instruction fr Wellcome V0045044.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Geeta upadesh sthali 3, Jyotisar, Kurukshetra 5.jpg"
+  }
+ ],
  "slug": "04-karm-karo",
  "title": "Gita 2.47: do your karma, leave the fruit",
  "raga": "bhupali",

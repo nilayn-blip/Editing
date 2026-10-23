@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Star trails Polaris.JPG"
+  },
+  {
+   "key": "a",
+   "file": "File:Story of dhruva.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Himalayan Pine forest.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Vishnu on his transport, Garuda. Gouache drawing. Wellcome V0045224.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Pole star 01.jpg"
+  }
+ ],
  "slug": "18-dhruva",
  "title": "Dhruva: the child who became the Pole Star",
  "raga": "yaman",

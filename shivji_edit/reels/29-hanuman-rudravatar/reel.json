@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:20191203 Hanuman Statue in New Delhi 1058 6512 DxO.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Ramapanchayan, Raja Ravi Varma (Lithograph).jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Anjani with Child Hanuman - Bronze - Pallava Period - ACCN 15-524 - Government Museum - Mathura 2013-02-24 6603.JPG"
+  },
+  {
+   "key": "c",
+   "file": "File:Hanuman fetches the herb-bearing mountain, in a print from the Ravi Varma Press, 1910's.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Hampi - Uddana Veerabhadra Temple - Hanuman - 2.jpg"
+  }
+ ],
  "slug": "29-hanuman-rudravatar",
  "title": "Hanuman: Shiva's Rudra avatar",
  "raga": "yaman",

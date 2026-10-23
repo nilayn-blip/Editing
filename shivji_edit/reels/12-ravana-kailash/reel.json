@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Ellora, cave 29, Ravana shaking Mount Kailasa (9841650413).jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Ravaṇa attempts to lift the mountain.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Clevelandart 1971.173.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Ravana Lifting Uma-Maheshwar with Mount Kailash - Gupta Period - ACCN 34-2577 - Government Museum - Mathura 2013-02-23 5424.JPG"
+  },
+  {
+   "key": "e",
+   "file": "File:Mt Kailash (18,564 ft) , Chamba, Himachal Pradesh.jpg"
+  }
+ ],
  "slug": "12-ravana-kailash",
  "title": "Ravana lifts Kailash: the birth of Shiva Tandava Stotram",
  "raga": "malkauns",

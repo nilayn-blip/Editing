@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Nandi statue at the Chamundeswari Temple, Mysuru, Karnataka, India (2016).jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Lepakshi-nandi-vertical.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Shiva and Parvati on Nandi.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:N-TN-C192 Big Temple Framed with Nandi Mandapam ceiling.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Statue of Nandi at Murudeshwar Temple.jpg"
+  }
+ ],
  "slug": "23-nandi",
  "title": "Nandi: why wishes are whispered in his ear",
  "raga": "durga",

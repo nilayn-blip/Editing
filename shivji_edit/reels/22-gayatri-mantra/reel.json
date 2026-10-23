@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Morning Aarti of the Ganges at sunrise, Varanasi.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Surya Poona painting 1800-05.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Konark Sun Temple Statue of Sun God.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:India - Varanasi - 017 - Foggy sunrise on the Ganga (2146295711).jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Sun Temple Main Structure, Konark, Orissa.jpg"
+  }
+ ],
  "slug": "22-gayatri-mantra",
  "title": "The Gayatri Mantra and its meaning",
  "raga": "bhairav",

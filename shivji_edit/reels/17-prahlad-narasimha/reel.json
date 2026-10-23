@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:LAKSHMI-NARASIMHA statue at Hampi.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Prahlada holika, 13th century Keshava temple Somanathpur.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Holika Dahan 2023 in Delhi 03.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Viṣṇu as Narasimha tearing Hiranyakasipu to pieces..jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Painting of Narasimha - Sri Appan Venkatachalapati Temple, Cheranmahadevi.jpg"
+  }
+ ],
  "slug": "17-prahlad-narasimha",
  "title": "Prahlad and Narasimha: faith that fire could not burn",
  "raga": "bhairav",

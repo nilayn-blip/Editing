@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:6th century Ravanaphadi cave temple, Ardhanarishvara (half Shiva, half Parvati), Aihole Hindu monuments Karnataka.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:6 Śiva and Pārvatī seated on a terrace. 1800 (circa) BM.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Standing Ardhanari c.1800.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Private collection-Ardhanarishvara-WUS01007.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Ardhanarishvara half Shiva half Parvati, Elephanta Caves.jpg"
+  }
+ ],
  "slug": "08-ardhanarishvara",
  "title": "Ardhanarishvara: Shiva and Shakti as one",
  "raga": "yaman",

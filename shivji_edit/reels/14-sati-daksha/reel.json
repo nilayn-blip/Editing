@@ -2,7 +2,32 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Kamakhya Temple, Guwahati.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Daksha criticizing Rudra for insulting him in the Satrayaga.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Daksha yagna.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Dakshayani (cropped).jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Kamakhya temple (35).jpg"
+  },
+  {
+   "key": "x",
+   "file": "File:Shiva carrying his wife in her Sakti form. Watercolour drawi Wellcome V0045169.jpg"
+  }
+ ],
  "slug": "14-sati-daksha",
  "title": "Sati and Daksha's yajna: the origin of the Shakti Peethas",
  "raga": "bhairav",

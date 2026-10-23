@@ -120,6 +120,10 @@
       }
 
       /* ending */
+      #topdim {
+        /* facecam layout: the hook caption sits at the top, over sky or bright stone */
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0px, rgba(0, 0, 0, 0.35) 420px, rgba(0, 0, 0, 0) 720px);
+      }
       #end-deva {
         position: absolute;
         left: 0;

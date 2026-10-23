@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Adiyogi-10-Isha yoga centre-coimbatore-India.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:MAHAKAL LOK UJJAIN.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Vadakurangatruthurai5.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Adiyogi Shiva bust, right side, looking up.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Snow peaks of Himalaya. IncredibleIndia.jpg"
+  }
+ ],
  "slug": "13-shiv-ek-avastha",
  "title": "Shiva is not a person, but a state",
  "raga": "shivaranjani",

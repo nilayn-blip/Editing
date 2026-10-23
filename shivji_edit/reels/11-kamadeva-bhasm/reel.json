@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Shiva Musée Guimet 22971.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Kama Shiva.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Kama, god of desire.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Madan-Bhasma (Shiva Turns to Ashes).jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:12th-century Shiva with third eye and Parvati at Shaivism Hindu temple Hoysaleswara arts Halebidu Karnataka India.jpg"
+  }
+ ],
  "slug": "11-kamadeva-bhasm",
  "title": "Kamadeva burnt by Shiva's third eye",
  "raga": "bhairav",

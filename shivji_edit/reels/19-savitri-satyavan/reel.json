@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Banyan tree in auroville.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Savitri laid down her husband head.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Savitri en de doodsgod Yama, RP-T-1993-372.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Savitri's defeat of the god of death, Yama.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Barsait.jpg"
+  }
+ ],
  "slug": "19-savitri-satyavan",
  "title": "Savitri and Satyavan: love that argued with Death",
  "raga": "malkauns",

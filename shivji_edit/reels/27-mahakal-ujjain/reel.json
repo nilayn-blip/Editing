@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Mahakal Temple, Ujjain, India.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Shri Ram Ghat 01.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:India, Rajasthan, Mewar school, early 18th Century - God Shiva in His Ferocious Aspect as Mahakala Dancing - 1955.296 - Cleveland Museum of Art.tif"
+  },
+  {
+   "key": "c",
+   "file": "File:Shiva on the bull Nandi, destroying demons..jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Mahakaleshwar Ujjain.jpeg"
+  }
+ ],
  "slug": "27-mahakal-ujjain",
  "title": "Mahakal of Ujjain: Time of time",
  "raga": "bhairav",

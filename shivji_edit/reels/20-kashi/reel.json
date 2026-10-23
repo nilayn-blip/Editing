@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Salutations to the Ganges at sunrise, Varanasi.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Shiva and Ganga in Varanasi.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Manikarnika Ghat (4956575129).jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:The Golden Temple, Benares (NBY 438851).jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Ganga Aarti in evening at Dashashwamedh ghat, Varanasi 4.jpg"
+  }
+ ],
  "slug": "20-kashi",
  "title": "Kashi: where even death is moksha",
  "raga": "shivaranjani",

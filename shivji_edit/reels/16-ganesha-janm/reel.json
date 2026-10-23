@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Kadelakalu Ganesha Idol.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Parvati Ganesha.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Shiva parivar.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Siva-parvati-by-raja-ravi-varma.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Ganesh idol, Bhairi temple, Ratnagiri.jpg"
+  }
+ ],
  "slug": "16-ganesha-janm",
  "title": "Why Ganesha has an elephant head",
  "raga": "bhupali",

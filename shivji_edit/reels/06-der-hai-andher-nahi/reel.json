@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Shiva Linga during Maha Shivaratri Celebrations at Pashupatinath Temple, Kathmandu, Nepal-070A6809.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Shiva meditation.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Shyamala Shiva. Kullu School, Pahari. BKB Acc 6958.JPG"
+  },
+  {
+   "key": "c",
+   "file": "File:The Holy Family, Shiva, Parvati, with their sons Ganesha and Karttikeya, National Museum, New Delhi.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Vaikom Mahadeva Temple - pillar lamps inthe courtyard.jpg"
+  }
+ ],
  "slug": "06-der-hai-andher-nahi",
  "title": "Bhole's devotion: delay, never darkness",
  "raga": "shivaranjani",

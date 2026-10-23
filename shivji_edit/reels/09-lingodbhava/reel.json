@@ -2,7 +2,32 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Pattadakal Virupaksa. Mandapa east wall, left window. Lingodbhava.JPG"
+  },
+  {
+   "key": "a",
+   "file": "File:Shiva as the Cosmic Pillar LACMA M.74.138.4 (2 of 8).jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Shiva as the Cosmic Pillar LACMA M.74.138.4 (1 of 8).jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Shiva Emerging from the Linga (Lingodbhavamurti) MET DP-16372-001.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Arulmigu Arunachaleswarar Temple, Thiruvannamalai (42492949895).jpg"
+  },
+  {
+   "key": "x",
+   "file": "File:Shiva as the Cosmic Pillar LACMA M.74.138.4 (3 of 8).jpg"
+  }
+ ],
  "slug": "09-lingodbhava",
  "title": "Lingodbhava: the pillar of light without end",
  "raga": "malkauns",

@@ -22,3 +22,6 @@ shivji_edit/krishna/output/.*hf-transaction*/
 shivji_edit/reels/*/.dl/
 shivji_edit/reels/*/.work/
 shivji_edit/reels/*/project/.hyperframes/
+
+# the owner's voice pack and face photos: personal, never in this public repo
+shivji_edit/reel_kit/avatar/private/

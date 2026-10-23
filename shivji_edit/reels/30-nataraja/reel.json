@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Shiva Nataraja in BM.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Brihadisvara Temple-Museum-Chola frescos-Siva as Nataraja-WUS-02677.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Shiva Nataraja, Tamil Nadu, India, Chola dynasty, 1000s AD, bronze - Dallas Museum of Art - DSC05064.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Shiva as the Lord of Dance LACMA edit.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Golden Roof, Nataraja Temple in Chidambaram.jpg"
+  }
+ ],
  "slug": "30-nataraja",
  "title": "Nataraja: why Shiva dances",
  "raga": "malkauns",

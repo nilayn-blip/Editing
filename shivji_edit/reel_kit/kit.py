@@ -406,7 +406,7 @@ def build_html(r, T_, photos):
         <div id="grade" class="full"></div>
         <div id="center-dim" class="full"></div>
         <div id="embers" class="full"></div>
-        <div id="vignette" class="full"></div>
+        <div id="vignette" class="full"></div>{chr(10) + '        <div id="topdim" class="full"></div>' if r.get("facecam") else ""}
         <div id="grain"></div>
       </div>
 
@@ -415,7 +415,7 @@ def build_html(r, T_, photos):
       </div>
 
       <section id="intro" class="clip full" data-start="0" data-duration="{T_["img0"] + 0.2}" data-track-index="3">
-        {words("cap0", L[0]["caption"], 820 if r.get("hook_style", "bold") == "bold" else 880, "hook" if r.get("hook_style", "bold") == "bold" else "intro")}
+        {words("cap0", L[0]["caption"], 230 if r.get("facecam") else 820 if r.get("hook_style", "bold") == "bold" else 880, "hook" if r.get("hook_style", "bold") == "bold" else "intro")}
       </section>
 {chr(10).join(secs)}
 

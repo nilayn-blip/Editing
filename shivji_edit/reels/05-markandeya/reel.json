@@ -2,7 +2,32 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Trimbakeshwar Shiva Temple, Trimbak, Nashik District, Maharastra (3).jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Śiva, wearing a necklace of skulls, stands behind a Śivalingam within a temple complex..jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Markandeya, ensnared by Yama’s pasha (noose), embraces a tall garlanded and bejewelled mukhalinga (a linga with a face)..jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Kalantaka Kalasamhara.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Trimbakeshwar Shiva Temple, Trimbak, Nashik District, Maharastra (6).jpg"
+  },
+  {
+   "key": "x",
+   "file": "File:Shiva doodt Yama met zijn drietand, RP-T-1993-333.jpg"
+  }
+ ],
  "slug": "05-markandeya",
  "title": "Markandeya: the boy who defeated death",
  "raga": "bhairav",

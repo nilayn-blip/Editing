@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Ramanathaswamy temple tower.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Rama and SIta in Forest, Kangra Style 1780.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Ramanathaswamy Temple Shore 02.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Rama, Sita, and Lakshmana, Folio from a Ramayana LACMA M.87.278.10.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Rameswaram Temple Corridor.jpg"
+  }
+ ],
  "slug": "31-rameshwaram",
  "title": "Rameshwaram: when Rama worshipped Shiva",
  "raga": "bhupali",

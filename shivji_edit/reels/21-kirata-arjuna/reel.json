@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:009202022 Chemmanthitha Mahadeva Temple Kerala 059.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Arjuna, perched on a high platform, aims his arrow at a large boar which rushes towards him.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Myths of the Hindus & Buddhists - Kirat-Arjuna.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Kiratarjuna.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:L'Ascèse d'Arjuna (Mahabalipuram, Inde) (13932194786).jpg"
+  }
+ ],
  "slug": "21-kirata-arjuna",
  "title": "Shiva as Kirata and Arjuna: the Pashupatastra",
  "raga": "durga",

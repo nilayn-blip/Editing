@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Temple of Somnath, Guj.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Chandra, The Moon God; Folio from a Book of Dreams LACMA M.83.219.2 (1 of 3).jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Chandra Aradhana.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Shiva Chandrashekharamurti.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Somnath Temple Gujarat.jpg"
+  }
+ ],
  "slug": "26-somnath",
  "title": "Somnath: why the moon rests on Shiva's head",
  "raga": "shivaranjani",

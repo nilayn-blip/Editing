@@ -2,7 +2,32 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "ghanti",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Bankebihari temple main gate Vrindavan.JPG"
+  },
+  {
+   "key": "a",
+   "file": "File:Krishna and Radha in a Grove (Recto); Princess with Attendants (Verso) LACMA M.77.154.33.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Radha in the Moonlight.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Radha en Krishna, RP-T-1993-300.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Radha Syamasundar Vrindavan Radhastami 2004.jpg"
+  },
+  {
+   "key": "x",
+   "file": "File:Krishna en Radha, RP-T-1993-305.jpg"
+  }
+ ],
  "slug": "10-radha-krishna-prem",
  "title": "Radha and Krishna: what true love is",
  "raga": "bhupali",

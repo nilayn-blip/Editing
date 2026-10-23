@@ -2,7 +2,28 @@
  "pace": "short",
  "hook_style": "bold",
  "end_sound": "om",
- "paintings": [],
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:View of Srikalahasti gopuram and kannappa hill.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Kannapa Nayanar (174) (Raja Raja Chola Art Gallery)-WUS02852.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Kannappa offering eyes to Shiva Linga carved on a mukha mandapa pillar of Arunachaleswarar temple.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Bhakta Kannappa.jpeg"
+  },
+  {
+   "key": "e",
+   "file": "File:SrikalahastiGaligopuram.jpg"
+  }
+ ],
  "slug": "15-kannappa",
  "title": "Kannappa: the hunter who offered his eyes",
  "raga": "durga",

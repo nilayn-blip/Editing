@@ -5,23 +5,31 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Ganga Aarti at Dashashwamedh Ghat 52.jpg"
+   "file": "File:Ganga Aarti at Dashashwamedh Ghat 52.jpg",
+   "focus": "45% 40%"
   },
   {
    "key": "a",
-   "file": "File:Bhagiratha Penance.jpg"
-  },
-  {
-   "key": "b",
-   "file": "File:Shiva Bearing the Descent of the Ganges River, folio from a Hindi manuscript by the saint Narayan LACMA M.86.345.6.jpg"
+   "file": "File:Bhagiratha Penance.jpg",
+   "focus": "38% 30%"
   },
   {
    "key": "bw",
-   "file": "File:Gangā and the river Ganges falling from heaven, while S Wellcome V0045134.jpg"
+   "file": "File:Gangā and the river Ganges falling from heaven, while S Wellcome V0045134.jpg",
+   "focus": "58% 6%",
+   "author": "Ravi Varma Press chromolithograph, Wellcome Collection"
   },
   {
-   "key": "c",
-   "file": "File:Gangadhara sculpture of Cave 1 of Elephanta Caves.jpg"
+   "key": "b",
+   "file": "File:Shiva Bearing the Descent of the Ganges River, folio from a Hindi manuscript by the saint Narayan LACMA M.86.345.6.jpg",
+   "focus": "50% 40%",
+   "inset": [
+    0.04,
+    0.03,
+    0.04,
+    0.03
+   ],
+   "author": "Unknown artist, LACMA collection"
   },
   {
    "key": "e",
@@ -46,7 +54,7 @@
   },
   {
    "spoken": "और धीरे से धरती पर उतारा, इसीलिए वो गंगाधर हैं।",
-   "caption": "और धीरे से धरती पर उतारा… इसीलिए वो *गंगाधर* हैं ”"
+   "caption": "और धीरे से धरती पर उतारा… इसीलिए वो *गंगाधर* हैं"
   }
  ],
  "end": {

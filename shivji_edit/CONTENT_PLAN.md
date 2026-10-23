@@ -19,8 +19,8 @@ Stories are told in 3 beats (problem, turn, meaning). Quotes build to one feelin
 | # | Format | Topic | Hook idea | End chant | Raga | Done |
 |---|---|---|---|---|---|---|
 | 01 | Story | **Neelkanth**: why Shiva's throat is blue (Samudra Manthan, the halahala poison) | "Shiva का गला नीला क्यों है?" | ॥ हर हर महादेव ॥ | shivaranjani | ✔ |
-| 02 | Quote | सत्यम् शिवम् सुंदरम्: "जो सत्य है, वही शिव है…" | "जब मन बहुत heavy हो…" | ॥ सत्यम् शिवम् सुंदरम् ॥ | durga | |
-| 03 | Story | **Gangavatarana**: Bhagiratha's tapasya; Shiva catches Ganga in his jata | "Ganga धरती पर कैसे आईं?" | ॥ हर हर गंगे ॥ | yaman | |
+| 02 | Quote | सत्यम् शिवम् सुंदरम्: "जो सत्य है, वही शिव है…" | "जब मन बहुत heavy हो…" | ॥ सत्यम् शिवम् सुंदरम् ॥ | durga | ✔ |
+| 03 | Story | **Gangavatarana**: Bhagiratha's tapasya; Shiva catches Ganga in his jata | "Ganga धरती पर कैसे आईं?" | ॥ हर हर गंगे ॥ | yaman | ✔ |
 | 04 | Quote | Krishna: "कर्म करो, फल की चिंता मत करो" (Gita 2.47, in plain words) | "जब result आपके हाथ में ना हो…" | ॥ जय श्री कृष्ण ॥ | bhupali | |
 | 05 | Story | **Markandeya**: the boy who embraced the lingam and defeated Yama (Mahamrityunjaya) | "एक बच्चा जिसने मौत को हरा दिया" | ॐ त्र्यम्बकं यजामहे… | bhairav | |
 | 06 | Quote | Mahadev and patience: "भोले की भक्ति में देर है, अंधेर नहीं" | "अगर प्रार्थना का जवाब नहीं आ रहा…" | ॥ हर हर महादेव ॥ | shivaranjani | |
@@ -51,3 +51,5 @@ stories, the 12 Jyotirlinga legends one at a time, the Navadurga). Never repeat 
 | # | Date | Path |
 |---|---|---|
 | 01 | 2026-10-22 | `reels/01-neelkanth/` (draft, computer voice: waiting for the owner's recording) |
+| 02 | 2026-10-23 | `reels/02-satyam-shivam-sundaram/` (draft, computer voice: waiting for the owner's recording) |
+| 03 | 2026-10-23 | `reels/03-gangavatarana/` (draft, computer voice: waiting for the owner's recording) |

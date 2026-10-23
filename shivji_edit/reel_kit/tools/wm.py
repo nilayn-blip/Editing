@@ -22,7 +22,7 @@ def search(q, n=25):
              "iiextmetadatafilter": "LicenseShortName|Artist|ImageDescription"})
     out = []
     for p in d.get("query", {}).get("pages", []):
-        ii = p["imageinfo"][0]; m = ii.get("extmetadata", {})
+        ii = p["imageinfo"][0]; m = ii.get("extmetadata") or {}
         out.append((p["title"], ii["width"], ii["height"], m.get("LicenseShortName", {}).get("value"), strip(m.get("Artist", {}).get("value"))[:40]))
     return out
 if __name__ == "__main__":

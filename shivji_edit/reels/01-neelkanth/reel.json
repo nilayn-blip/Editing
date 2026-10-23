@@ -29,31 +29,42 @@
  },
  "paintings": [
   {
-   "key": "p1",
-   "file": "File:Shiva statue murudeshwar.jpg",
-   "focus": "45% 30%"
+   "key": "n1",
+   "file": "File:Shiva Statue at Aazhimala Shiva Temple.jpg",
+   "focus": "40% 40%"
   },
   {
-   "key": "p2",
-   "file": "File:Shiva Vishvarupa.jpg",
-   "focus": "50% 35%",
-   "author": "Unknown artist"
+   "key": "n2",
+   "file": "File:Samudramanthan.jpg",
+   "inset": [
+    0.06,
+    0.03,
+    0.06,
+    0.03
+   ],
+   "focus": "50% 45%"
   },
   {
-   "key": "p3",
-   "file": "File:Myths of the Hindus & Buddhists - Shiva drinking the World-Poison.jpg",
+   "key": "n4a",
+   "file": "File:नीलकंठी.jpg",
+   "focus": "40% 55%"
+  },
+  {
+   "key": "n3",
+   "file": "File:Shiva drinking Halahala.jpg",
+   "inset": [
+    0.03,
+    0.13,
+    0.03,
+    0.04
+   ],
    "focus": "45% 40%",
-   "author": "Nandalal Bose (illustrator)"
+   "author": "Gita Press (Kalyan)"
   },
   {
-   "key": "p4",
-   "file": "File:The Birth of Gangā.jpg",
-   "focus": "64% 40%"
-  },
-  {
-   "key": "p5",
-   "file": "File:Adiyogi Statue at Isha Yoga center.jpg",
-   "focus": "55% 30%"
+   "key": "n5",
+   "file": "File:Neelkanth mahadev mandir.jpg",
+   "focus": "55% 55%"
   }
  ],
  "caption_post": "Shiva का गला नीला क्यों है? 🔱 समुद्र मंथन में निकला हलाहल विष महादेव ने पूरी सृष्टि को बचाने के लिए पी लिया और कंठ में रोक लिया — इसीलिए वो नीलकंठ कहलाए। कमेंट में लिखिए: हर हर महादेव 🙏 #mahadev #neelkanth #harharmahadev #shiva #bholenath #samudramanthan #shivbhakt #sanatandharma #shivkatha #spiritualshorts"

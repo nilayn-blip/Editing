@@ -1,6 +1,6 @@
 # Neelkanth: why is Shiva's throat blue?
 
-Reel for Instagram (@nirva_nataless): 19.3 s, 1080x1920, 30 fps, -14 LUFS. Built with `reel_kit/kit.py` from `reel.json`.
+Reel for Instagram (@nirva_nataless): 19.54 s, 1080x1920, 30 fps, -14 LUFS. Built with `reel_kit/kit.py` from `reel.json`.
 
 - `output/reel.mp4`: narration + original score.
 - `output/reel_voice_only.mp4`: narration only, to add a song from Instagram's music library (song ~30–40%, original audio 100%).
@@ -9,9 +9,9 @@ Reel for Instagram (@nirva_nataless): 19.3 s, 1080x1920, 30 fps, -14 LUFS. Built
 |---|---|
 | 0.3 s | Shiva का *गला* नीला क्यों है? |
 | 2.6 s | समुद्र मंथन से निकला हलाहल विष… पूरी सृष्टि जलने लगी, |
-| 8.1 s | तब महादेव ने वो विष पी लिया, और कंठ में ही रोक लिया, |
-| 13.1 s | इसीलिए वो कहलाए… *नीलकंठ* ” |
-| 16.9 s | ॥ हर हर महादेव ॥ |
+| 8.2 s | तब महादेव ने वो विष पी लिया, और कंठ में ही रोक लिया, |
+| 13.3 s | इसीलिए वो कहलाए… *नीलकंठ* ” |
+| 17.1 s | ॥ हर हर महादेव ॥ |
 
 ## Post
 

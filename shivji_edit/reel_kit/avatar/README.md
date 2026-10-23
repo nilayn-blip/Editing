@@ -37,7 +37,8 @@ Check it: a recording well below ~0.8 is probably not the owner.
 
 ## 2. Make a reel
 ```
-reel_kit/avatar/make_reel.sh reels/NN-slug reel_kit/avatar/private/voicepack reel_kit/avatar/private/face.jpg
+reel_kit/avatar/make_reel.sh reels/NN-slug reel_kit/avatar/private/voicepack reel_kit/avatar/private/face.jpg \
+  reel_kit/avatar/private/face_matte.png   # still matte of the photo: rembg -m birefnet-portrait
 ```
 - `clone_best.py` speaks every line 4 times (up to 8 for unclear lines) and keeps the take that Whisper transcribes
   closest to the script and that sounds closest to the owner. Scores go to `.work/avatar/voice.json`.

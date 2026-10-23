@@ -1,6 +1,6 @@
 #!/bin/bash
 # Make a reel spoken by the owner's cloned voice, with their lip-synced face.
-# Usage: reel_kit/avatar/make_reel.sh reels/NN-slug VOICEPACK_DIR FACE_PHOTO.jpg
+# Usage: reel_kit/avatar/make_reel.sh reels/NN-slug VOICEPACK_DIR FACE_PHOTO.jpg [FACE_MATTE.png]
 # Needs the three envs from README.md (/opt/ai/voice, /opt/ai/talk + /opt/ai/SadTalker, /opt/ai/seg).
 set -euo pipefail
 cd "$(dirname "$0")/../.."  # shivji_edit/
@@ -29,5 +29,5 @@ IMG0=$(python3 -c "import json;print(json.load(open('$D/timing.json'))['img0'] +
 FACE=$W/face.mp4
 
 # 4. composite: cut-out under the hook, round portrait under the lines
-/opt/ai/seg/bin/python $AV/facecam.py "$D" "$FACE"
+/opt/ai/seg/bin/python $AV/facecam.py "$D" "$FACE" ${4:+"$(realpath "$4")"}
 echo "done: $D/output/reel_face.mp4"

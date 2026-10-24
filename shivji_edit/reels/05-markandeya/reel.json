@@ -5,27 +5,43 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Trimbakeshwar Shiva Temple, Trimbak, Nashik District, Maharastra (3).jpg"
+   "file": "File:Trimbakeshwar Shiva Temple, Trimbak, Nashik District, Maharastra (3).jpg",
+   "focus": "40% 45%"
   },
   {
    "key": "a",
-   "file": "File:Śiva, wearing a necklace of skulls, stands behind a Śivalingam within a temple complex..jpg"
+   "file": "File:Śiva, wearing a necklace of skulls, stands behind a Śivalingam within a temple complex..jpg",
+   "inset": [
+    0.03,
+    0.02,
+    0.03,
+    0.07
+   ],
+   "focus": "35% 50%",
+   "author": "Chore Bagan Art Studio"
   },
   {
    "key": "b",
-   "file": "File:Markandeya, ensnared by Yama’s pasha (noose), embraces a tall garlanded and bejewelled mukhalinga (a linga with a face)..jpg"
+   "file": "File:Markandeya, ensnared by Yama’s pasha (noose), embraces a tall garlanded and bejewelled mukhalinga (a linga with a face)..jpg",
+   "inset": [
+    0.03,
+    0.03,
+    0.03,
+    0.2
+   ],
+   "focus": "45% 45%",
+   "author": "Company School artist"
   },
   {
    "key": "c",
-   "file": "File:Kalantaka Kalasamhara.jpg"
+   "file": "File:Kalantaka Kalasamhara.jpg",
+   "focus": "45% 50%",
+   "author": "Unknown artist"
   },
   {
    "key": "e",
-   "file": "File:Trimbakeshwar Shiva Temple, Trimbak, Nashik District, Maharastra (6).jpg"
-  },
-  {
-   "key": "x",
-   "file": "File:Shiva doodt Yama met zijn drietand, RP-T-1993-333.jpg"
+   "file": "File:Trimbakeshwar Shiva Temple, Trimbak, Nashik District, Maharastra (6).jpg",
+   "focus": "45% 40%"
   }
  ],
  "slug": "05-markandeya",

@@ -9,6 +9,7 @@ Usage (from shivji_edit/):
   python3 reel_kit/kit.py reels/NN-slug all          # every step below, in order
   python3 reel_kit/kit.py reels/NN-slug STEP [...]   # fetch | assemble | narrate | sound | build | render
   python3 reel_kit/kit.py reels/NN-slug myvoice REC.m4a sound build render   # use the owner's own recording
+  python3 reel_kit/kit.py reels/NN-slug clonevoice .work/avatar/voice sound build render   # cloned-voice line takes
 
 reel.json fields: slug, title, pace ("short" 15-20 s | "medium"), hook_style ("bold" | "elegant"),
 hook_over_image (default: true for short), raga (see RAGAS), end_sound ("om" | "ghanti"), intro {spoken, caption},
@@ -190,6 +191,27 @@ def write_timing(d, r, items, durs, voice):
                          for i, (it, s, dd) in enumerate(zip(items, starts, durs))])
     json.dump(timing, open(os.path.join(d, "timing.json"), "w"), indent=1, ensure_ascii=False)
     print(json.dumps({k: timing[k] for k in ("dur", "img0", "end", "img_len", "voice")}))
+
+
+def step_clonevoice(d, r, prefix, tempo=1.12):
+    """Use per-line takes from the owner's cloned voice (avatar/clone_best.py writes PREFIX_l0.wav ... PREFIX_lN.wav).
+
+    No pause-splitting (synthetic takes can have long inner pauses): each line file is cleaned, edge silence trimmed,
+    sped up slightly (the clone speaks a little slowly) and levelled, then timing.json is rewritten.
+    """
+    items = [r["intro"]] + r["lines"] + [r["end"]]
+    out = os.path.join(d, "narration")
+    os.makedirs(out, exist_ok=True)
+    durs = []
+    for k in range(len(items)):
+        dst = os.path.join(out, f"l{k}.wav")
+        run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", f"{prefix}_l{k}.wav", "-ac", "1", "-ar", "48000", "-af",
+             "silenceremove=start_periods=1:start_threshold=-45dB:stop_periods=-1:stop_duration=0.3:stop_threshold=-40dB,"
+             f"atempo={tempo},highpass=f=80,acompressor=threshold=-20dB:ratio=3:attack=10:release=200,loudnorm=I=-18:TP=-2,"
+             "apad=pad_dur=0.12", dst])
+        durs.append(round(float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", dst],
+                                               capture_output=True, text=True).stdout), 3))
+    write_timing(d, r, items, durs, voice="owner")
 
 
 def step_myvoice(d, r, src):
@@ -594,6 +616,9 @@ def main():
     r = load(d)
     if steps[0] == "myvoice":
         step_myvoice(d, r, os.path.abspath(steps[1]))
+        steps = steps[2:]
+    elif steps[0] == "clonevoice":  # clonevoice PREFIX: per-line takes PREFIX_l{k}.wav from avatar/clone_best.py
+        step_clonevoice(d, r, os.path.abspath(steps[1]))
         steps = steps[2:]
     for s in steps:
         print(f"== {s}", flush=True)

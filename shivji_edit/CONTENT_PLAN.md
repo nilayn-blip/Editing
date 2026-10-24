@@ -22,7 +22,7 @@ Stories are told in 3 beats (problem, turn, meaning). Quotes build to one feelin
 | 02 | Quote | सत्यम् शिवम् सुंदरम्: "जो सत्य है, वही शिव है…" | "जब मन बहुत heavy हो…" | ॥ सत्यम् शिवम् सुंदरम् ॥ | durga | ✔ |
 | 03 | Story | **Gangavatarana**: Bhagiratha's tapasya; Shiva catches Ganga in his jata | "Ganga धरती पर कैसे आईं?" | ॥ हर हर गंगे ॥ | yaman | ✔ |
 | 04 | Quote | Krishna: "कर्म करो, फल की चिंता मत करो" (Gita 2.47, in plain words) | "जब result आपके हाथ में ना हो…" | ॥ जय श्री कृष्ण ॥ | bhupali | ✔ |
-| 05 | Story | **Markandeya**: the boy who embraced the lingam and defeated Yama (Mahamrityunjaya) | "एक बच्चा जिसने मौत को हरा दिया" | ॐ त्र्यम्बकं यजामहे… | bhairav | |
+| 05 | Story | **Markandeya**: the boy who embraced the lingam and defeated Yama (Mahamrityunjaya) | "एक बच्चा जिसने मौत को हरा दिया" | ॐ त्र्यम्बकं यजामहे… | bhairav | ✔ |
 | 06 | Quote | Mahadev and patience: "भोले की भक्ति में देर है, अंधेर नहीं" | "अगर प्रार्थना का जवाब नहीं आ रहा…" | ॥ हर हर महादेव ॥ | shivaranjani | |
 | 07 | Story | **Nachiketa and Yama** (Katha Upanishad): the boy who asked Death what happens after death | "Yamraj से सवाल पूछने वाला बच्चा" | ॥ ॐ ॥ | malkauns | |
 | 08 | Story | **Ardhanarishvara**: Shiva and Parvati as one | "आधा शिव, आधी शक्ति" | ॥ ॐ नमः शिवाय ॥ | yaman | |
@@ -60,3 +60,4 @@ stories, the 12 Jyotirlinga legends one at a time, the Navadurga). Never repeat 
 | 02 | 2026-10-23 | `reels/02-satyam-shivam-sundaram/` (draft, computer voice: waiting for the owner's recording) |
 | 03 | 2026-10-23 | `reels/03-gangavatarana/` (draft, computer voice: waiting for the owner's recording) |
 | 04 | 2026-10-23 | `reels/04-karm-karo/` (draft, computer voice: waiting for the owner's recording) |
+| 05 | 2026-10-24 | `reels/05-markandeya/` (owner's cloned voice) |

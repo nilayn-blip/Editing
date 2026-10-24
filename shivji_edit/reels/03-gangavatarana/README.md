@@ -1,6 +1,6 @@
 # Gangavatarana: how Ganga came to Earth
 
-Reel for Instagram (@nirva_nataless): 22.0 s, 1080x1920, 30 fps, -14 LUFS. Built with `reel_kit/kit.py` from `reel.json`.
+Reel for Instagram (@nirva_nataless): 24.15 s, 1080x1920, 30 fps, -14 LUFS. Built with `reel_kit/kit.py` from `reel.json`.
 
 - `output/reel.mp4`: narration + original score.
 - `output/reel_voice_only.mp4`: narration only, to add a song from Instagram's music library (song ~30–40%, original audio 100%).
@@ -8,10 +8,10 @@ Reel for Instagram (@nirva_nataless): 22.0 s, 1080x1920, 30 fps, -14 LUFS. Built
 | Voice starts | Caption |
 |---|---|
 | 0.3 s | Ganga *धरती* पर कैसे आईं? |
-| 2.8 s | राजा भगीरथ की तपस्या से गंगा स्वर्ग से उतरीं… पर उनका वेग धरती को बहा देता, |
-| 9.6 s | तब महादेव ने गंगा को अपनी जटाओं में बाँध लिया, |
-| 14.1 s | और धीरे से धरती पर उतारा… इसीलिए वो *गंगाधर* हैं |
-| 19.5 s | ॥ हर हर गंगे ॥ |
+| 3.0 s | राजा भगीरथ की तपस्या से गंगा स्वर्ग से उतरीं… पर उनका वेग धरती को बहा देता, |
+| 10.4 s | तब महादेव ने गंगा को अपनी जटाओं में बाँध लिया, |
+| 15.2 s | और धीरे से धरती पर उतारा… इसीलिए वो *गंगाधर* हैं |
+| 21.8 s | ॥ हर हर गंगे ॥ |
 
 ## Post
 

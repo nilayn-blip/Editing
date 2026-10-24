@@ -1,0 +1,53 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "ghanti",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Ramanathaswamy temple tower.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Rama and SIta in Forest, Kangra Style 1780.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Ramanathaswamy Temple Shore 02.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Rama, Sita, and Lakshmana, Folio from a Ramayana LACMA M.87.278.10.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Rameswaram Temple Corridor.jpg"
+  }
+ ],
+ "slug": "31-rameshwaram",
+ "title": "Rameshwaram: when Rama worshipped Shiva",
+ "raga": "bhupali",
+ "intro": {
+  "spoken": "जब राम ने शिव की पूजा की",
+  "caption": "जब *Ram* ने Shiva की पूजा की"
+ },
+ "lines": [
+  {
+   "spoken": "रावण वध के बाद, श्रीराम ने समुद्र किनारे शिव की पूजा करनी चाही,",
+   "caption": "रावण वध के बाद, श्रीराम ने समुद्र किनारे शिव की पूजा करनी चाही,"
+  },
+  {
+   "spoken": "हनुमान कैलाश से लिंग लाने गए, तो सीता माँ ने रेत से लिंग बनाया,",
+   "caption": "हनुमान कैलाश से लिंग लाने गए, तो सीता माँ ने रेत से लिंग बनाया,"
+  },
+  {
+   "spoken": "राम ने उसी की पूजा की, वही है रामेश्वरम।",
+   "caption": "राम ने उसी की पूजा की… वही है *रामेश्वरम*"
+  }
+ ],
+ "end": {
+  "spoken": "जय श्री राम।",
+  "caption": "॥ जय श्री राम ॥"
+ },
+ "caption_post": "जब Ram ने Shiva की पूजा की 🌊 रावण वध के बाद श्रीराम ने समुद्र किनारे महादेव की पूजा करनी चाही। हनुमान कैलाश से लिंग लाने गए, और शुभ मुहूर्त निकलता देख सीता माँ ने रेत से लिंग बनाया — राम ने उसी की पूजा की। वही है रामेश्वरम ज्योतिर्लिंग। कमेंट में लिखिए: जय श्री राम #mahadev #harharmahadev #shiva #bholenath #omnamahshivaya #shivbhakt #sanatandharma #shivkatha #rameshwaram #shriram #jyotirlinga"
+}

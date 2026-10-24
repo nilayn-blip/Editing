@@ -1,0 +1,62 @@
+[
+  {
+    "key": "n1",
+    "file": "p01.jpg",
+    "focus": "40% 40%",
+    "alt": "Shiva Statue at Aazhimala Shiva Temple",
+    "title": "File:Shiva Statue at Aazhimala Shiva Temple.jpg",
+    "author": "Amitbalani",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "page": "https://commons.wikimedia.org/wiki/File:Shiva_Statue_at_Aazhimala_Shiva_Temple.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Shiva_Statue_at_Aazhimala_Shiva_Temple.jpg"
+  },
+  {
+    "key": "n2",
+    "file": "p02.jpg",
+    "focus": "50% 45%",
+    "alt": "Samudramanthan",
+    "title": "File:Samudramanthan.jpg",
+    "author": "unknown author",
+    "license": "Public domain",
+    "license_url": "",
+    "page": "https://commons.wikimedia.org/wiki/File:Samudramanthan.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Samudramanthan.jpg"
+  },
+  {
+    "key": "n4a",
+    "file": "p03.jpg",
+    "focus": "40% 55%",
+    "alt": "नीलकंठी",
+    "title": "File:नीलकंठी.jpg",
+    "author": "Pushapktiwari",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "page": "https://commons.wikimedia.org/wiki/File:%E0%A4%A8%E0%A5%80%E0%A4%B2%E0%A4%95%E0%A4%82%E0%A4%A0%E0%A5%80.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/f/fa/%E0%A4%A8%E0%A5%80%E0%A4%B2%E0%A4%95%E0%A4%82%E0%A4%A0%E0%A5%80.jpg"
+  },
+  {
+    "key": "n3",
+    "file": "p04.jpg",
+    "focus": "50% 40%",
+    "alt": "Shiva drinking Halahala",
+    "title": "File:Shiva drinking Halahala.jpg",
+    "author": "Gita Press (Kalyan)",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "page": "https://commons.wikimedia.org/wiki/File:Shiva_drinking_Halahala.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Shiva_drinking_Halahala.jpg"
+  },
+  {
+    "key": "n5",
+    "file": "p05.jpg",
+    "focus": "50% 55%",
+    "alt": "Neelkanth mahadev mandir",
+    "title": "File:Neelkanth mahadev mandir.jpg",
+    "author": "Anurodhraghuwanshi",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Neelkanth_mahadev_mandir.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Neelkanth_mahadev_mandir.jpg"
+  }
+]

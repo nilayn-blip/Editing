@@ -1,0 +1,53 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "om",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Yama on buffalo.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Myths of the Hindus & Buddhists - Yama and Nachiketas.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Gursahai (attributed to), The Court of Yama, God of Death, ca. 1800, Guler, LACMA.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Yama teaches Nasiketha.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Sunrise in the Himalaya.jpg"
+  }
+ ],
+ "slug": "07-nachiketa",
+ "title": "Nachiketa: the boy who questioned Death",
+ "raga": "malkauns",
+ "intro": {
+  "spoken": "यमराज से सवाल पूछने वाला बच्चा",
+  "caption": "*Yamraj* से सवाल पूछने वाला बच्चा"
+ },
+ "lines": [
+  {
+   "spoken": "पिता ने गुस्से में नचिकेता को यम को दान कर दिया,",
+   "caption": "पिता ने गुस्से में नचिकेता को यम को दान कर दिया,"
+  },
+  {
+   "spoken": "तीन दिन भूखा रहकर उसने यम से पूछा, मृत्यु के बाद क्या?",
+   "caption": "तीन दिन भूखा रहकर उसने यम से पूछा… मृत्यु के बाद क्या?"
+  },
+  {
+   "spoken": "यम ने बताया, आत्मा कभी नहीं मरती।",
+   "caption": "यम ने बताया… *आत्मा* कभी नहीं मरती"
+  }
+ ],
+ "end": {
+  "spoken": "ॐ।",
+  "caption": "॥ ॐ ॥"
+ },
+ "caption_post": "यमराज से सवाल पूछने वाला बच्चा 🔥 कठोपनिषद की कथा: नचिकेता तीन दिन यम के द्वार पर भूखा रहा, और वरदान में पूछा — मृत्यु के बाद क्या होता है? यम ने उसे आत्मा का ज्ञान दिया। कमेंट में लिखिए: ॐ #nachiketa #kathopanishad #upanishad #yamraj #sanatandharma #vedicwisdom #spirituality #atma #hinduism #spiritualshorts"
+}

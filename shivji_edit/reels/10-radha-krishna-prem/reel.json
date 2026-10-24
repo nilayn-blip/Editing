@@ -1,0 +1,57 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "ghanti",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Bankebihari temple main gate Vrindavan.JPG"
+  },
+  {
+   "key": "a",
+   "file": "File:Krishna and Radha in a Grove (Recto); Princess with Attendants (Verso) LACMA M.77.154.33.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Radha in the Moonlight.jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:Radha en Krishna, RP-T-1993-300.jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Radha Syamasundar Vrindavan Radhastami 2004.jpg"
+  },
+  {
+   "key": "x",
+   "file": "File:Krishna en Radha, RP-T-1993-305.jpg"
+  }
+ ],
+ "slug": "10-radha-krishna-prem",
+ "title": "Radha and Krishna: what true love is",
+ "raga": "bhupali",
+ "intro": {
+  "spoken": "सच्चा प्रेम क्या है?",
+  "caption": "सच्चा *प्रेम* क्या है?"
+ },
+ "lines": [
+  {
+   "spoken": "कृष्ण वृंदावन छोड़कर गए, और कभी लौटे नहीं,",
+   "caption": "Krishna वृंदावन छोड़कर गए… और कभी लौटे नहीं,"
+  },
+  {
+   "spoken": "फिर भी आज उनसे पहले राधा का नाम लिया जाता है,",
+   "caption": "फिर भी आज उनसे पहले राधा का नाम लिया जाता है,"
+  },
+  {
+   "spoken": "क्योंकि प्रेम में पाना ज़रूरी नहीं, बस होना काफ़ी है।",
+   "caption": "क्योंकि प्रेम में *पाना* ज़रूरी नहीं… बस होना काफ़ी है"
+  }
+ ],
+ "end": {
+  "spoken": "राधे राधे।",
+  "caption": "॥ राधे राधे ॥"
+ },
+ "caption_post": "सच्चा प्रेम क्या है? 🦚 कृष्ण वृंदावन छोड़कर गए और कभी लौटे नहीं, फिर भी आज उनसे पहले राधा का नाम लिया जाता है — राधे-कृष्ण। प्रेम में पाना ज़रूरी नहीं ❤️ कमेंट में लिखिए: राधे राधे #krishna #jaishreekrishna #radhakrishna #radharani #vrindavan #sanatandharma #spiritualquotes #harekrishna #radhe #radheradhe"
+}

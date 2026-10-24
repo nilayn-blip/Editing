@@ -1,0 +1,53 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "ghanti",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Salutations to the Ganges at sunrise, Varanasi.jpg"
+  },
+  {
+   "key": "a",
+   "file": "File:Shiva and Ganga in Varanasi.jpg"
+  },
+  {
+   "key": "b",
+   "file": "File:Manikarnika Ghat (4956575129).jpg"
+  },
+  {
+   "key": "c",
+   "file": "File:The Golden Temple, Benares (NBY 438851).jpg"
+  },
+  {
+   "key": "e",
+   "file": "File:Ganga Aarti in evening at Dashashwamedh ghat, Varanasi 4.jpg"
+  }
+ ],
+ "slug": "20-kashi",
+ "title": "Kashi: where even death is moksha",
+ "raga": "shivaranjani",
+ "intro": {
+  "spoken": "एक शहर जिसे शिव कभी नहीं छोड़ते",
+  "caption": "एक शहर जिसे Shiva कभी नहीं *छोड़ते*"
+ },
+ "lines": [
+  {
+   "spoken": "काशी, जो शिव के त्रिशूल पर टिकी है,",
+   "caption": "काशी, जो शिव के त्रिशूल पर टिकी है,"
+  },
+  {
+   "spoken": "जहाँ मणिकर्णिका की आग कभी नहीं बुझती,",
+   "caption": "जहाँ मणिकर्णिका की आग कभी नहीं बुझती,"
+  },
+  {
+   "spoken": "जहाँ मृत्यु भी मोक्ष है।",
+   "caption": "जहाँ मृत्यु भी *मोक्ष* है"
+  }
+ ],
+ "end": {
+  "spoken": "हर हर महादेव।",
+  "caption": "॥ हर हर महादेव ॥"
+ },
+ "caption_post": "एक शहर जिसे Shiva कभी नहीं छोड़ते 🔱 काशी — जो मान्यता के अनुसार शिव के त्रिशूल पर टिकी है, जहाँ मणिकर्णिका की अग्नि कभी नहीं बुझती, और जहाँ मृत्यु भी मोक्ष है। कमेंट में लिखिए: हर हर महादेव #mahadev #harharmahadev #shiva #bholenath #omnamahshivaya #shivbhakt #sanatandharma #shivkatha #kashi #varanasi"
+}

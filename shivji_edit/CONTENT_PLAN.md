@@ -23,8 +23,8 @@ Stories are told in 3 beats (problem, turn, meaning). Quotes build to one feelin
 | 03 | Story | **Gangavatarana**: Bhagiratha's tapasya; Shiva catches Ganga in his jata | "Ganga धरती पर कैसे आईं?" | ॥ हर हर गंगे ॥ | yaman | ✔ |
 | 04 | Quote | Krishna: "कर्म करो, फल की चिंता मत करो" (Gita 2.47, in plain words) | "जब result आपके हाथ में ना हो…" | ॥ जय श्री कृष्ण ॥ | bhupali | ✔ |
 | 05 | Story | **Markandeya**: the boy who embraced the lingam and defeated Yama (Mahamrityunjaya) | "एक बच्चा जिसने मौत को हरा दिया" | ॐ त्र्यम्बकं यजामहे… | bhairav | ✔ |
-| 06 | Quote | Mahadev and patience: "भोले की भक्ति में देर है, अंधेर नहीं" | "अगर प्रार्थना का जवाब नहीं आ रहा…" | ॥ हर हर महादेव ॥ | shivaranjani | |
-| 07 | Story | **Nachiketa and Yama** (Katha Upanishad): the boy who asked Death what happens after death | "Yamraj से सवाल पूछने वाला बच्चा" | ॥ ॐ ॥ | malkauns | |
+| 06 | Quote | Mahadev and patience: "भोले की भक्ति में देर है, अंधेर नहीं" | "अगर प्रार्थना का जवाब नहीं आ रहा…" | ॥ हर हर महादेव ॥ | shivaranjani | ✔ |
+| 07 | Story | **Nachiketa and Yama** (Katha Upanishad): the boy who asked Death what happens after death | "Yamraj से सवाल पूछने वाला बच्चा" | ॥ ॐ ॥ | malkauns | ✔ |
 | 08 | Story | **Ardhanarishvara**: Shiva and Parvati as one | "आधा शिव, आधी शक्ति" | ॥ ॐ नमः शिवाय ॥ | yaman | |
 | 09 | Story | **Lingodbhava**: Brahma and Vishnu search for the end of the pillar of light | "Shiva का आदि और अंत किसी को नहीं मिला" | ॥ हर हर महादेव ॥ | malkauns | |
 | 10 | Quote | Radha–Krishna love: "प्रेम में पाना ज़रूरी नहीं…" | "सच्चा प्रेम क्या है?" | ॥ राधे राधे ॥ | bhupali | |
@@ -61,3 +61,5 @@ stories, the 12 Jyotirlinga legends one at a time, the Navadurga). Never repeat 
 | 03 | 2026-10-23 | `reels/03-gangavatarana/` (draft, computer voice: waiting for the owner's recording) |
 | 04 | 2026-10-23 | `reels/04-karm-karo/` (draft, computer voice: waiting for the owner's recording) |
 | 05 | 2026-10-24 | `reels/05-markandeya/` (owner's cloned voice) |
+| 06 | 2026-10-25 | `reels/06-der-hai-andher-nahi/` (owner's cloned voice) |
+| 07 | 2026-10-25 | `reels/07-nachiketa/` (owner's cloned voice) |

@@ -5,23 +5,43 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Yama on buffalo.jpg"
+   "file": "File:Yama on buffalo.jpg",
+   "focus": "50% 45%",
+   "author": "Unknown artist"
   },
   {
    "key": "a",
-   "file": "File:Myths of the Hindus & Buddhists - Yama and Nachiketas.jpg"
+   "file": "File:Myths of the Hindus & Buddhists - Yama and Nachiketas.jpg",
+   "focus": "50% 40%",
+   "author": "Sister Nivedita & A. K. Coomaraswamy (book illustration)"
   },
   {
    "key": "b",
-   "file": "File:Gursahai (attributed to), The Court of Yama, God of Death, ca. 1800, Guler, LACMA.jpg"
+   "file": "File:Gursahai (attributed to), The Court of Yama, God of Death, ca. 1800, Guler, LACMA.jpg",
+   "inset": [
+    0.02,
+    0.02,
+    0.02,
+    0.02
+   ],
+   "focus": "50% 50%",
+   "author": "Attributed to Gursahai"
   },
   {
    "key": "c",
-   "file": "File:Yama teaches Nasiketha.jpg"
+   "file": "File:Yama teaches Nasiketha.jpg",
+   "inset": [
+    0,
+    0.14,
+    0,
+    0
+   ],
+   "focus": "12% 55%"
   },
   {
    "key": "e",
-   "file": "File:Sunrise in the Himalaya.jpg"
+   "file": "File:Sunrise in the Himalaya.jpg",
+   "focus": "60% 50%"
   }
  ],
  "slug": "07-nachiketa",
@@ -46,7 +66,7 @@
   }
  ],
  "end": {
-  "spoken": "ॐ।",
+  "spoken": "ओम्।",
   "caption": "॥ ॐ ॥"
  },
  "caption_post": "यमराज से सवाल पूछने वाला बच्चा 🔥 कठोपनिषद की कथा: नचिकेता तीन दिन यम के द्वार पर भूखा रहा, और वरदान में पूछा — मृत्यु के बाद क्या होता है? यम ने उसे आत्मा का ज्ञान दिया। कमेंट में लिखिए: ॐ #nachiketa #kathopanishad #upanishad #yamraj #sanatandharma #vedicwisdom #spirituality #atma #hinduism #spiritualshorts"

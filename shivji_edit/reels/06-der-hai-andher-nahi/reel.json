@@ -5,23 +5,54 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Shiva Linga during Maha Shivaratri Celebrations at Pashupatinath Temple, Kathmandu, Nepal-070A6809.jpg"
+   "file": "File:Shiva Linga during Maha Shivaratri Celebrations at Pashupatinath Temple, Kathmandu, Nepal-070A6809.jpg",
+   "focus": "65% 50%"
   },
   {
-   "key": "a",
-   "file": "File:Shiva meditation.jpg"
+   "key": "a3",
+   "file": "File:Shiva family.jpg",
+   "focus": "45% 65%",
+   "author": "Unknown artist",
+   "inset": [
+    0.07,
+    0.04,
+    0.07,
+    0.04
+   ]
   },
   {
-   "key": "b",
-   "file": "File:Shyamala Shiva. Kullu School, Pahari. BKB Acc 6958.JPG"
+   "key": "b2",
+   "file": "File:India, Pahari Hills, Basohli school, 17th century - Shiva and Devi on Gajasura's Hide - 1952.587 - Cleveland Museum of Art.tif",
+   "focus": "50% 45%",
+   "inset": [
+    0.04,
+    0.04,
+    0.04,
+    0.04
+   ],
+   "author": "Unknown artist, Basohli (Cleveland Museum of Art)"
   },
   {
    "key": "c",
-   "file": "File:The Holy Family, Shiva, Parvati, with their sons Ganesha and Karttikeya, National Museum, New Delhi.jpg"
+   "file": "File:The Holy Family, Shiva, Parvati, with their sons Ganesha and Karttikeya, National Museum, New Delhi.jpg",
+   "inset": [
+    0.07,
+    0.05,
+    0.07,
+    0.07
+   ],
+   "focus": "50% 50%"
   },
   {
    "key": "e",
-   "file": "File:Vaikom Mahadeva Temple - pillar lamps inthe courtyard.jpg"
+   "file": "File:Vaikom Mahadeva Temple - pillar lamps inthe courtyard.jpg",
+   "focus": "40% 50%",
+   "inset": [
+    0,
+    0,
+    0,
+    0.09
+   ]
   }
  ],
  "slug": "06-der-hai-andher-nahi",

@@ -1,6 +1,6 @@
 # Satyam Shivam Sundaram
 
-Reel for Instagram (@nirva_nataless): 18.85 s, 1080x1920, 30 fps, -14 LUFS. Built with `reel_kit/kit.py` from `reel.json`.
+Reel for Instagram (@nirva_nataless): 17.93 s, 1080x1920, 30 fps, -14 LUFS. Built with `reel_kit/kit.py` from `reel.json`.
 
 - `output/reel.mp4`: narration + original score.
 - `output/reel_voice_only.mp4`: narration only, to add a song from Instagram's music library (song ~30–40%, original audio 100%).
@@ -8,10 +8,10 @@ Reel for Instagram (@nirva_nataless): 18.85 s, 1080x1920, 30 fps, -14 LUFS. Buil
 | Voice starts | Caption |
 |---|---|
 | 0.3 s | जब मन बहुत *heavy* हो… |
-| 3.0 s | जो सत्य है, वही शिव है, |
+| 2.8 s | जो सत्य है, वही शिव है, |
 | 7.0 s | जो शिव है, वही सुंदर है, |
-| 11.4 s | और जो सुंदर है… वो कभी *खोता* नहीं ” |
-| 15.8 s | ॥ सत्यम् शिवम् सुंदरम् ॥ |
+| 10.6 s | और जो सुंदर है… वो कभी *खोता* नहीं ” |
+| 15.2 s | ॥ सत्यम् शिवम् सुंदरम् ॥ |
 
 ## Post
 

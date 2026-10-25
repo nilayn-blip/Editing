@@ -5,23 +5,43 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:6th century Ravanaphadi cave temple, Ardhanarishvara (half Shiva, half Parvati), Aihole Hindu monuments Karnataka.jpg"
+   "file": "File:6th century Ravanaphadi cave temple, Ardhanarishvara (half Shiva, half Parvati), Aihole Hindu monuments Karnataka.jpg",
+   "focus": "35% 40%"
   },
   {
    "key": "a",
-   "file": "File:6 Śiva and Pārvatī seated on a terrace. 1800 (circa) BM.jpg"
+   "file": "File:6 Śiva and Pārvatī seated on a terrace. 1800 (circa) BM.jpg",
+   "inset": [
+    0.07,
+    0.06,
+    0.07,
+    0.06
+   ],
+   "focus": "45% 55%",
+   "author": "Unknown artist (British Museum)"
   },
   {
    "key": "b",
-   "file": "File:Standing Ardhanari c.1800.jpg"
+   "file": "File:Standing Ardhanari c.1800.jpg",
+   "inset": [
+    0.02,
+    0.02,
+    0.02,
+    0.09
+   ],
+   "focus": "50% 40%",
+   "author": "Unknown artist"
   },
   {
    "key": "c",
-   "file": "File:Private collection-Ardhanarishvara-WUS01007.jpg"
+   "file": "File:Private collection-Ardhanarishvara-WUS01007.jpg",
+   "focus": "50% 35%",
+   "author": "Unknown artist"
   },
   {
    "key": "e",
-   "file": "File:Ardhanarishvara half Shiva half Parvati, Elephanta Caves.jpg"
+   "file": "File:Ardhanarishvara half Shiva half Parvati, Elephanta Caves.jpg",
+   "focus": "50% 45%"
   }
  ],
  "slug": "08-ardhanarishvara",

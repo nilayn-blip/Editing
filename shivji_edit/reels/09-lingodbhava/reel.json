@@ -5,27 +5,31 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Pattadakal Virupaksa. Mandapa east wall, left window. Lingodbhava.JPG"
+   "file": "File:Pattadakal Virupaksa. Mandapa east wall, left window. Lingodbhava.JPG",
+   "focus": "75% 40%"
   },
   {
    "key": "a",
-   "file": "File:Shiva as the Cosmic Pillar LACMA M.74.138.4 (2 of 8).jpg"
-  },
-  {
-   "key": "b",
-   "file": "File:Shiva as the Cosmic Pillar LACMA M.74.138.4 (1 of 8).jpg"
+   "file": "File:Shiva as the Cosmic Pillar LACMA M.74.138.4 (2 of 8).jpg",
+   "focus": "50% 35%",
+   "author": "Unknown sculptor (LACMA)"
   },
   {
    "key": "c",
-   "file": "File:Shiva Emerging from the Linga (Lingodbhavamurti) MET DP-16372-001.jpg"
-  },
-  {
-   "key": "e",
-   "file": "File:Arulmigu Arunachaleswarar Temple, Thiruvannamalai (42492949895).jpg"
+   "file": "File:Shiva Emerging from the Linga (Lingodbhavamurti) MET DP-16372-001.jpg",
+   "focus": "50% 45%",
+   "author": "Unknown sculptor (Metropolitan Museum)"
   },
   {
    "key": "x",
-   "file": "File:Shiva as the Cosmic Pillar LACMA M.74.138.4 (3 of 8).jpg"
+   "file": "File:Shiva as the Cosmic Pillar LACMA M.74.138.4 (3 of 8).jpg",
+   "focus": "45% 50%",
+   "author": "Unknown sculptor (LACMA)"
+  },
+  {
+   "key": "e",
+   "file": "File:Arulmigu Arunachaleswarar Temple, Thiruvannamalai (42492949895).jpg",
+   "focus": "45% 45%"
   }
  ],
  "slug": "09-lingodbhava",

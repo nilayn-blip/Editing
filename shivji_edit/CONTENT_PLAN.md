@@ -27,8 +27,8 @@ Stories are told in 3 beats (problem, turn, meaning). Quotes build to one feelin
 | 07 | Story | **Nachiketa and Yama** (Katha Upanishad): the boy who asked Death what happens after death | "Yamraj से सवाल पूछने वाला बच्चा" | ॥ ॐ ॥ | malkauns | ✔ |
 | 08 | Story | **Ardhanarishvara**: Shiva and Parvati as one | "आधा शिव, आधी शक्ति" | ॥ ॐ नमः शिवाय ॥ | yaman | ✔ |
 | 09 | Story | **Lingodbhava**: Brahma and Vishnu search for the end of the pillar of light | "Shiva का आदि और अंत किसी को नहीं मिला" | ॥ हर हर महादेव ॥ | malkauns | ✔ |
-| 10 | Quote | Radha–Krishna love: "प्रेम में पाना ज़रूरी नहीं…" | "सच्चा प्रेम क्या है?" | ॥ राधे राधे ॥ | bhupali | |
-| 11 | Story | **Kamadeva** turned to ash by Shiva's third eye | "Shiva की तीसरी आँख खुली तो…" | ॥ हर हर महादेव ॥ | bhairav | |
+| 10 | Quote | Radha–Krishna love: "प्रेम में पाना ज़रूरी नहीं…" | "सच्चा प्रेम क्या है?" | ॥ राधे राधे ॥ | bhupali | ✔ |
+| 11 | Story | **Kamadeva** turned to ash by Shiva's third eye | "Shiva की तीसरी आँख खुली तो…" | ॥ हर हर महादेव ॥ | bhairav | ✔ |
 | 12 | Story | **Ravana lifts Kailash** and the Shiva Tandava Stotram is born | "Ravana ने Kailash उठाया, फिर…" | ॥ जय शिव शंकर ॥ | malkauns | |
 | 13 | Quote | "शिव कोई व्यक्ति नहीं, एक अवस्था हैं" (stillness, letting go) | "जब सब छूट जाए…" | ॥ ॐ नमः शिवाय ॥ | shivaranjani | |
 | 14 | Story | **Sati and Daksha's yajna**: the origin of the Shakti Peethas | "Shiva का सबसे बड़ा दुःख" | ॥ जय माँ शक्ति ॥ | bhairav | |
@@ -65,3 +65,5 @@ stories, the 12 Jyotirlinga legends one at a time, the Navadurga). Never repeat 
 | 07 | 2026-10-25 | `reels/07-nachiketa/` (owner's cloned voice) |
 | 08 | 2026-10-26 | `reels/08-ardhanarishvara/` (owner's cloned voice) |
 | 09 | 2026-10-26 | `reels/09-lingodbhava/` (owner's cloned voice) |
+| 10 | 2026-10-27 | `reels/10-radha-krishna-prem/` (owner's cloned voice) |
+| 11 | 2026-10-27 | `reels/11-kamadeva-bhasm/` (owner's cloned voice) |

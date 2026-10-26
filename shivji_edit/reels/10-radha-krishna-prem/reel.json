@@ -5,27 +5,43 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Bankebihari temple main gate Vrindavan.JPG"
-  },
-  {
-   "key": "a",
-   "file": "File:Krishna and Radha in a Grove (Recto); Princess with Attendants (Verso) LACMA M.77.154.33.jpg"
-  },
-  {
-   "key": "b",
-   "file": "File:Radha in the Moonlight.jpg"
-  },
-  {
-   "key": "c",
-   "file": "File:Radha en Krishna, RP-T-1993-300.jpg"
-  },
-  {
-   "key": "e",
-   "file": "File:Radha Syamasundar Vrindavan Radhastami 2004.jpg"
+   "file": "File:Bankebihari temple main gate Vrindavan.JPG",
+   "focus": "45% 55%"
   },
   {
    "key": "x",
-   "file": "File:Krishna en Radha, RP-T-1993-305.jpg"
+   "file": "File:Krishna en Radha, RP-T-1993-305.jpg",
+   "inset": [
+    0.1,
+    0.07,
+    0.1,
+    0.07
+   ],
+   "focus": "50% 70%",
+   "author": "Unknown artist (Rijksmuseum)"
+  },
+  {
+   "key": "f",
+   "file": "File:A Holi Festival - Krishna Radha and Gopis.jpg",
+   "focus": "50% 45%",
+   "author": "Unknown artist",
+   "inset": [
+    0.05,
+    0.04,
+    0.05,
+    0.04
+   ]
+  },
+  {
+   "key": "b",
+   "file": "File:Radha in the Moonlight.jpg",
+   "focus": "45% 55%",
+   "author": "Raja Ravi Varma"
+  },
+  {
+   "key": "e",
+   "file": "File:Radha Syamasundar Vrindavan Radhastami 2004.jpg",
+   "focus": "50% 40%"
   }
  ],
  "slug": "10-radha-krishna-prem",

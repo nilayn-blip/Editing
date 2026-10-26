@@ -5,23 +5,31 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Shiva Musée Guimet 22971.jpg"
+   "file": "File:Shiva Musée Guimet 22971.jpg",
+   "focus": "50% 45%"
   },
   {
    "key": "a",
-   "file": "File:Kama Shiva.jpg"
+   "file": "File:Kama Shiva.jpg",
+   "focus": "45% 50%",
+   "author": "Unknown artist"
   },
   {
    "key": "b",
-   "file": "File:Kama, god of desire.jpg"
+   "file": "File:Kama, god of desire.jpg",
+   "focus": "45% 50%",
+   "author": "Unknown artist"
   },
   {
    "key": "c",
-   "file": "File:Madan-Bhasma (Shiva Turns to Ashes).jpg"
+   "file": "File:Madan-Bhasma (Shiva Turns to Ashes).jpg",
+   "focus": "45% 45%",
+   "author": "Unknown artist"
   },
   {
    "key": "e",
-   "file": "File:12th-century Shiva with third eye and Parvati at Shaivism Hindu temple Hoysaleswara arts Halebidu Karnataka India.jpg"
+   "file": "File:12th-century Shiva with third eye and Parvati at Shaivism Hindu temple Hoysaleswara arts Halebidu Karnataka India.jpg",
+   "focus": "55% 45%"
   }
  ],
  "slug": "11-kamadeva-bhasm",

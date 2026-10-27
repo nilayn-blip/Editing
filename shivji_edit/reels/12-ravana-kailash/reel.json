@@ -5,23 +5,30 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Ellora, cave 29, Ravana shaking Mount Kailasa (9841650413).jpg"
+   "file": "File:Ellora, cave 29, Ravana shaking Mount Kailasa (9841650413).jpg",
+   "focus": "45% 50%"
   },
   {
    "key": "a",
-   "file": "File:Ravaṇa attempts to lift the mountain.jpg"
+   "file": "File:Ravaṇa attempts to lift the mountain.jpg",
+   "focus": "50% 45%",
+   "author": "Company School artist"
   },
   {
    "key": "b",
-   "file": "File:Clevelandart 1971.173.jpg"
+   "file": "File:Clevelandart 1971.173.jpg",
+   "focus": "50% 40%",
+   "author": "Unknown sculptor (Cleveland Museum of Art)"
   },
   {
-   "key": "c",
-   "file": "File:Ravana Lifting Uma-Maheshwar with Mount Kailash - Gupta Period - ACCN 34-2577 - Government Museum - Mathura 2013-02-23 5424.JPG"
+   "key": "c2",
+   "file": "File:Ravana Lifting Kailash Mount with Shiva and Parvathi.JPG",
+   "focus": "50% 45%"
   },
   {
    "key": "e",
-   "file": "File:Mt Kailash (18,564 ft) , Chamba, Himachal Pradesh.jpg"
+   "file": "File:Mt Kailash (18,564 ft) , Chamba, Himachal Pradesh.jpg",
+   "focus": "45% 50%"
   }
  ],
  "slug": "12-ravana-kailash",

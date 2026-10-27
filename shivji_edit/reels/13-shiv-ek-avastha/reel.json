@@ -4,24 +4,31 @@
  "end_sound": "om",
  "paintings": [
   {
-   "key": "h",
-   "file": "File:Adiyogi-10-Isha yoga centre-coimbatore-India.jpg"
+   "key": "h2",
+   "file": "File:Bhagwan Shankar Statue at Haridwar.jpg",
+   "focus": "50% 45%"
   },
   {
-   "key": "a",
-   "file": "File:MAHAKAL LOK UJJAIN.jpg"
+   "key": "a2",
+   "file": "File:Anonymous - Shiva enraged by Parvati's interruption of his meditation - 2019.146 - Metropolitan Museum of Art.jpg",
+   "focus": "50% 45%",
+   "author": "Unknown artist (Metropolitan Museum of Art)"
   },
   {
-   "key": "b",
-   "file": "File:Vadakurangatruthurai5.jpg"
+   "key": "b2",
+   "file": "File:Yogin in meditation chakras kundalini snake.jpg",
+   "focus": "50% 45%",
+   "author": "Unknown artist"
   },
   {
    "key": "c",
-   "file": "File:Adiyogi Shiva bust, right side, looking up.jpg"
+   "file": "File:Adiyogi Shiva bust, right side, looking up.jpg",
+   "focus": "62% 40%"
   },
   {
    "key": "e",
-   "file": "File:Snow peaks of Himalaya. IncredibleIndia.jpg"
+   "file": "File:Snow peaks of Himalaya. IncredibleIndia.jpg",
+   "focus": "50% 50%"
   }
  ],
  "slug": "13-shiv-ek-avastha",

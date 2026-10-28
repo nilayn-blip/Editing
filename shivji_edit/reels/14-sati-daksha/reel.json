@@ -4,28 +4,38 @@
  "end_sound": "ghanti",
  "paintings": [
   {
-   "key": "h",
-   "file": "File:Kamakhya Temple, Guwahati.jpg"
+   "key": "x",
+   "file": "File:Shiva carrying his wife in her Sakti form. Watercolour drawi Wellcome V0045169.jpg",
+   "focus": "50% 40%",
+   "author": "Wellcome Collection"
   },
   {
    "key": "a",
-   "file": "File:Daksha criticizing Rudra for insulting him in the Satrayaga.jpg"
+   "file": "File:Daksha criticizing Rudra for insulting him in the Satrayaga.jpg",
+   "focus": "50% 45%",
+   "author": "Unknown artist"
   },
   {
    "key": "b",
-   "file": "File:Daksha yagna.jpg"
+   "file": "File:Daksha yagna.jpg",
+   "focus": "58% 50%",
+   "author": "Unknown artist",
+   "inset": [
+    0.02,
+    0.03,
+    0.02,
+    0.03
+   ]
   },
   {
-   "key": "c",
-   "file": "File:Dakshayani (cropped).jpg"
+   "key": "h",
+   "file": "File:Kamakhya Temple, Guwahati.jpg",
+   "focus": "45% 50%"
   },
   {
    "key": "e",
-   "file": "File:Kamakhya temple (35).jpg"
-  },
-  {
-   "key": "x",
-   "file": "File:Shiva carrying his wife in her Sakti form. Watercolour drawi Wellcome V0045169.jpg"
+   "file": "File:Kamakhya temple (35).jpg",
+   "focus": "60% 50%"
   }
  ],
  "slug": "14-sati-daksha",

@@ -4,24 +4,30 @@
  "end_sound": "om",
  "paintings": [
   {
-   "key": "h",
-   "file": "File:View of Srikalahasti gopuram and kannappa hill.jpg"
+   "key": "c",
+   "file": "File:Bhakta Kannappa.jpeg",
+   "focus": "50% 45%"
   },
   {
    "key": "a",
-   "file": "File:Kannapa Nayanar (174) (Raja Raja Chola Art Gallery)-WUS02852.jpg"
+   "file": "File:Kannapa Nayanar (174) (Raja Raja Chola Art Gallery)-WUS02852.jpg",
+   "focus": "50% 45%",
+   "author": "Unknown artist"
   },
   {
    "key": "b",
-   "file": "File:Kannappa offering eyes to Shiva Linga carved on a mukha mandapa pillar of Arunachaleswarar temple.jpg"
-  },
-  {
-   "key": "c",
-   "file": "File:Bhakta Kannappa.jpeg"
+   "file": "File:Kannappa offering eyes to Shiva Linga carved on a mukha mandapa pillar of Arunachaleswarar temple.jpg",
+   "focus": "50% 40%"
   },
   {
    "key": "e",
-   "file": "File:SrikalahastiGaligopuram.jpg"
+   "file": "File:SrikalahastiGaligopuram.jpg",
+   "focus": "50% 40%"
+  },
+  {
+   "key": "h",
+   "file": "File:View of Srikalahasti gopuram and kannappa hill.jpg",
+   "focus": "62% 50%"
   }
  ],
  "slug": "15-kannappa",

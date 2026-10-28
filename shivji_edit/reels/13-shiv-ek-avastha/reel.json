@@ -12,13 +12,25 @@
    "key": "a2",
    "file": "File:Anonymous - Shiva enraged by Parvati's interruption of his meditation - 2019.146 - Metropolitan Museum of Art.jpg",
    "focus": "50% 45%",
-   "author": "Unknown artist (Metropolitan Museum of Art)"
+   "author": "Unknown artist (Metropolitan Museum of Art)",
+   "inset": [
+    0.1,
+    0.09,
+    0.1,
+    0.09
+   ]
   },
   {
    "key": "b2",
    "file": "File:Yogin in meditation chakras kundalini snake.jpg",
    "focus": "50% 45%",
-   "author": "Unknown artist"
+   "author": "Unknown artist",
+   "inset": [
+    0.02,
+    0.02,
+    0.02,
+    0.02
+   ]
   },
   {
    "key": "c",

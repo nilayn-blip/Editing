@@ -29,8 +29,8 @@ Stories are told in 3 beats (problem, turn, meaning). Quotes build to one feelin
 | 09 | Story | **Lingodbhava**: Brahma and Vishnu search for the end of the pillar of light | "Shiva का आदि और अंत किसी को नहीं मिला" | ॥ हर हर महादेव ॥ | malkauns | ✔ |
 | 10 | Quote | Radha–Krishna love: "प्रेम में पाना ज़रूरी नहीं…" | "सच्चा प्रेम क्या है?" | ॥ राधे राधे ॥ | bhupali | ✔ |
 | 11 | Story | **Kamadeva** turned to ash by Shiva's third eye | "Shiva की तीसरी आँख खुली तो…" | ॥ हर हर महादेव ॥ | bhairav | ✔ |
-| 12 | Story | **Ravana lifts Kailash** and the Shiva Tandava Stotram is born | "Ravana ने Kailash उठाया, फिर…" | ॥ जय शिव शंकर ॥ | malkauns | |
-| 13 | Quote | "शिव कोई व्यक्ति नहीं, एक अवस्था हैं" (stillness, letting go) | "जब सब छूट जाए…" | ॥ ॐ नमः शिवाय ॥ | shivaranjani | |
+| 12 | Story | **Ravana lifts Kailash** and the Shiva Tandava Stotram is born | "Ravana ने Kailash उठाया, फिर…" | ॥ जय शिव शंकर ॥ | malkauns | ✔ |
+| 13 | Quote | "शिव कोई व्यक्ति नहीं, एक अवस्था हैं" (stillness, letting go) | "जब सब छूट जाए…" | ॥ ॐ नमः शिवाय ॥ | shivaranjani | ✔ |
 | 14 | Story | **Sati and Daksha's yajna**: the origin of the Shakti Peethas | "Shiva का सबसे बड़ा दुःख" | ॥ जय माँ शक्ति ॥ | bhairav | |
 | 15 | Story | **Kannappa**: the hunter who offered his own eyes | "सबसे बड़ा भक्त कौन?" | ॥ हर हर महादेव ॥ | durga | |
 | 16 | Story | **Birth of Ganesha**: Parvati's guard and Shiva's trident | "Ganesha का सिर हाथी का क्यों है?" | ॥ गणपति बाप्पा मोरया ॥ | bhupali | |
@@ -67,3 +67,5 @@ stories, the 12 Jyotirlinga legends one at a time, the Navadurga). Never repeat 
 | 09 | 2026-10-26 | `reels/09-lingodbhava/` (owner's cloned voice) |
 | 10 | 2026-10-27 | `reels/10-radha-krishna-prem/` (owner's cloned voice) |
 | 11 | 2026-10-27 | `reels/11-kamadeva-bhasm/` (owner's cloned voice) |
+| 12 | 2026-10-28 | `reels/12-ravana-kailash/` (owner's cloned voice) |
+| 13 | 2026-10-28 | `reels/13-shiv-ek-avastha/` (owner's cloned voice) |

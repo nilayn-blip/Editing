@@ -6,7 +6,8 @@
   {
    "key": "c",
    "file": "File:Bhakta Kannappa.jpeg",
-   "focus": "50% 45%"
+   "focus": "50% 45%",
+   "author": "Ravichandra"
   },
   {
    "key": "a",
@@ -22,12 +23,14 @@
   {
    "key": "e",
    "file": "File:SrikalahastiGaligopuram.jpg",
-   "focus": "50% 40%"
+   "focus": "50% 40%",
+   "author": "Ravichandra"
   },
   {
    "key": "h",
    "file": "File:View of Srikalahasti gopuram and kannappa hill.jpg",
-   "focus": "62% 50%"
+   "focus": "62% 50%",
+   "author": "Ravichandra"
   }
  ],
  "slug": "15-kannappa",

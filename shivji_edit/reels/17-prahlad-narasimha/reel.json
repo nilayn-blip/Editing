@@ -5,23 +5,49 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:LAKSHMI-NARASIMHA statue at Hampi.jpg"
+   "file": "File:LAKSHMI-NARASIMHA statue at Hampi.jpg",
+   "focus": "50% 40%",
+   "author": "BRK (English Wikipedia)"
   },
   {
    "key": "a",
-   "file": "File:Prahlada holika, 13th century Keshava temple Somanathpur.jpg"
-  },
-  {
-   "key": "b",
-   "file": "File:Holika Dahan 2023 in Delhi 03.jpg"
-  },
-  {
-   "key": "c",
-   "file": "File:Viṣṇu as Narasimha tearing Hiranyakasipu to pieces..jpg"
+   "file": "File:Prahlada holika, 13th century Keshava temple Somanathpur.jpg",
+   "focus": "50% 45%"
   },
   {
    "key": "e",
-   "file": "File:Painting of Narasimha - Sri Appan Venkatachalapati Temple, Cheranmahadevi.jpg"
+   "file": "File:Painting of Narasimha - Sri Appan Venkatachalapati Temple, Cheranmahadevi.jpg",
+   "focus": "50% 45%",
+   "inset": [
+    0.06,
+    0.05,
+    0.06,
+    0.08
+   ]
+  },
+  {
+   "key": "rc",
+   "file": "File:Indian School, late 18th century - Narasimha, the fourth avatar of Vishnu - RCIN 1005113.g - Royal Collection.jpg",
+   "focus": "55% 50%",
+   "author": "Unknown artist (Royal Collection)",
+   "inset": [
+    0.13,
+    0.1,
+    0.13,
+    0.1
+   ]
+  },
+  {
+   "key": "c",
+   "file": "File:Viṣṇu as Narasimha tearing Hiranyakasipu to pieces..jpg",
+   "focus": "45% 50%",
+   "author": "Unknown artist (Mughal style)",
+   "inset": [
+    0.02,
+    0.02,
+    0.02,
+    0.02
+   ]
   }
  ],
  "slug": "17-prahlad-narasimha",

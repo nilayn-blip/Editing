@@ -1,0 +1,62 @@
+[
+  {
+    "key": "h",
+    "file": "p01.jpg",
+    "focus": "50% 50%",
+    "alt": "Star trails Polaris",
+    "title": "File:Star trails Polaris.JPG",
+    "author": "Kevin Hadley",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Star_trails_Polaris.JPG",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Star_trails_Polaris.JPG"
+  },
+  {
+    "key": "a",
+    "file": "p02.jpg",
+    "focus": "30% 60%",
+    "alt": "Story of dhruva",
+    "title": "File:Story of dhruva.jpg",
+    "author": "Gita Press Gorakhpur",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "page": "https://commons.wikimedia.org/wiki/File:Story_of_dhruva.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Story_of_dhruva.jpg"
+  },
+  {
+    "key": "b",
+    "file": "p03.jpg",
+    "focus": "50% 45%",
+    "alt": "Himalayan Pine forest",
+    "title": "File:Himalayan Pine forest.jpg",
+    "author": "Adi10rane",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Himalayan_Pine_forest.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Himalayan_Pine_forest.jpg"
+  },
+  {
+    "key": "c",
+    "file": "p04.jpg",
+    "focus": "50% 50%",
+    "alt": "Vishnu on his transport, Garuda. Gouache drawing. Wellcome V0045224",
+    "title": "File:Vishnu on his transport, Garuda. Gouache drawing. Wellcome V0045224.jpg",
+    "author": "Wellcome Collection",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Vishnu_on_his_transport,_Garuda._Gouache_drawing._Wellcome_V0045224.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/25/Vishnu_on_his_transport%2C_Garuda._Gouache_drawing._Wellcome_V0045224.jpg"
+  },
+  {
+    "key": "e",
+    "file": "p05.jpg",
+    "focus": "50% 50%",
+    "alt": "Pole star 01",
+    "title": "File:Pole star 01.jpg",
+    "author": "Σ64 (talk)",
+    "license": "CC BY-SA 3.0",
+    "license_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Pole_star_01.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Pole_star_01.jpg"
+  }
+]

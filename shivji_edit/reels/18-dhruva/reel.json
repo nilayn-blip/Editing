@@ -5,23 +5,41 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Star trails Polaris.JPG"
+   "file": "File:Star trails Polaris.JPG",
+   "focus": "50% 50%"
   },
   {
    "key": "a",
-   "file": "File:Story of dhruva.jpg"
+   "file": "File:Story of dhruva.jpg",
+   "focus": "30% 60%",
+   "inset": [
+    0.02,
+    0.02,
+    0.02,
+    0.04
+   ]
   },
   {
    "key": "b",
-   "file": "File:Himalayan Pine forest.jpg"
+   "file": "File:Himalayan Pine forest.jpg",
+   "focus": "72% 45%"
   },
   {
    "key": "c",
-   "file": "File:Vishnu on his transport, Garuda. Gouache drawing. Wellcome V0045224.jpg"
+   "file": "File:Vishnu on his transport, Garuda. Gouache drawing. Wellcome V0045224.jpg",
+   "focus": "50% 50%",
+   "author": "Wellcome Collection",
+   "inset": [
+    0.1,
+    0.08,
+    0.1,
+    0.06
+   ]
   },
   {
    "key": "e",
-   "file": "File:Pole star 01.jpg"
+   "file": "File:Pole star 01.jpg",
+   "focus": "50% 50%"
   }
  ],
  "slug": "18-dhruva",

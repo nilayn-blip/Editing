@@ -5,23 +5,43 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Banyan tree in auroville.jpg"
-  },
-  {
-   "key": "a",
-   "file": "File:Savitri laid down her husband head.jpg"
-  },
-  {
-   "key": "b",
-   "file": "File:Savitri en de doodsgod Yama, RP-T-1993-372.jpg"
+   "file": "File:Banyan tree in auroville.jpg",
+   "focus": "50% 45%"
   },
   {
    "key": "c",
-   "file": "File:Savitri's defeat of the god of death, Yama.jpg"
+   "file": "File:Savitri's defeat of the god of death, Yama.jpg",
+   "focus": "45% 45%",
+   "author": "Calcutta Art Studio",
+   "inset": [
+    0.02,
+    0.02,
+    0.02,
+    0.04
+   ]
+  },
+  {
+   "key": "b",
+   "file": "File:Savitri en de doodsgod Yama, RP-T-1993-372.jpg",
+   "focus": "45% 50%",
+   "author": "Unknown artist (Rijksmuseum)",
+   "inset": [
+    0.03,
+    0.02,
+    0.03,
+    0.08
+   ]
+  },
+  {
+   "key": "a",
+   "file": "File:Savitri laid down her husband head.jpg",
+   "focus": "35% 70%",
+   "author": "Evelyn Paul"
   },
   {
    "key": "e",
-   "file": "File:Barsait.jpg"
+   "file": "File:Barsait.jpg",
+   "focus": "60% 55%"
   }
  ],
  "slug": "19-savitri-satyavan",

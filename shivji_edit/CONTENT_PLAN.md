@@ -33,8 +33,8 @@ Stories are told in 3 beats (problem, turn, meaning). Quotes build to one feelin
 | 13 | Quote | "शिव कोई व्यक्ति नहीं, एक अवस्था हैं" (stillness, letting go) | "जब सब छूट जाए…" | ॥ ॐ नमः शिवाय ॥ | shivaranjani | ✔ |
 | 14 | Story | **Sati and Daksha's yajna**: the origin of the Shakti Peethas | "Shiva का सबसे बड़ा दुःख" | ॥ जय माँ शक्ति ॥ | bhairav | ✔ |
 | 15 | Story | **Kannappa**: the hunter who offered his own eyes | "सबसे बड़ा भक्त कौन?" | ॥ हर हर महादेव ॥ | durga | ✔ |
-| 16 | Story | **Birth of Ganesha**: Parvati's guard and Shiva's trident | "Ganesha का सिर हाथी का क्यों है?" | ॥ गणपति बाप्पा मोरया ॥ | bhupali | |
-| 17 | Story | **Prahlad and Narasimha**: faith that fire could not burn | "भरोसा क्या होता है?" | ॥ जय नरसिंह देव ॥ | bhairav | |
+| 16 | Story | **Birth of Ganesha**: Parvati's guard and Shiva's trident | "Ganesha का सिर हाथी का क्यों है?" | ॥ गणपति बाप्पा मोरया ॥ | bhupali | ✔ |
+| 17 | Story | **Prahlad and Narasimha**: faith that fire could not burn | "भरोसा क्या होता है?" | ॥ जय नरसिंह देव ॥ | bhairav | ✔ |
 | 18 | Story | **Dhruva**: the five-year-old whose devotion became the Pole Star | "Dhruv तारा अटल क्यों है?" | ॥ ॐ नमो भगवते वासुदेवाय ॥ | yaman | |
 | 19 | Story | **Savitri and Satyavan**: love that argued with Yama | "जिसने यमराज से पति वापस ले लिया" | ॥ जय माँ सावित्री ॥ | malkauns | |
 | 20 | Quote | Kashi: "जहाँ मृत्यु भी मोक्ष है" | "एक शहर जिसे शिव कभी नहीं छोड़ते" | ॥ हर हर महादेव ॥ | shivaranjani | |
@@ -71,3 +71,5 @@ stories, the 12 Jyotirlinga legends one at a time, the Navadurga). Never repeat 
 | 13 | 2026-10-28 | `reels/13-shiv-ek-avastha/` (owner's cloned voice) |
 | 14 | 2026-10-29 | `reels/14-sati-daksha/` (owner's cloned voice) |
 | 15 | 2026-10-29 | `reels/15-kannappa/` (owner's cloned voice) |
+| 16 | 2026-10-30 | `reels/16-ganesha-janm/` (owner's cloned voice) |
+| 17 | 2026-10-30 | `reels/17-prahlad-narasimha/` (owner's cloned voice) |

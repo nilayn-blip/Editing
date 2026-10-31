@@ -4,24 +4,39 @@
  "end_sound": "om",
  "paintings": [
   {
-   "key": "h",
-   "file": "File:009202022 Chemmanthitha Mahadeva Temple Kerala 059.jpg"
+   "key": "e",
+   "file": "File:L'Ascèse d'Arjuna (Mahabalipuram, Inde) (13932194786).jpg",
+   "focus": "65% 50%",
+   "author": "Jean-Pierre Dalbéra"
   },
   {
    "key": "a",
-   "file": "File:Arjuna, perched on a high platform, aims his arrow at a large boar which rushes towards him.jpg"
-  },
-  {
-   "key": "b",
-   "file": "File:Myths of the Hindus & Buddhists - Kirat-Arjuna.jpg"
+   "file": "File:Arjuna, perched on a high platform, aims his arrow at a large boar which rushes towards him.jpg",
+   "focus": "35% 55%",
+   "author": "Company School artist"
   },
   {
    "key": "c",
-   "file": "File:Kiratarjuna.jpg"
+   "file": "File:Kiratarjuna.jpg",
+   "focus": "50% 45%",
+   "author": "injamaven (Picasa)"
   },
   {
-   "key": "e",
-   "file": "File:L'Ascèse d'Arjuna (Mahabalipuram, Inde) (13932194786).jpg"
+   "key": "b",
+   "file": "File:Myths of the Hindus & Buddhists - Kirat-Arjuna.jpg",
+   "focus": "40% 45%",
+   "author": "Nandalal Bose (in Sister Nivedita & A. K. Coomaraswamy)",
+   "inset": [
+    0.02,
+    0.02,
+    0.02,
+    0.03
+   ]
+  },
+  {
+   "key": "h",
+   "file": "File:009202022 Chemmanthitha Mahadeva Temple Kerala 059.jpg",
+   "focus": "50% 50%"
   }
  ],
  "slug": "21-kirata-arjuna",

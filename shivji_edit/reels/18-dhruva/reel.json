@@ -1,0 +1,71 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "om",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Star trails Polaris.JPG",
+   "focus": "50% 50%"
+  },
+  {
+   "key": "a",
+   "file": "File:Story of dhruva.jpg",
+   "focus": "30% 60%",
+   "inset": [
+    0.02,
+    0.02,
+    0.02,
+    0.04
+   ]
+  },
+  {
+   "key": "b",
+   "file": "File:Himalayan Pine forest.jpg",
+   "focus": "72% 45%"
+  },
+  {
+   "key": "c",
+   "file": "File:Vishnu on his transport, Garuda. Gouache drawing. Wellcome V0045224.jpg",
+   "focus": "50% 50%",
+   "author": "Wellcome Collection",
+   "inset": [
+    0.1,
+    0.08,
+    0.1,
+    0.06
+   ]
+  },
+  {
+   "key": "e",
+   "file": "File:Pole star 01.jpg",
+   "focus": "50% 50%"
+  }
+ ],
+ "slug": "18-dhruva",
+ "title": "Dhruva: the child who became the Pole Star",
+ "raga": "yaman",
+ "intro": {
+  "spoken": "ध्रुव तारा अटल क्यों है?",
+  "caption": "Dhruv *तारा* अटल क्यों है?"
+ },
+ "lines": [
+  {
+   "spoken": "पाँच साल के ध्रुव को पिता की गोद नहीं मिली,",
+   "caption": "5 साल के ध्रुव को पिता की गोद नहीं मिली,"
+  },
+  {
+   "spoken": "वो जंगल गया, और अटल तपस्या की,",
+   "caption": "वो जंगल गया, और अटल तपस्या की,"
+  },
+  {
+   "spoken": "विष्णु ने उसे आकाश में अमर स्थान दिया, ध्रुव तारा।",
+   "caption": "विष्णु ने उसे आकाश में अमर स्थान दिया… *ध्रुव* तारा"
+  }
+ ],
+ "end": {
+  "spoken": "ॐ नमो भगवते वासुदेवाय।",
+  "caption": "॥ ॐ नमो भगवते वासुदेवाय ॥"
+ },
+ "caption_post": "Dhruv तारा अटल क्यों है? ⭐ पाँच साल के ध्रुव को सौतेली माँ ने पिता की गोद में बैठने नहीं दिया। वो जंगल गया और 'ॐ नमो भगवते वासुदेवाय' जपते हुए अटल तपस्या की। विष्णु ने उसे आकाश में अमर स्थान दिया — ध्रुव तारा। कमेंट में लिखिए: ॐ नमो भगवते वासुदेवाय #dhruv #vishnu #narayan #bhakti #sanatandharma #hindumythology #polestar #devotion #harekrishna #spiritualshorts"
+}

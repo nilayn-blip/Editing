@@ -1,0 +1,62 @@
+[
+  {
+    "key": "h",
+    "file": "p01.jpg",
+    "focus": "50% 45%",
+    "alt": "Kedarnathtempleatnight",
+    "title": "File:Kedarnathtempleatnight.jpg",
+    "author": "Vaibhavchandak",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Kedarnathtempleatnight.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/49/Kedarnathtempleatnight.jpg"
+  },
+  {
+    "key": "a",
+    "file": "p02.jpg",
+    "focus": "52% 14%",
+    "alt": "Vishnu's great vision of Shiva",
+    "title": "File:Vishnu's great vision of Shiva.jpg",
+    "author": "Attributed to the Purkhu family workshop",
+    "license": "Public domain",
+    "license_url": "",
+    "page": "https://commons.wikimedia.org/wiki/File:Vishnu%27s_great_vision_of_Shiva.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/55/Vishnu%27s_great_vision_of_Shiva.jpg"
+  },
+  {
+    "key": "b",
+    "file": "p03.jpg",
+    "focus": "42% 45%",
+    "alt": "Mural depicting Uma-Maheshvara, from Ramtatwali Dham, Hoshiarpur district, Punjab, circa 19th century",
+    "title": "File:Mural depicting Uma-Maheshvara, from Ramtatwali Dham, Hoshiarpur district, Punjab, circa 19th century.jpg",
+    "author": "Unknown Kangra muralists",
+    "license": "Public domain",
+    "license_url": "",
+    "page": "https://commons.wikimedia.org/wiki/File:Mural_depicting_Uma-Maheshvara,_from_Ramtatwali_Dham,_Hoshiarpur_district,_Punjab,_circa_19th_century.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Mural_depicting_Uma-Maheshvara%2C_from_Ramtatwali_Dham%2C_Hoshiarpur_district%2C_Punjab%2C_circa_19th_century.jpg"
+  },
+  {
+    "key": "c2",
+    "file": "p04.jpg",
+    "focus": "8% 40%",
+    "alt": "Painting of Shiva under the influence of Bhang, Kangra, India, ca.1810–20 (detail)",
+    "title": "File:Painting of Shiva under the influence of Bhang, Kangra, India, ca.1810–20 (detail).jpg",
+    "author": "Unknown artist, Kangra",
+    "license": "Public domain",
+    "license_url": "",
+    "page": "https://commons.wikimedia.org/wiki/File:Painting_of_Shiva_under_the_influence_of_Bhang,_Kangra,_India,_ca.1810%E2%80%9320_(detail).jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/03/Painting_of_Shiva_under_the_influence_of_Bhang%2C_Kangra%2C_India%2C_ca.1810%E2%80%9320_%28detail%29.jpg"
+  },
+  {
+    "key": "e",
+    "file": "p05.jpg",
+    "focus": "62% 20%",
+    "alt": "Mount Kailash, Tibet",
+    "title": "File:Mount Kailash, Tibet.jpg",
+    "author": "Amitbalani",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "page": "https://commons.wikimedia.org/wiki/File:Mount_Kailash,_Tibet.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Mount_Kailash%2C_Tibet.jpg"
+  }
+]

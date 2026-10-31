@@ -1,0 +1,50 @@
+{
+ "voice": "pratham_hi_IN-pratham-medium.onnx",
+ "length_scale": 1.12,
+ "dur": 29.0,
+ "img0": 5.01,
+ "img_len": 3.0,
+ "captions": [
+  5.01,
+  12.01,
+  19.01
+ ],
+ "end": 26.01,
+ "lines": [
+  {
+   "spoken": "लाइफ़ बहुत ईज़ी हो जाती है, जब समझ आ जाता है...",
+   "caption": "Life बहुत easy हो जाती है, जब समझ आ जाता है…",
+   "start": 0.5,
+   "dur": 3.913,
+   "wav": "narration/l0.wav"
+  },
+  {
+   "spoken": "मिला तो उनकी कृपा,",
+   "caption": "मिला तो उनकी कृपा,",
+   "start": 5.51,
+   "dur": 1.405,
+   "wav": "narration/l1.wav"
+  },
+  {
+   "spoken": "नहीं मिला तो उनकी इच्छा।",
+   "caption": "नहीं मिला तो उनकी इच्छा ”",
+   "start": 12.31,
+   "dur": 1.95,
+   "wav": "narration/l2.wav"
+  },
+  {
+   "spoken": "बस ट्रस्ट रखो, महादेव सब देख रहे हैं।",
+   "caption": "बस trust रखो, महादेव सब देख रहे हैं ”",
+   "start": 19.41,
+   "dur": 2.984,
+   "wav": "narration/l3.wav"
+  },
+  {
+   "spoken": "हर हर महादेव।",
+   "caption": "॥ हर हर महादेव ॥",
+   "start": 26.51,
+   "dur": 1.289,
+   "wav": "narration/l4.wav"
+  }
+ ]
+}

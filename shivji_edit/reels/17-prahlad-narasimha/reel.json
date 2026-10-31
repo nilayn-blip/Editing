@@ -1,0 +1,79 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "ghanti",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:LAKSHMI-NARASIMHA statue at Hampi.jpg",
+   "focus": "50% 40%",
+   "author": "BRK (English Wikipedia)"
+  },
+  {
+   "key": "a",
+   "file": "File:Prahlada holika, 13th century Keshava temple Somanathpur.jpg",
+   "focus": "50% 45%"
+  },
+  {
+   "key": "e",
+   "file": "File:Painting of Narasimha - Sri Appan Venkatachalapati Temple, Cheranmahadevi.jpg",
+   "focus": "50% 45%",
+   "inset": [
+    0.06,
+    0.05,
+    0.06,
+    0.08
+   ]
+  },
+  {
+   "key": "rc",
+   "file": "File:Indian School, late 18th century - Narasimha, the fourth avatar of Vishnu - RCIN 1005113.g - Royal Collection.jpg",
+   "focus": "55% 50%",
+   "author": "Unknown artist (Royal Collection)",
+   "inset": [
+    0.13,
+    0.1,
+    0.13,
+    0.1
+   ]
+  },
+  {
+   "key": "c",
+   "file": "File:Viṣṇu as Narasimha tearing Hiranyakasipu to pieces..jpg",
+   "focus": "45% 50%",
+   "author": "Unknown artist (Mughal style)",
+   "inset": [
+    0.02,
+    0.02,
+    0.02,
+    0.02
+   ]
+  }
+ ],
+ "slug": "17-prahlad-narasimha",
+ "title": "Prahlad and Narasimha: faith that fire could not burn",
+ "raga": "bhairav",
+ "intro": {
+  "spoken": "भरोसा क्या होता है?",
+  "caption": "*भरोसा* क्या होता है?"
+ },
+ "lines": [
+  {
+   "spoken": "हिरण्यकशिपु ने प्रह्लाद को होलिका के साथ आग में बिठाया,",
+   "caption": "हिरण्यकशिपु ने प्रह्लाद को होलिका के साथ आग में बिठाया,"
+  },
+  {
+   "spoken": "होलिका जल गई, पर प्रह्लाद को आँच तक नहीं आई,",
+   "caption": "होलिका जल गई, पर प्रह्लाद को आँच तक नहीं आई,"
+  },
+  {
+   "spoken": "और खंभे से प्रकट हुए नरसिंह, भक्त का भरोसा कभी नहीं टूटता।",
+   "caption": "और खंभे से प्रकट हुए *नरसिंह*… भक्त का भरोसा कभी नहीं टूटता"
+  }
+ ],
+ "end": {
+  "spoken": "जय नरसिंह देव।",
+  "caption": "॥ जय नरसिंह देव ॥"
+ },
+ "caption_post": "भरोसा क्या होता है? 🔥 हिरण्यकशिपु ने प्रह्लाद को होलिका की गोद में आग में बिठाया — होलिका जल गई, प्रह्लाद को आँच तक नहीं आई। और जब हिरण्यकशिपु ने पूछा 'कहाँ है तेरा भगवान?', खंभे से प्रकट हुए नरसिंह। कमेंट में लिखिए: जय नरसिंह देव #narasimha #prahlad #vishnu #holika #bhakti #sanatandharma #hindumythology #faith #narayan #spiritualshorts"
+}

@@ -1,0 +1,62 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "om",
+ "paintings": [
+  {
+   "key": "c",
+   "file": "File:Bhakta Kannappa.jpeg",
+   "focus": "50% 45%",
+   "author": "Ravichandra"
+  },
+  {
+   "key": "a",
+   "file": "File:Kannapa Nayanar (174) (Raja Raja Chola Art Gallery)-WUS02852.jpg",
+   "focus": "50% 45%",
+   "author": "Unknown artist"
+  },
+  {
+   "key": "b",
+   "file": "File:Kannappa offering eyes to Shiva Linga carved on a mukha mandapa pillar of Arunachaleswarar temple.jpg",
+   "focus": "50% 40%"
+  },
+  {
+   "key": "e",
+   "file": "File:SrikalahastiGaligopuram.jpg",
+   "focus": "50% 40%",
+   "author": "Ravichandra"
+  },
+  {
+   "key": "h",
+   "file": "File:View of Srikalahasti gopuram and kannappa hill.jpg",
+   "focus": "62% 50%",
+   "author": "Ravichandra"
+  }
+ ],
+ "slug": "15-kannappa",
+ "title": "Kannappa: the hunter who offered his eyes",
+ "raga": "durga",
+ "intro": {
+  "spoken": "सबसे बड़ा भक्त कौन?",
+  "caption": "सबसे बड़ा *भक्त* कौन?"
+ },
+ "lines": [
+  {
+   "spoken": "शिकारी कन्नप्पा को पूजा की कोई विधि नहीं आती थी,",
+   "caption": "शिकारी कन्नप्पा को पूजा की कोई विधि नहीं आती थी,"
+  },
+  {
+   "spoken": "शिवलिंग की आँख से खून बहा, तो उसने अपनी आँख चढ़ा दी,",
+   "caption": "शिवलिंग की आँख से खून बहा, तो उसने अपनी आँख चढ़ा दी,"
+  },
+  {
+   "spoken": "दूसरी आँख देने लगा, तो महादेव ने हाथ थाम लिया।",
+   "caption": "दूसरी आँख देने लगा… तो *महादेव* ने हाथ थाम लिया"
+  }
+ ],
+ "end": {
+  "spoken": "हर हर महादेव।",
+  "caption": "॥ हर हर महादेव ॥"
+ },
+ "caption_post": "सबसे बड़ा भक्त कौन? 🙏 शिकारी कन्नप्पा को पूजा की कोई विधि नहीं आती थी। शिवलिंग की आँख से खून बहा तो उसने अपनी आँख चढ़ा दी, और दूसरी देने लगा तो महादेव ने स्वयं हाथ थाम लिया। भक्ति में विधि नहीं, भाव चाहिए। कमेंट में लिखिए: हर हर महादेव #mahadev #harharmahadev #shiva #bholenath #omnamahshivaya #shivbhakt #sanatandharma #shivkatha #kannappa #bhakti"
+}

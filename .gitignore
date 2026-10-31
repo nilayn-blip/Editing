@@ -1,0 +1,27 @@
+__pycache__/
+*.pyc
+shivji_edit/mahakal/project/.hyperframes/
+shivji_edit/mahakal/output/work-*/
+shivji_edit/mahakal/output/.*hf-transaction*/
+shivji_edit/jyotirlinga/project/.hyperframes/
+shivji_edit/jyotirlinga/project/snapshots/
+shivji_edit/jyotirlinga/output/work-*/
+shivji_edit/jyotirlinga/output/.*hf-transaction*/
+shivji_edit/mahadev/project/.hyperframes/
+shivji_edit/mahadev/project/snapshots/
+shivji_edit/mahadev/output/work-*/
+shivji_edit/mahadev/output/.*hf-transaction*/
+shivji_edit/status/project/.hyperframes/
+shivji_edit/status/project/snapshots/
+shivji_edit/status/output/work-*/
+shivji_edit/status/output/.*hf-transaction*/
+shivji_edit/krishna/project/.hyperframes/
+shivji_edit/krishna/project/snapshots/
+shivji_edit/krishna/output/work-*/
+shivji_edit/krishna/output/.*hf-transaction*/
+shivji_edit/reels/*/.dl/
+shivji_edit/reels/*/.work/
+shivji_edit/reels/*/project/.hyperframes/
+
+# the owner's voice pack and face photos: personal, never in this public repo
+shivji_edit/reel_kit/avatar/private/

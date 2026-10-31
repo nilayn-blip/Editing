@@ -1,15 +1,15 @@
 [
   {
-    "key": "e",
+    "key": "c",
     "file": "p01.jpg",
-    "focus": "50% 50%",
-    "alt": "L'Ascèse d'Arjuna (Mahabalipuram, Inde) (13932194786)",
-    "title": "File:L'Ascèse d'Arjuna (Mahabalipuram, Inde) (13932194786).jpg",
-    "author": "Jean-Pierre Dalbéra",
-    "license": "CC BY 2.0",
-    "license_url": "https://creativecommons.org/licenses/by/2.0",
-    "page": "https://commons.wikimedia.org/wiki/File:L%27Asc%C3%A8se_d%27Arjuna_(Mahabalipuram,_Inde)_(13932194786).jpg",
-    "original": "https://upload.wikimedia.org/wikipedia/commons/3/33/L%27Asc%C3%A8se_d%27Arjuna_%28Mahabalipuram%2C_Inde%29_%2813932194786%29.jpg"
+    "focus": "50% 45%",
+    "alt": "Kiratarjuna",
+    "title": "File:Kiratarjuna.jpg",
+    "author": "injamaven (Picasa)",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Kiratarjuna.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/32/Kiratarjuna.jpg"
   },
   {
     "key": "a",
@@ -24,16 +24,16 @@
     "original": "https://upload.wikimedia.org/wikipedia/commons/7/72/Arjuna%2C_perched_on_a_high_platform%2C_aims_his_arrow_at_a_large_boar_which_rushes_towards_him.jpg"
   },
   {
-    "key": "c",
+    "key": "e",
     "file": "p03.jpg",
-    "focus": "50% 45%",
-    "alt": "Kiratarjuna",
-    "title": "File:Kiratarjuna.jpg",
-    "author": "injamaven (Picasa)",
-    "license": "CC BY 3.0",
-    "license_url": "https://creativecommons.org/licenses/by/3.0",
-    "page": "https://commons.wikimedia.org/wiki/File:Kiratarjuna.jpg",
-    "original": "https://upload.wikimedia.org/wikipedia/commons/3/32/Kiratarjuna.jpg"
+    "focus": "50% 50%",
+    "alt": "L'Ascèse d'Arjuna (Mahabalipuram, Inde) (13932194786)",
+    "title": "File:L'Ascèse d'Arjuna (Mahabalipuram, Inde) (13932194786).jpg",
+    "author": "Jean-Pierre Dalbéra",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:L%27Asc%C3%A8se_d%27Arjuna_(Mahabalipuram,_Inde)_(13932194786).jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/33/L%27Asc%C3%A8se_d%27Arjuna_%28Mahabalipuram%2C_Inde%29_%2813932194786%29.jpg"
   },
   {
     "key": "b",

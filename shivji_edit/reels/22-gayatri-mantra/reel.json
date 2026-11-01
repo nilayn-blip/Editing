@@ -5,23 +5,36 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Morning Aarti of the Ganges at sunrise, Varanasi.jpg"
+   "file": "File:Morning Aarti of the Ganges at sunrise, Varanasi.jpg",
+   "focus": "60% 50%"
   },
   {
    "key": "a",
-   "file": "File:Surya Poona painting 1800-05.jpg"
+   "file": "File:Surya Poona painting 1800-05.jpg",
+   "focus": "72% 45%",
+   "author": "Unknown Pune artist",
+   "inset": [
+    0.01,
+    0.03,
+    0.01,
+    0.03
+   ]
   },
   {
    "key": "b",
-   "file": "File:Konark Sun Temple Statue of Sun God.jpg"
+   "file": "File:Konark Sun Temple Statue of Sun God.jpg",
+   "focus": "50% 40%"
   },
   {
    "key": "c",
-   "file": "File:India - Varanasi - 017 - Foggy sunrise on the Ganga (2146295711).jpg"
+   "file": "File:India - Varanasi - 017 - Foggy sunrise on the Ganga (2146295711).jpg",
+   "focus": "50% 50%",
+   "author": "McKay Savage"
   },
   {
    "key": "e",
-   "file": "File:Sun Temple Main Structure, Konark, Orissa.jpg"
+   "file": "File:Sun Temple Main Structure, Konark, Orissa.jpg",
+   "focus": "50% 45%"
   }
  ],
  "slug": "22-gayatri-mantra",

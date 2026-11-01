@@ -5,23 +5,35 @@
  "paintings": [
   {
    "key": "h",
-   "file": "File:Nandi statue at the Chamundeswari Temple, Mysuru, Karnataka, India (2016).jpg"
-  },
-  {
-   "key": "a",
-   "file": "File:Lepakshi-nandi-vertical.jpg"
+   "file": "File:Nandi statue at the Chamundeswari Temple, Mysuru, Karnataka, India (2016).jpg",
+   "focus": "50% 40%"
   },
   {
    "key": "b",
-   "file": "File:Shiva and Parvati on Nandi.jpg"
+   "file": "File:Shiva and Parvati on Nandi.jpg",
+   "focus": "50% 45%",
+   "author": "Unknown artist (photo: Tangopaso)",
+   "inset": [
+    0.14,
+    0.14,
+    0.14,
+    0.08
+   ]
+  },
+  {
+   "key": "a",
+   "file": "File:Lepakshi-nandi-vertical.jpg",
+   "focus": "35% 60%"
   },
   {
    "key": "c",
-   "file": "File:N-TN-C192 Big Temple Framed with Nandi Mandapam ceiling.jpg"
+   "file": "File:N-TN-C192 Big Temple Framed with Nandi Mandapam ceiling.jpg",
+   "focus": "50% 55%"
   },
   {
    "key": "e",
-   "file": "File:Statue of Nandi at Murudeshwar Temple.jpg"
+   "file": "File:Statue of Nandi at Murudeshwar Temple.jpg",
+   "focus": "25% 50%"
   }
  ],
  "slug": "23-nandi",

@@ -39,8 +39,8 @@ Stories are told in 3 beats (problem, turn, meaning). Quotes build to one feelin
 | 19 | Story | **Savitri and Satyavan**: love that argued with Yama | "जिसने यमराज से पति वापस ले लिया" | ॥ जय माँ सावित्री ॥ | malkauns | ✔ |
 | 20 | Quote | Kashi: "जहाँ मृत्यु भी मोक्ष है" | "एक शहर जिसे शिव कभी नहीं छोड़ते" | ॥ हर हर महादेव ॥ | shivaranjani | ✔ |
 | 21 | Story | **Shiva as Kirata and Arjuna**: earning the Pashupatastra | "जब Arjuna Shiva से लड़ बैठे" | ॥ हर हर महादेव ॥ | durga | ✔ |
-| 22 | Quote | The Gayatri Mantra with its meaning in simple Hindi | "दुनिया का सबसे powerful मंत्र" | ॥ ॐ भूर्भुवः स्वः ॥ | bhairav | |
-| 23 | Story | **Nandi**: why the bull always faces Shiva | "Nandi के कान में wish क्यों कहते हैं?" | ॥ हर हर महादेव ॥ | durga | |
+| 22 | Quote | The Gayatri Mantra with its meaning in simple Hindi | "दुनिया का सबसे powerful मंत्र" | ॥ ॐ भूर्भुवः स्वः ॥ | bhairav | ✔ |
+| 23 | Story | **Nandi**: why the bull always faces Shiva | "Nandi के कान में wish क्यों कहते हैं?" | ॥ हर हर महादेव ॥ | durga | ✔ |
 | 24 | Story | **Tripurantaka**: one arrow, three cities | "Shiva का एक तीर, तीन नगर" | ॥ जय त्रिपुरारी ॥ | malkauns | |
 | 25 | Quote | Bhagavad Gita 2.20: "आत्मा ना जन्म लेती है, ना मरती है" | "जब किसी अपने को खो दो…" | ॥ जय श्री कृष्ण ॥ | yaman | |
 | 26 | Story | **Somnath**: Chandra's curse, and why the moon rests on Shiva's head | "चाँद Shiva के सिर पर क्यों है?" | ॥ जय सोमनाथ ॥ | shivaranjani | |
@@ -77,3 +77,5 @@ stories, the 12 Jyotirlinga legends one at a time, the Navadurga). Never repeat 
 | 19 | 2026-10-31 | `reels/19-savitri-satyavan/` (owner's cloned voice) |
 | 20 | 2026-11-01 | `reels/20-kashi/` (owner's cloned voice) |
 | 21 | 2026-11-01 | `reels/21-kirata-arjuna/` (owner's cloned voice) |
+| 22 | 2026-11-02 | `reels/22-gayatri-mantra/` (owner's cloned voice) |
+| 23 | 2026-11-02 | `reels/23-nandi/` (owner's cloned voice) |

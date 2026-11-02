@@ -1,0 +1,84 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "om",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Shiva Linga during Maha Shivaratri Celebrations at Pashupatinath Temple, Kathmandu, Nepal-070A6809.jpg",
+   "focus": "65% 50%"
+  },
+  {
+   "key": "a3",
+   "file": "File:Shiva family.jpg",
+   "focus": "45% 65%",
+   "author": "Unknown artist",
+   "inset": [
+    0.07,
+    0.04,
+    0.07,
+    0.04
+   ]
+  },
+  {
+   "key": "b2",
+   "file": "File:India, Pahari Hills, Basohli school, 17th century - Shiva and Devi on Gajasura's Hide - 1952.587 - Cleveland Museum of Art.tif",
+   "focus": "50% 45%",
+   "inset": [
+    0.04,
+    0.04,
+    0.04,
+    0.04
+   ],
+   "author": "Unknown artist, Basohli (Cleveland Museum of Art)"
+  },
+  {
+   "key": "c",
+   "file": "File:The Holy Family, Shiva, Parvati, with their sons Ganesha and Karttikeya, National Museum, New Delhi.jpg",
+   "inset": [
+    0.07,
+    0.05,
+    0.07,
+    0.07
+   ],
+   "focus": "50% 50%"
+  },
+  {
+   "key": "e",
+   "file": "File:Vaikom Mahadeva Temple - pillar lamps inthe courtyard.jpg",
+   "focus": "40% 50%",
+   "inset": [
+    0,
+    0,
+    0,
+    0.09
+   ]
+  }
+ ],
+ "slug": "06-der-hai-andher-nahi",
+ "title": "Bhole's devotion: delay, never darkness",
+ "raga": "shivaranjani",
+ "intro": {
+  "spoken": "अगर प्रेयर का जवाब नहीं आ रहा...",
+  "caption": "अगर *prayer* का जवाब नहीं आ रहा…"
+ },
+ "lines": [
+  {
+   "spoken": "तो समझ लो, भोले सुन रहे हैं,",
+   "caption": "तो समझ लो, भोले सुन रहे हैं,"
+  },
+  {
+   "spoken": "उनके घर देर है, अंधेर नहीं,",
+   "caption": "उनके घर देर है… *अंधेर* नहीं,"
+  },
+  {
+   "spoken": "जो सही टाइम पर मिले, वही सबसे सुंदर होता है।",
+   "caption": "जो सही *time* पर मिले… वही सबसे सुंदर होता है"
+  }
+ ],
+ "end": {
+  "spoken": "हर हर महादेव।",
+  "caption": "॥ हर हर महादेव ॥"
+ },
+ "caption_post": "अगर prayer का जवाब नहीं आ रहा… तो समझ लो, भोले सुन रहे हैं 🙏 उनके घर देर है, अंधेर नहीं। जिसे ये सुनना था, उसे भेजिए ❤️ कमेंट में लिखिए: हर हर महादेव #mahadev #harharmahadev #shiva #bholenath #omnamahshivaya #shivbhakt #sanatandharma #shivkatha #faith"
+}

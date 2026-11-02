@@ -1,0 +1,66 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "om",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Morning Aarti of the Ganges at sunrise, Varanasi.jpg",
+   "focus": "60% 50%"
+  },
+  {
+   "key": "a",
+   "file": "File:Surya Poona painting 1800-05.jpg",
+   "focus": "72% 45%",
+   "author": "Unknown Pune artist",
+   "inset": [
+    0.01,
+    0.03,
+    0.01,
+    0.03
+   ]
+  },
+  {
+   "key": "b",
+   "file": "File:Konark Sun Temple Statue of Sun God.jpg",
+   "focus": "50% 40%"
+  },
+  {
+   "key": "c",
+   "file": "File:India - Varanasi - 017 - Foggy sunrise on the Ganga (2146295711).jpg",
+   "focus": "50% 50%",
+   "author": "McKay Savage"
+  },
+  {
+   "key": "e",
+   "file": "File:Sun Temple Main Structure, Konark, Orissa.jpg",
+   "focus": "50% 45%"
+  }
+ ],
+ "slug": "22-gayatri-mantra",
+ "title": "The Gayatri Mantra and its meaning",
+ "raga": "bhairav",
+ "intro": {
+  "spoken": "दुनिया का सबसे पावरफुल मंत्र",
+  "caption": "दुनिया का सबसे *powerful* मंत्र"
+ },
+ "lines": [
+  {
+   "spoken": "ओम्, भूर् भुवः स्वः, तत् सवितुर् वरेण्यम्,",
+   "caption": "ॐ भूर्भुवः स्वः, तत्सवितुर्वरेण्यं,"
+  },
+  {
+   "spoken": "भर्गो देवस्य धीमहि, धियो यो नः प्रचोदयात्।",
+   "caption": "भर्गो देवस्य धीमहि… धियो यो नः प्रचोदयात्"
+  },
+  {
+   "spoken": "अर्थ, हे प्रकाश के स्रोत, हमारी बुद्धि को सही राह दिखाओ।",
+   "caption": "अर्थ: हे प्रकाश के स्रोत… हमारी *बुद्धि* को सही राह दिखाओ"
+  }
+ ],
+ "end": {
+  "spoken": "ओम् शांति, शांति, शांति।",
+  "caption": "॥ ॐ शान्तिः ॥"
+ },
+ "caption_post": "दुनिया का सबसे powerful मंत्र ☀️ ॐ भूर्भुवः स्वः तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि धियो यो नः प्रचोदयात् — हे प्रकाश के स्रोत, हम आपके तेज का ध्यान करते हैं, हमारी बुद्धि को सही राह दिखाओ। कमेंट में पूरा मंत्र लिखिए 🙏 #gayatrimantra #mantra #om #vedas #sanatandharma #rigveda #meditation #spirituality #hinduism #spiritualshorts"
+}

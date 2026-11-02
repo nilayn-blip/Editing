@@ -1,0 +1,62 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "om",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Pattadakal Virupaksa. Mandapa east wall, left window. Lingodbhava.JPG",
+   "focus": "75% 40%",
+   "author": "Ismoon"
+  },
+  {
+   "key": "a",
+   "file": "File:Shiva as the Cosmic Pillar LACMA M.74.138.4 (2 of 8).jpg",
+   "focus": "50% 35%",
+   "author": "Unknown sculptor (LACMA)"
+  },
+  {
+   "key": "c",
+   "file": "File:Shiva Emerging from the Linga (Lingodbhavamurti) MET DP-16372-001.jpg",
+   "focus": "50% 45%",
+   "author": "Unknown sculptor (Metropolitan Museum)"
+  },
+  {
+   "key": "b",
+   "file": "File:Shiva as the Cosmic Pillar LACMA M.74.138.4 (1 of 8).jpg",
+   "focus": "50% 45%",
+   "author": "Unknown sculptor (LACMA)"
+  },
+  {
+   "key": "e",
+   "file": "File:Arulmigu Arunachaleswarar Temple, Thiruvannamalai (42492949895).jpg",
+   "focus": "45% 45%"
+  }
+ ],
+ "slug": "09-lingodbhava",
+ "title": "Lingodbhava: the pillar of light without end",
+ "raga": "malkauns",
+ "intro": {
+  "spoken": "शिव का आदि-अंत किसी को नहीं मिला",
+  "caption": "Shiva का *आदि-अंत* किसी को नहीं मिला"
+ },
+ "lines": [
+  {
+   "spoken": "ब्रह्मा और विष्णु में बहस हुई, कौन बड़ा है?",
+   "caption": "ब्रह्मा और विष्णु में बहस हुई, कौन बड़ा है?"
+  },
+  {
+   "spoken": "तभी प्रकाश का एक अनंत स्तंभ प्रकट हुआ,",
+   "caption": "तभी *प्रकाश* का एक अनंत स्तंभ प्रकट हुआ,"
+  },
+  {
+   "spoken": "हंस बनकर ब्रह्मा ऊपर गए, वराह बनकर विष्णु नीचे, पर दोनों हार गए।",
+   "caption": "हंस बनकर ब्रह्मा ऊपर गए, वराह बनकर विष्णु नीचे… पर दोनों *हार* गए"
+  }
+ ],
+ "end": {
+  "spoken": "हर हर महादेव।",
+  "caption": "॥ हर हर महादेव ॥"
+ },
+ "caption_post": "Shiva का आदि-अंत किसी को नहीं मिला ✨ ब्रह्मा और विष्णु के विवाद के बीच प्रकट हुआ प्रकाश का अनंत स्तंभ — ब्रह्मा हंस बनकर ऊपर गए, विष्णु वराह बनकर नीचे, पर कोई अंत नहीं मिला। यही है लिंगोद्भव। कमेंट में लिखिए: हर हर महादेव #mahadev #harharmahadev #shiva #bholenath #omnamahshivaya #shivbhakt #sanatandharma #shivkatha #lingodbhava #shivling"
+}

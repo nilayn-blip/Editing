@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Shiva is not a person, but a state</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Tiro Devanagari Sanskrit";
+        src: url("assets/TiroDevanagariSanskrit-Regular.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Cinzel";
+        src: url("assets/Cinzel.ttf") format("truetype");
+        font-weight: 400 900;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #000;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+      }
+      .full {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* paintings: full-bleed, cover, slow push-in */
+      #photos {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      .ph {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        opacity: 0;
+      }
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.78) contrast(1.12) saturate(1.08);
+      }
+
+      /* moody grade */
+      #grade {
+        background: linear-gradient(180deg, rgba(20, 10, 40, 0.35) 0%, rgba(0, 0, 0, 0) 40%, rgba(60, 20, 0, 0.3) 100%);
+        mix-blend-mode: multiply;
+      }
+      #center-dim {
+        background: radial-gradient(ellipse 90% 16% at 50% 50%, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+        opacity: 0;
+      }
+      #vignette {
+        background: radial-gradient(ellipse 85% 70% at 50% 48%, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
+      }
+      #grain {
+        position: absolute;
+        inset: -120px;
+        background: url("assets/grain.png");
+        mix-blend-mode: overlay;
+        opacity: 0.1;
+      }
+      .ember {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #fff8dc 0%, #ffd27a 35%, rgba(255, 170, 60, 0) 70%);
+        opacity: 0;
+      }
+
+      /* captions: small centred serif, like the reference */
+      .cap {
+        position: absolute;
+        left: 60px;
+        right: 60px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0 14px;
+        font-family: "Tiro Devanagari Sanskrit", Georgia, serif;
+        font-size: 50px;
+        line-height: 1.35;
+        color: #fbf6ec;
+        text-align: center;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 18px rgba(0, 0, 0, 0.7);
+      }
+      .cap .w {
+        opacity: 0;
+      }
+      .cap.intro {
+        font-size: 46px;
+      }
+      /* bold hook: big, thickened with a stroke (the Devanagari font has one weight), key word in gold */
+      .cap.hook {
+        left: 50px;
+        right: 50px;
+        gap: 0 20px;
+        font-size: 80px;
+        line-height: 1.22;
+        color: #ffffff;
+        -webkit-text-stroke: 2px #ffffff;
+        text-shadow: 0 4px 14px rgba(0, 0, 0, 0.95), 0 0 30px rgba(0, 0, 0, 0.8);
+      }
+      .cap .w.hl {
+        color: #ffcf4d;
+        -webkit-text-stroke-color: #ffcf4d;
+        text-shadow: 0 4px 14px rgba(0, 0, 0, 0.95), 0 0 26px rgba(255, 170, 40, 0.75);
+      }
+
+      /* ending */
+      #topdim {
+        /* facecam layout: the hook caption sits at the top, over sky or bright stone */
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0px, rgba(0, 0, 0, 0.35) 420px, rgba(0, 0, 0, 0) 720px);
+      }
+      #end-deva {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 800px;
+        text-align: center;
+        font-family: "Tiro Devanagari Sanskrit", serif;
+        font-size: 104px;
+        line-height: 1.25;
+        background: linear-gradient(180deg, #fff4c8 0%, #f7c64a 55%, #c4801c 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        filter: drop-shadow(0 4px 6px rgba(20, 6, 0, 0.85)) drop-shadow(0 0 22px rgba(255, 150, 30, 0.6));
+        white-space: nowrap;
+      }
+      #end-handle {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 1010px;
+        text-align: center;
+        font-family: "Cinzel", serif;
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: #fff4dc;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 16px rgba(255, 150, 30, 0.5);
+      }
+      #end-follow {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 1078px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        font-family: "Cinzel", serif;
+        font-size: 26px;
+        letter-spacing: 0.22em;
+        color: #f7c64a;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+      }
+      #end-follow .star {
+        width: 20px;
+        height: 20px;
+      }
+      #end-note {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 1500px;
+        text-align: center;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 22px;
+        color: #e8dcc4;
+        opacity: 0.7;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+      }
+
+      /* watermark */
+      #wm {
+        position: absolute;
+        right: 54px;
+        top: 150px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Cinzel", serif;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        color: #ffecbe;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85), 0 0 12px rgba(255, 150, 30, 0.45);
+        opacity: 0;
+      }
+      #wm .star {
+        width: 24px;
+        height: 24px;
+        filter: drop-shadow(0 0 6px rgba(255, 180, 60, 0.9));
+      }
+      #black {
+        position: absolute;
+        inset: 0;
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- generated by reel_kit/kit.py from reel.json, photos.json and timing.json; edit those -->
+    <div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-duration="22.64">
+      <div id="photos">
+        <div class="ph" id="ph1"><img id="img1" src="assets/p01.jpg" alt="Bhagwan Shankar Statue at Haridwar" data-layout-allow-overflow style="object-position: 50% 45%" /></div>
+        <div class="ph" id="ph2"><img id="img2" src="assets/p02.jpg" alt="Anonymous - Shiva enraged by Parvati&#x27;s interruption of his meditation - 2019.146 - Metropolitan Museum of Art" data-layout-allow-overflow style="object-position: 50% 45%" /></div>
+        <div class="ph" id="ph3"><img id="img3" src="assets/p03.jpg" alt="Yogin in meditation chakras kundalini snake" data-layout-allow-overflow style="object-position: 50% 45%" /></div>
+        <div class="ph" id="ph4"><img id="img4" src="assets/p04.jpg" alt="Adiyogi Shiva bust, right side, looking up" data-layout-allow-overflow style="object-position: 50% 40%" /></div>
+        <div class="ph" id="ph5"><img id="img5" src="assets/p05.jpg" alt="Snow peaks of Himalaya. IncredibleIndia" data-layout-allow-overflow style="object-position: 50% 50%" /></div>
+      </div>
+      <audio id="score" src="assets/soundtrack.mp3" data-start="0" data-duration="22.64" data-track-index="5" data-volume="1"></audio>
+
+      <div id="look" class="clip full" data-start="0" data-duration="22.64" data-track-index="1">
+        <div id="grade" class="full"></div>
+        <div id="center-dim" class="full"></div>
+        <div id="embers" class="full"></div>
+        <div id="vignette" class="full"></div>
+        <div id="grain"></div>
+      </div>
+
+      <div id="overlay" class="clip full" data-start="0" data-duration="22.64" data-track-index="2">
+        <div id="wm"><span>NIRVANA</span><svg class="star" viewBox="-10 -10 20 20"><path d="M0,-9 C1,-2 2,-1 9,0 C2,1 1,2 0,9 C-1,2 -2,1 -9,0 C-2,-1 -1,-2 0,-9Z" fill="#f7c64a" /></svg><span>NILAY</span></div>
+      </div>
+
+      <section id="intro" class="clip full" data-start="0" data-duration="2.3800000000000003" data-track-index="3">
+        <div id="cap0" class="cap hook" style="top: 820px"><span class="w">जब</span><span class="w">सब</span><span class="w hl">छूट</span><span class="w">जाए…</span></div>
+      </section>
+      <section id="s1" class="clip full" data-start="2.18" data-duration="5.04" data-track-index="3">
+        <div id="cap1" class="cap " style="top: 860px"><span class="w">तो</span><span class="w">याद</span><span class="w">रखना,</span><span class="w">शिव</span><span class="w">कोई</span><span class="w">व्यक्ति</span><span class="w">नहीं,</span></div>
+      </section>
+      <section id="s2" class="clip full" data-start="7.02" data-duration="5.07" data-track-index="3">
+        <div id="cap2" class="cap " style="top: 860px"><span class="w">शिव</span><span class="w">एक</span><span class="w hl">अवस्था</span><span class="w">हैं…</span><span class="w">शांत,</span><span class="w">स्थिर,</span><span class="w">निडर,</span></div>
+      </section>
+      <section id="s3" class="clip full" data-start="11.89" data-duration="4.26" data-track-index="3">
+        <div id="cap3" class="cap " style="top: 860px"><span class="w">जो</span><span class="w">सब</span><span class="w">छोड़</span><span class="w">दे,</span><span class="w">वही</span><span class="w">शिव</span><span class="w">को</span><span class="w">पा</span><span class="w">लेता</span><span class="w">है।</span></div>
+      </section>
+
+      <section id="ending" class="clip full" data-start="15.95" data-duration="6.69" data-track-index="4">
+        <div id="end-deva">॥ ॐ नमः शिवाय ॥</div>
+        <div id="end-handle">@nirva_nataless</div>
+        <div id="end-follow">FOLLOW FOR MORE <svg class="star" viewBox="-10 -10 20 20"><path d="M0,-9 C1,-2 2,-1 9,0 C2,1 1,2 0,9 C-1,2 -2,1 -9,0 C-2,-1 -1,-2 0,-9Z" fill="#f7c64a" /></svg></div>
+        <div id="end-note">Images via Wikimedia Commons · public domain · Rajan.gaul (CC BY-SA 3.0), Prabhuthiru57 (CC BY-SA 4.0), Shashankk Rai (CC BY-SA 4.0)</div>
+      </section>
+
+      <div id="black"></div>
+    </div>
+
+    <script>
+      const DUR = 22.64, IMG0 = 2.18, IMG_START = 0.0, END = 15.95, NPH = 5;
+      const IMG_T = [0.0, 2.18, 7.02, 11.89, 15.95];  // start time of each image
+      // narration: [start, duration, words] per spoken line; segments: [start, length]
+      const VO = [[0.3, 1.527, 4], [2.48, 3.536, 7], [7.32, 3.568, 7], [12.19, 2.763, 10], [16.25, 5.089, 5]];
+      const SEG = [[2.18, 4.84], [7.02, 4.87], [11.89, 4.06]];
+
+      let seed = 82271;
+      const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+
+      const embers = document.getElementById("embers");
+      const EMBERS = [];
+      for (let i = 0; i < 26; i++) {
+        const el = document.createElement("div");
+        el.className = "ember";
+        const s = 0.5 + rand() * 1.2;
+        el.style.left = (rand() * 1060).toFixed(0) + "px";
+        el.style.top = (900 + rand() * 1100).toFixed(0) + "px";
+        el.style.width = el.style.height = (7 * s).toFixed(1) + "px";
+        embers.appendChild(el);
+        EMBERS.push({ el, rise: 300 + rand() * 500, sway: 20 + rand() * 50, peak: 0.3 + rand() * 0.4 });
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo("#black", { opacity: 1 }, { opacity: 0, duration: 0.4, ease: "none" }, 0);
+      tl.to("#black", { opacity: 1, duration: 0.9, ease: "none" }, DUR - 0.9);
+      for (let t = 0; t < DUR; t += 1 / 15) {
+        tl.set("#grain", { x: Math.round(rand() * 200 - 100), y: Math.round(rand() * 200 - 100) }, t);
+      }
+      EMBERS.forEach((p, i) => {
+        tl.fromTo(p.el, { y: 0, x: 0 }, { y: -p.rise * 2, x: (i % 2 ? 1 : -1) * p.sway, duration: DUR - IMG0, ease: "none" }, IMG0);
+        tl.fromTo(p.el, { opacity: 0 }, { opacity: p.peak, duration: 1.0 }, IMG0 + (i % 5) * 0.15);
+        tl.to(p.el, { opacity: p.peak * 0.3, duration: 1.2, yoyo: true, repeat: Math.max(1, Math.floor((DUR - IMG0) / 2.4) - 1), ease: "sine.inOut" }, IMG0 + 1.2 + (i % 6) * 0.3);
+      });
+
+      const reveal = (sel, [t0, len, nw]) => {
+        tl.fromTo(`${sel} .w`, { opacity: 0, y: 8, filter: "blur(6px)" },
+          { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.45, stagger: (len * 0.92) / nw, ease: "power2.out" }, t0 - 0.05);
+      };
+      reveal("#cap0", VO[0]);
+      tl.to("#cap0", { opacity: 0, duration: 0.5, ease: "power1.in" }, IMG0 - 0.55);
+
+      for (let k = 0; k < NPH; k++) {
+        const t0 = IMG_T[k];
+        const len = (k === NPH - 1 ? DUR : IMG_T[k + 1]) - t0;
+        const dir = k % 2 ? 1 : -1;
+        const tin = Math.max(0, t0 - 0.45);
+        tl.fromTo(`#ph${k + 1}`, { opacity: 0 }, { opacity: 1, duration: k === 0 ? (IMG_START === 0 ? 0.4 : 1.0) : 0.9, ease: "sine.inOut" }, tin);
+        tl.fromTo(`#img${k + 1}`, { scale: 1.04, x: -dir * 14, y: 0 }, { scale: 1.16, x: dir * 14, y: -18, duration: len + 0.9, ease: "none" }, tin);
+        if (k > 0) tl.set(`#ph${k}`, { opacity: 0 }, t0 + 0.5);
+      }
+
+      tl.fromTo("#center-dim", { opacity: 0 }, { opacity: 1, duration: 0.8 }, IMG_START === 0 ? 0 : IMG0 - 0.2);
+      tl.to("#center-dim", { opacity: 0, duration: 0.6 }, END - 0.4);
+      SEG.forEach(([s, len], i) => {
+        reveal(`#cap${i + 1}`, VO[i + 1]);
+        tl.to(`#cap${i + 1}`, { opacity: 0, duration: 0.45, ease: "power1.in" }, s + len - 0.5);
+      });
+
+      tl.fromTo("#wm", { opacity: 0 }, { opacity: 0.8, duration: 0.8 }, 0.5);
+
+      tl.to("#photos", { filter: "blur(8px) brightness(0.55)", duration: 0.9, ease: "power2.inOut" }, END - 0.3);
+      tl.fromTo("#end-deva", { opacity: 0, scale: 1.08, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.9, ease: "power3.out" }, VO[VO.length - 1][0] - 0.2);
+      tl.fromTo("#end-handle", { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" }, VO[VO.length - 1][0] + 0.6);
+      tl.fromTo("#end-follow", { opacity: 0 }, { opacity: 0.9, duration: 0.6 }, VO[VO.length - 1][0] + 0.9);
+      tl.fromTo("#end-note", { opacity: 0 }, { opacity: 0.7, duration: 0.6 }, VO[VO.length - 1][0] + 1.0);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

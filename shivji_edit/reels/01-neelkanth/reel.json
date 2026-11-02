@@ -1,0 +1,71 @@
+{
+ "slug": "01-neelkanth",
+ "title": "Neelkanth: why is Shiva's throat blue?",
+ "pace": "short",
+ "hook_style": "bold",
+ "raga": "shivaranjani",
+ "end_sound": "om",
+ "intro": {
+  "spoken": "शिव का गला नीला क्यों है?",
+  "caption": "Shiva का *गला* नीला क्यों है?"
+ },
+ "lines": [
+  {
+   "spoken": "समुद्र मंथन से निकला हलाहल विष, पूरी सृष्टि जलने लगी,",
+   "caption": "समुद्र मंथन से निकला हलाहल विष… पूरी सृष्टि जलने लगी,"
+  },
+  {
+   "spoken": "तब महादेव ने वो विष पी लिया, और कंठ में ही रोक लिया,",
+   "caption": "तब महादेव ने वो विष पी लिया, और कंठ में ही रोक लिया,"
+  },
+  {
+   "spoken": "इसीलिए वो कहलाए, नीलकंठ।",
+   "caption": "इसीलिए वो कहलाए… *नीलकंठ* ”"
+  }
+ ],
+ "end": {
+  "spoken": "हर हर महादेव।",
+  "caption": "॥ हर हर महादेव ॥"
+ },
+ "paintings": [
+  {
+   "key": "n1",
+   "file": "File:Shiva Statue at Aazhimala Shiva Temple.jpg",
+   "focus": "40% 40%"
+  },
+  {
+   "key": "n2",
+   "file": "File:Samudramanthan.jpg",
+   "inset": [
+    0.06,
+    0.03,
+    0.06,
+    0.03
+   ],
+   "focus": "50% 45%"
+  },
+  {
+   "key": "n4a",
+   "file": "File:नीलकंठी.jpg",
+   "focus": "40% 55%"
+  },
+  {
+   "key": "n3",
+   "file": "File:Shiva drinking Halahala.jpg",
+   "inset": [
+    0.03,
+    0.13,
+    0.03,
+    0.04
+   ],
+   "focus": "45% 40%",
+   "author": "Gita Press (Kalyan)"
+  },
+  {
+   "key": "n5",
+   "file": "File:Neelkanth mahadev mandir.jpg",
+   "focus": "55% 55%"
+  }
+ ],
+ "caption_post": "Shiva का गला नीला क्यों है? 🔱 समुद्र मंथन में निकला हलाहल विष महादेव ने पूरी सृष्टि को बचाने के लिए पी लिया और कंठ में रोक लिया — इसीलिए वो नीलकंठ कहलाए। कमेंट में लिखिए: हर हर महादेव 🙏 #mahadev #neelkanth #harharmahadev #shiva #bholenath #samudramanthan #shivbhakt #sanatandharma #shivkatha #spiritualshorts"
+}

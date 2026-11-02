@@ -1,0 +1,72 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "ghanti",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Diwali diya.jpg",
+   "focus": "50% 60%"
+  },
+  {
+   "key": "a",
+   "file": "File:Krishna and Arjuna on Chariot Painting.jpg",
+   "focus": "50% 50%",
+   "author": "Unknown artist (photo: V Karnathia)",
+   "inset": [
+    0.17,
+    0.24,
+    0.12,
+    0.12
+   ]
+  },
+  {
+   "key": "b",
+   "file": "File:Vishnu Vishvarupa.jpg",
+   "focus": "50% 45%",
+   "author": "Unknown artist",
+   "inset": [
+    0.1,
+    0.08,
+    0.1,
+    0.06
+   ]
+  },
+  {
+   "key": "c",
+   "file": "File:18th century Bhagavad Gita and bhasya, Sanskrit, Kannada script, Karnataka.jpg",
+   "focus": "50% 40%"
+  },
+  {
+   "key": "e",
+   "file": "File:An oil lamp 17 10 2010.JPG",
+   "focus": "35% 50%"
+  }
+ ],
+ "slug": "25-atma-amar",
+ "title": "Gita 2.20: the soul is never born and never dies",
+ "raga": "yaman",
+ "intro": {
+  "spoken": "जब किसी अपने को खो दो,",
+  "caption": "जब किसी *अपने* को खो दो…"
+ },
+ "lines": [
+  {
+   "spoken": "तो क्रिश्ना के ये शब्द याद रखना,",
+   "caption": "तो Krishna के ये शब्द याद रखना,"
+  },
+  {
+   "spoken": "आत्मा ना जन्म लेती है, ना कभी मरती है,",
+   "caption": "*आत्मा* ना जन्म लेती है, ना कभी मरती है,"
+  },
+  {
+   "spoken": "शरीर नष्ट होता है, पर आत्मा अमर रहती है।",
+   "caption": "शरीर नष्ट होता है… पर आत्मा अमर रहती है"
+  }
+ ],
+ "end": {
+  "spoken": "जय श्री क्रिश्ना।",
+  "caption": "॥ जय श्री कृष्ण ॥"
+ },
+ "caption_post": "जब किसी अपने को खो दो… 🕊️ न जायते म्रियते वा कदाचित् (गीता 2.20) — आत्मा ना जन्म लेती है, ना कभी मरती है। शरीर नष्ट होता है, आत्मा नहीं। जिसे आज ये सुनना था, उसे भेजिए 🙏 कमेंट में लिखिए: जय श्री कृष्ण #krishna #jaishreekrishna #bhagavadgita #radhakrishna #sanatandharma #gita #spiritualquotes #harekrishna #atma"
+}

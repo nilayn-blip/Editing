@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Mahakal Darshan</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Tiro Devanagari Sanskrit";
+        src: url("assets/TiroDevanagariSanskrit-Regular.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Cinzel";
+        src: url("assets/Cinzel.ttf") format("truetype");
+        font-weight: 400 900;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #000;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #000;
+        --gold-1: #fff4c8;
+        --gold-2: #f7c64a;
+        --gold-3: #c4801c;
+        --cream: #ffecbe;
+      }
+      .full {
+        position: absolute;
+        inset: 0;
+      }
+      #vwrap {
+        position: absolute;
+        inset: 0;
+      }
+      #darshan {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* type */
+      .deva {
+        font-family: "Tiro Devanagari Sanskrit", serif;
+        line-height: 1.25;
+        background: linear-gradient(180deg, var(--gold-1) 0%, var(--gold-2) 55%, var(--gold-3) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        filter: drop-shadow(0 4px 6px rgba(20, 6, 0, 0.8)) drop-shadow(0 0 22px rgba(255, 150, 30, 0.55));
+        white-space: nowrap;
+      }
+      .latin {
+        font-family: "Cinzel", serif;
+        color: var(--cream);
+        letter-spacing: 0.24em;
+        text-shadow: 0 2px 6px rgba(20, 6, 0, 0.9), 0 0 14px rgba(255, 150, 30, 0.5);
+        white-space: nowrap;
+      }
+      .stack {
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .rule {
+        position: relative;
+        width: 560px;
+        height: 24px;
+        margin: 6px 0 10px;
+      }
+      .rule .line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 11px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--gold-2) 20%, var(--gold-2) 80%, transparent);
+        box-shadow: 0 0 8px rgba(255, 170, 40, 0.8);
+      }
+      .rule .gem {
+        position: absolute;
+        left: 270px;
+        top: 2px;
+        width: 20px;
+        height: 20px;
+        background: var(--gold-2);
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        box-shadow: 0 0 10px rgba(255, 170, 40, 0.9);
+      }
+      .band-top {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 1050px;
+        background: linear-gradient(180deg, rgba(18, 6, 0, 0.78) 0%, rgba(18, 6, 0, 0.45) 45%, rgba(18, 6, 0, 0) 100%);
+      }
+      .band-bottom {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 900px;
+        background: linear-gradient(0deg, rgba(18, 6, 0, 0.85) 0%, rgba(18, 6, 0, 0.55) 45%, rgba(18, 6, 0, 0) 100%);
+      }
+
+      /* light */
+      #rays {
+        position: absolute;
+        left: -660px;
+        top: -1460px;
+        width: 2400px;
+        height: 2400px;
+        border-radius: 50%;
+        background: repeating-conic-gradient(
+          from 0deg,
+          rgba(255, 214, 140, 0.55) 0deg 3deg,
+          rgba(255, 214, 140, 0) 6deg 16deg
+        );
+        -webkit-mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.6) 35%, transparent 70%);
+        mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.6) 35%, transparent 70%);
+        filter: blur(14px);
+        mix-blend-mode: screen;
+        opacity: 0;
+      }
+      .flash {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse 75% 60% at 50% 38%, rgba(255, 210, 130, 1) 0%, rgba(255, 170, 70, 0.55) 40%, rgba(255, 150, 50, 0) 75%);
+        mix-blend-mode: screen;
+        opacity: 0;
+      }
+      .ember {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #fff8dc 0%, #ffd27a 35%, rgba(255, 170, 60, 0) 70%);
+        opacity: 0;
+      }
+      .ash {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(245, 240, 232, 0.95) 0%, rgba(220, 214, 205, 0.4) 50%, rgba(200, 200, 200, 0) 75%);
+        opacity: 0;
+      }
+
+      /* hook */
+      #hook-word {
+        top: 230px;
+      }
+      #hook-word .deva {
+        font-size: 210px;
+      }
+
+      /* title */
+      #title-stack {
+        top: 150px;
+      }
+      #title-stack .deva {
+        font-size: 128px;
+      }
+      #title-stack .l1 {
+        font-size: 40px;
+      }
+      #title-stack .l2 {
+        font-size: 30px;
+        margin-top: 14px;
+        letter-spacing: 0.3em;
+      }
+
+      /* info beats */
+      .beat .icon {
+        position: absolute;
+        left: 450px;
+        top: 1220px;
+        width: 180px;
+        height: 180px;
+      }
+      .beat .stack {
+        top: 1440px;
+      }
+      .beat .deva {
+        font-size: 100px;
+      }
+      .beat .latin {
+        font-size: 34px;
+        letter-spacing: 0.18em;
+      }
+
+      /* end card */
+      #dial {
+        position: absolute;
+        left: 260px;
+        top: 410px;
+        width: 560px;
+        height: 560px;
+      }
+      #end-om {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 545px;
+        display: flex;
+        justify-content: center;
+      }
+      #end-om .deva {
+        font-size: 230px;
+        line-height: 1;
+      }
+      #end-stack {
+        top: 1060px;
+      }
+      #end-stack .deva {
+        font-size: 104px;
+      }
+      #end-stack .l1 {
+        font-size: 40px;
+      }
+      #end-stack .l2 {
+        font-size: 26px;
+        margin-top: 16px;
+        letter-spacing: 0.2em;
+      }
+      #black {
+        position: absolute;
+        inset: 0;
+        background: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-duration="15.5">
+      <!-- footage: graded/stabilised/re-cut by prep_footage.sh; wrapper is untimed so it can be blurred -->
+      <div id="vwrap">
+        <video id="darshan" class="clip" src="assets/darshan.mp4" muted playsinline data-start="0" data-duration="15.5" data-track-index="0"></video>
+      </div>
+      <audio id="score" src="assets/soundtrack.mp3" data-start="0" data-duration="15.5" data-track-index="5" data-volume="1"></audio>
+
+      <!-- light: god-rays, light leaks, embers -->
+      <div id="light" class="clip full" data-start="0" data-duration="15.5" data-track-index="1">
+        <div id="rays"></div>
+        <div id="leak" class="flash"></div>
+        <div id="embers" class="full"></div>
+      </div>
+
+      <!-- hook: MAHAKAL stinger -->
+      <section id="hook" class="clip full" data-start="0" data-duration="1.1" data-track-index="2">
+        <div id="hook-word" class="stack"><div class="deva">महाकाल</div></div>
+      </section>
+
+      <!-- opening title over the wide shot -->
+      <section id="title" class="clip full" data-start="0.95" data-duration="3.0" data-track-index="2">
+        <div id="title-band" class="band-top"></div>
+        <div id="title-stack" class="stack">
+          <div id="title-deva" class="deva">जय श्री महाकाल</div>
+          <div id="title-rule" class="rule"><div class="line"></div><div class="gem"></div></div>
+          <div id="title-l1" class="latin l1">MAHAKALESHWAR JYOTIRLINGA</div>
+          <div id="title-l2" class="latin l2">UJJAIN</div>
+        </div>
+      </section>
+
+      <!-- beat 1: one of the 12 Jyotirlingas -->
+      <section id="b1" class="clip full beat" data-start="4.55" data-duration="2.15" data-track-index="3">
+        <div class="band-bottom b-band"></div>
+        <svg class="icon" viewBox="-90 -90 180 180" id="b1-ring"></svg>
+        <div class="stack">
+          <div class="deva b-deva">द्वादश ज्योतिर्लिंग</div>
+          <div class="latin b-latin">ONE OF THE 12 JYOTIRLINGAS</div>
+        </div>
+      </section>
+
+      <!-- beat 2: the south-facing idol -->
+      <section id="b2" class="clip full beat" data-start="6.75" data-duration="2.15" data-track-index="3">
+        <div class="band-bottom b-band"></div>
+        <svg class="icon" viewBox="-90 -90 180 180">
+          <circle r="78" fill="none" stroke="#f7c64a" stroke-width="3" opacity="0.9" />
+          <circle r="66" fill="none" stroke="#f7c64a" stroke-width="1" opacity="0.5" />
+          <g fill="#f7c64a">
+            <rect x="-1.5" y="-78" width="3" height="12" />
+            <rect x="-1.5" y="66" width="3" height="12" />
+            <rect x="-78" y="-1.5" width="12" height="3" />
+            <rect x="66" y="-1.5" width="12" height="3" />
+          </g>
+          <text x="0" y="-46" text-anchor="middle" font-family="Cinzel" font-size="18" fill="#ffecbe" opacity="0.6">N</text>
+          <text id="b2-s" x="0" y="60" text-anchor="middle" font-family="Cinzel" font-size="20" fill="#fff4c8">S</text>
+          <g id="b2-needle">
+            <polygon points="0,-58 10,0 0,8 -10,0" fill="#f7c64a" />
+            <polygon points="0,58 10,0 0,-8 -10,0" fill="#7a3a08" opacity="0.8" />
+            <circle r="6" fill="#fff4c8" />
+          </g>
+        </svg>
+        <div class="stack">
+          <div class="deva b-deva">दक्षिणमुखी महाकाल</div>
+          <div class="latin b-latin">THE ONLY SOUTH-FACING JYOTIRLINGA</div>
+        </div>
+      </section>
+
+      <!-- beat 3: Bhasma Aarti (tripundra of sacred ash) -->
+      <section id="b3" class="clip full beat" data-start="8.95" data-duration="2.25" data-track-index="3">
+        <div class="band-bottom b-band"></div>
+        <div id="ashes" class="full"></div>
+        <svg class="icon" viewBox="-90 -90 180 180">
+          <g id="tripundra" fill="#f2ede4">
+            <rect class="stripe" x="-80" y="-34" width="160" height="12" rx="6" />
+            <rect class="stripe" x="-80" y="-6" width="160" height="12" rx="6" />
+            <rect class="stripe" x="-80" y="22" width="160" height="12" rx="6" />
+          </g>
+          <circle id="bindu" cx="0" cy="0" r="11" fill="#d4241c" />
+        </svg>
+        <div class="stack">
+          <div class="deva b-deva">भस्म आरती</div>
+          <div class="latin b-latin">FAMED FOR THE DAWN BHASMA AARTI</div>
+        </div>
+      </section>
+
+      <!-- end card: Mahakal, Lord of Time -->
+      <section id="end" class="clip full" data-start="11.2" data-duration="4.3" data-track-index="4">
+        <svg id="dial" viewBox="-280 -280 560 560">
+          <g id="dial-ring"></g>
+          <g id="hand-hour"><rect x="-4" y="-130" width="8" height="140" rx="4" fill="#f7c64a" opacity="0.55" /></g>
+          <g id="hand-min"><rect x="-2.5" y="-190" width="5" height="200" rx="2.5" fill="#fff4c8" opacity="0.5" /></g>
+        </svg>
+        <div id="end-om"><div class="deva">ॐ</div></div>
+        <div id="end-stack" class="stack">
+          <div id="end-deva" class="deva">॥ हर हर महादेव ॥</div>
+          <div id="end-rule" class="rule"><div class="line"></div><div class="gem"></div></div>
+          <div id="end-l1" class="latin l1">MAHAKAL · LORD OF TIME</div>
+          <div id="end-l2" class="latin l2">MAHAKALESHWAR JYOTIRLINGA · UJJAIN</div>
+        </div>
+      </section>
+
+      <div id="black"></div>
+    </div>
+
+    <script>
+      // Output times; keep in sync with prep_footage.sh and soundtrack.py
+      const DUR = 15.5;
+      const CUT_WIDE = 0.9, CUT_ZOOM = 2.07, CUT_HOLD = 4.07, CUT_END = 11.2;
+      const NS = "http://www.w3.org/2000/svg";
+
+      // seeded PRNG (determinism: no Math.random)
+      let seed = 108;
+      const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+
+      // build: embers, ash, the 12-jyotirlinga ring, the clock dial
+      const embers = document.getElementById("embers");
+      const EMBERS = [];
+      for (let i = 0; i < 46; i++) {
+        const e = document.createElement("div");
+        e.className = "ember";
+        const s = 0.5 + rand() * 1.3;
+        e.style.left = (rand() * 1060).toFixed(0) + "px";
+        e.style.top = (300 + rand() * 1700).toFixed(0) + "px";
+        e.style.width = e.style.height = (8 * s).toFixed(1) + "px";
+        embers.appendChild(e);
+        EMBERS.push({ el: e, rise: 260 + rand() * 520, sway: 20 + rand() * 50, peak: 0.5 + rand() * 0.5 });
+      }
+      const ashes = document.getElementById("ashes");
+      const ASH = [];
+      for (let i = 0; i < 40; i++) {
+        const a = document.createElement("div");
+        a.className = "ash";
+        a.style.left = (rand() * 1060).toFixed(0) + "px";
+        a.style.top = (900 + rand() * 1000).toFixed(0) + "px";
+        const s = 0.6 + rand() * 1.6;
+        a.style.width = a.style.height = (7 * s).toFixed(1) + "px";
+        ashes.appendChild(a);
+        ASH.push({ el: a, rise: 160 + rand() * 320, drift: -60 + rand() * 120 });
+      }
+      const ring = document.getElementById("b1-ring");
+      const DOTS = [];
+      for (let k = 0; k < 12; k++) {
+        const ang = (k / 12) * Math.PI * 2 - Math.PI / 2;
+        const d = document.createElementNS(NS, "circle");
+        d.setAttribute("cx", (70 * Math.cos(ang)).toFixed(2));
+        d.setAttribute("cy", (70 * Math.sin(ang)).toFixed(2));
+        d.setAttribute("r", k === 0 ? "11" : "8");
+        d.setAttribute("fill", k === 0 ? "#fff4c8" : "#f7c64a");
+        ring.appendChild(d);
+        DOTS.push(d);
+      }
+      const twelve = document.createElementNS(NS, "text");
+      twelve.setAttribute("x", "0");
+      twelve.setAttribute("y", "22");
+      twelve.setAttribute("text-anchor", "middle");
+      twelve.setAttribute("font-family", "Tiro Devanagari Sanskrit");
+      twelve.setAttribute("font-size", "64");
+      twelve.setAttribute("fill", "#f7c64a");
+      twelve.textContent = "१२";
+      ring.appendChild(twelve);
+
+      const dialRing = document.getElementById("dial-ring");
+      const outer = document.createElementNS(NS, "circle");
+      outer.setAttribute("r", "250");
+      outer.setAttribute("fill", "none");
+      outer.setAttribute("stroke", "#f7c64a");
+      outer.setAttribute("stroke-width", "2");
+      outer.setAttribute("opacity", "0.7");
+      dialRing.appendChild(outer);
+      for (let k = 0; k < 60; k++) {
+        const ang = (k / 60) * 360;
+        const major = k % 5 === 0;
+        const t = document.createElementNS(NS, "rect");
+        t.setAttribute("x", major ? "-3" : "-1.2");
+        t.setAttribute("y", major ? "-246" : "-244");
+        t.setAttribute("width", major ? "6" : "2.4");
+        t.setAttribute("height", major ? "26" : "12");
+        t.setAttribute("fill", major ? "#fff4c8" : "#f7c64a");
+        t.setAttribute("opacity", major ? "0.95" : "0.6");
+        t.setAttribute("transform", `rotate(${ang})`);
+        dialRing.appendChild(t);
+      }
+      for (let k = 0; k < 96; k++) {
+        const ang = (k / 96) * Math.PI * 2;
+        const c = document.createElementNS(NS, "circle");
+        c.setAttribute("cx", (272 * Math.cos(ang)).toFixed(2));
+        c.setAttribute("cy", (272 * Math.sin(ang)).toFixed(2));
+        c.setAttribute("r", k % 8 === 0 ? "4" : "1.8");
+        c.setAttribute("fill", "#f7c64a");
+        c.setAttribute("opacity", "0.8");
+        dialRing.appendChild(c);
+      }
+
+      // timeline
+      const tl = gsap.timeline({ paused: true });
+
+      // fade in / out
+      tl.fromTo("#black", { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "none" }, 0);
+      tl.to("#black", { opacity: 1, duration: 0.7, ease: "none" }, DUR - 0.7);
+
+      // god-rays on the deity (hook, then the darshan hold), slow rotation throughout
+      tl.fromTo("#rays", { rotation: 0 }, { rotation: 28, duration: DUR, ease: "none" }, 0);
+      tl.fromTo("#rays", { opacity: 0 }, { opacity: 0.32, duration: 0.3 }, 0);
+      tl.to("#rays", { opacity: 0, duration: 0.15 }, CUT_WIDE - 0.1);
+      tl.to("#rays", { opacity: 0.3, duration: 1.2 }, CUT_HOLD - 0.6);
+      tl.to("#rays", { opacity: 0, duration: 0.8 }, CUT_END);
+
+      // flash cut hook -> wide, and the warm leak riding the push-in
+      tl.fromTo("#leak", { opacity: 0 }, { opacity: 0.85, duration: 0.12, ease: "power2.in" }, CUT_WIDE - 0.12);
+      tl.to("#leak", { opacity: 0, duration: 0.3, ease: "power2.out" }, CUT_WIDE);
+      tl.to("#leak", { opacity: 0.38, duration: 0.95, ease: "sine.inOut" }, CUT_ZOOM + 0.1);
+      tl.to("#leak", { opacity: 0, duration: 0.95, ease: "sine.inOut" }, CUT_ZOOM + 1.05);
+
+      // embers: rise and twinkle during the hook and from the push-in onwards
+      EMBERS.forEach((p, i) => {
+        tl.fromTo(p.el, { y: 0, x: 0 }, { y: -p.rise * 2.2, x: (i % 2 ? 1 : -1) * p.sway, duration: DUR, ease: "none" }, 0);
+        tl.fromTo(p.el, { opacity: 0 }, { opacity: p.peak, duration: 0.4 }, 0.05 + (i % 5) * 0.04);
+        tl.to(p.el, { opacity: 0, duration: 0.2 }, CUT_WIDE + 0.25);
+        tl.to(p.el, { opacity: p.peak, duration: 0.8 }, CUT_ZOOM + 0.8 + (i % 7) * 0.08);
+        tl.to(p.el, { opacity: p.peak * 0.35, duration: 0.6, yoyo: true, repeat: 9, ease: "sine.inOut" }, CUT_HOLD + (i % 6) * 0.17);
+      });
+
+      // hook: MAHAKAL stinger
+      tl.fromTo("#hook-word .deva", { scale: 1.35, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.55, ease: "power3.out" }, 0.05);
+      tl.to("#hook-word .deva", { scale: 1.08, opacity: 0, duration: 0.2, ease: "power2.in" }, CUT_WIDE - 0.15);
+
+      // title over the wide shot (section starts at 0.95)
+      const T0 = 0.95;
+      tl.fromTo("#title-band", { opacity: 0 }, { opacity: 1, duration: 0.5 }, T0);
+      tl.fromTo("#title-deva", { y: -30, scale: 1.12, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: 1.0, ease: "power3.out" }, T0 + 0.05);
+      tl.fromTo("#title-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, T0 + 0.35);
+      tl.fromTo("#title-l1", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, T0 + 0.55);
+      tl.fromTo("#title-l2", { opacity: 0, scaleX: 1.35 }, { opacity: 1, scaleX: 1, duration: 0.8, ease: "power2.out" }, T0 + 0.8);
+      tl.to(["#title-stack", "#title-band"], { opacity: 0, duration: 0.5, ease: "power1.in" }, T0 + 2.45);
+
+      // info beats: shared in/out
+      const beat = (id, t0, len) => {
+        tl.fromTo(`${id} .b-band`, { opacity: 0 }, { opacity: 1, duration: 0.4 }, t0);
+        tl.fromTo(`${id} .icon`, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(1.8)" }, t0 + 0.05);
+        tl.fromTo(`${id} .b-deva`, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, t0 + 0.15);
+        tl.fromTo(`${id} .b-latin`, { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, t0 + 0.4);
+        tl.to([`${id} .icon`, `${id} .stack`, `${id} .b-band`], { opacity: 0, duration: 0.35, ease: "power1.in" }, t0 + len - 0.4);
+      };
+      beat("#b1", 4.55, 2.15);
+      DOTS.forEach((d, k) => {
+        tl.fromTo(d, { opacity: 0.15, scale: 0.4, transformOrigin: "50% 50%" }, { opacity: 1, scale: 1, duration: 0.18, ease: "back.out(3)" }, 4.7 + k * 0.07);
+      });
+      tl.fromTo("#b1-ring", { rotation: -20 }, { rotation: 10, duration: 2.15, ease: "power1.out" }, 4.55);
+
+      beat("#b2", 6.75, 2.15);
+      tl.fromTo("#b2-needle", { rotation: 0, svgOrigin: "0 0" }, { rotation: 180, svgOrigin: "0 0", duration: 1.0, ease: "back.out(1.6)" }, 6.95);
+      tl.fromTo("#b2-s", { opacity: 0.4 }, { opacity: 1, duration: 0.3, yoyo: true, repeat: 3 }, 7.85);
+
+      beat("#b3", 8.95, 2.25);
+      tl.fromTo("#tripundra .stripe", { scaleX: 0, transformOrigin: "0% 50%" }, { scaleX: 1, duration: 0.45, stagger: 0.14, ease: "power2.out" }, 9.05);
+      tl.fromTo("#bindu", { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(2.5)" }, 9.55);
+      ASH.forEach((a, i) => {
+        tl.fromTo(a.el, { y: 0, x: 0, opacity: 0 }, { y: -a.rise, x: a.drift, opacity: 0.85, duration: 1.1, ease: "sine.out" }, 8.95 + (i % 10) * 0.05);
+        tl.to(a.el, { opacity: 0, duration: 0.8, ease: "sine.in" }, 10.1 + (i % 10) * 0.03);
+      });
+
+      // end card: blur the held frame, Lord of Time dial
+      tl.fromTo("#vwrap", { filter: "blur(0px) brightness(1) saturate(1)" },
+        { filter: "blur(22px) brightness(0.62) saturate(0.85)", duration: 0.9, ease: "power2.inOut" }, CUT_END - 0.1);
+      tl.fromTo("#dial", { scale: 0.82, opacity: 0, rotation: -30 }, { scale: 1, opacity: 1, rotation: 0, duration: 1.3, ease: "power3.out" }, CUT_END);
+      tl.fromTo("#dial-ring", { rotation: 0, svgOrigin: "0 0" }, { rotation: 24, svgOrigin: "0 0", duration: 4.3, ease: "none" }, CUT_END);
+      tl.fromTo("#hand-min", { rotation: -120, svgOrigin: "0 0" }, { rotation: 600, svgOrigin: "0 0", duration: 4.3, ease: "power2.out" }, CUT_END);
+      tl.fromTo("#hand-hour", { rotation: -60, svgOrigin: "0 0" }, { rotation: 60, svgOrigin: "0 0", duration: 4.3, ease: "power2.out" }, CUT_END);
+      tl.fromTo("#end-om .deva", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.9, ease: "power3.out" }, CUT_END + 0.2);
+      tl.to("#end-om .deva", { scale: 1.04, duration: 0.9, yoyo: true, repeat: 3, ease: "sine.inOut" }, CUT_END + 1.1);
+      tl.fromTo("#end-deva", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, CUT_END + 0.6);
+      tl.fromTo("#end-rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "power2.out" }, CUT_END + 0.9);
+      tl.fromTo("#end-l1", { opacity: 0 }, { opacity: 1, duration: 0.6 }, CUT_END + 1.2);
+      tl.fromTo("#end-l2", { opacity: 0 }, { opacity: 0.9, duration: 0.6 }, CUT_END + 1.45);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

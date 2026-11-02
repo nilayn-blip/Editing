@@ -1,0 +1,64 @@
+{
+ "slug": "00-example",
+ "title": "Example: Satyam Shivam Sundaram",
+ "raga": "shivaranjani",
+ "end_sound": "om",
+ "intro": {
+  "spoken": "जब मन बहुत हैवी हो, तो बस इतना याद रखो...",
+  "caption": "जब मन बहुत heavy हो, तो बस इतना याद रखो…"
+ },
+ "lines": [
+  {
+   "spoken": "जो सत्य है, वही शिव है,",
+   "caption": "जो सत्य है, वही शिव है,"
+  },
+  {
+   "spoken": "जो शिव है, वही सुंदर है,",
+   "caption": "जो शिव है, वही सुंदर है,"
+  },
+  {
+   "spoken": "और जो सुंदर है, वो कभी खोता नहीं।",
+   "caption": "और जो सुंदर है… वो कभी खोता नहीं ”"
+  }
+ ],
+ "end": {
+  "spoken": "सत्यम् शिवम् सुंदरम्।",
+  "caption": "॥ सत्यम् शिवम् सुंदरम् ॥"
+ },
+ "paintings": [
+  {
+   "key": "p1",
+   "file": "File:The Birth of Gangā.jpg",
+   "focus": "64% 40%"
+  },
+  {
+   "key": "p2",
+   "file": "File:Shiva and His Family on Mount Kailash.jpg",
+   "inset": [
+    0.16,
+    0.2,
+    0.16,
+    0.13
+   ],
+   "focus": "45% 45%"
+  },
+  {
+   "key": "p3",
+   "file": "File:Myths of the Hindus & Buddhists - Shiva drinking the World-Poison.jpg",
+   "focus": "45% 40%",
+   "author": "Nandalal Bose (illustrator)"
+  },
+  {
+   "key": "p4",
+   "file": "File:Shiva, Parvati and Ganesha enthroned on Mount Kailas with Na Wellcome V0045136.jpg",
+   "focus": "62% 35%",
+   "author": "Raja Ravi Varma (print; Wellcome Collection)"
+  },
+  {
+   "key": "p5",
+   "file": "File:Raja Ravi Varma, Markandeya (cropped).jpg",
+   "focus": "42% 25%"
+  }
+ ],
+ "caption_post": "जो सत्य है, वही शिव है… 🙏 Comment ॐ नमः शिवाय if this touched you. #mahadev #harharmahadev #shiva #bholenath #satyamshivamsundaram #sanatandharma #shivbhakt #spiritualshorts #bhakti #omnamahshivaya"
+}

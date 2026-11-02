@@ -1,0 +1,62 @@
+[
+  {
+    "key": "e",
+    "file": "p01.jpg",
+    "focus": "50% 40%",
+    "alt": "Ganesh idol, Bhairi temple, Ratnagiri",
+    "title": "File:Ganesh idol, Bhairi temple, Ratnagiri.jpg",
+    "author": "Pratish Khedekar",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Ganesh_idol,_Bhairi_temple,_Ratnagiri.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Ganesh_idol%2C_Bhairi_temple%2C_Ratnagiri.jpg"
+  },
+  {
+    "key": "a",
+    "file": "p02.jpg",
+    "focus": "45% 55%",
+    "alt": "Parvati Ganesha",
+    "title": "File:Parvati Ganesha.jpg",
+    "author": "Unknown artist",
+    "license": "Public domain",
+    "license_url": "",
+    "page": "https://commons.wikimedia.org/wiki/File:Parvati_Ganesha.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Parvati_Ganesha.jpg"
+  },
+  {
+    "key": "b",
+    "file": "p03.jpg",
+    "focus": "45% 55%",
+    "alt": "Shiva parivar",
+    "title": "File:Shiva parivar.jpg",
+    "author": "Unknown artist",
+    "license": "Public domain",
+    "license_url": "",
+    "page": "https://commons.wikimedia.org/wiki/File:Shiva_parivar.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/a/ad/Shiva_parivar.jpg"
+  },
+  {
+    "key": "c",
+    "file": "p04.jpg",
+    "focus": "45% 45%",
+    "alt": "Siva-parvati-by-raja-ravi-varma",
+    "title": "File:Siva-parvati-by-raja-ravi-varma.jpg",
+    "author": "Ravi Varma Press",
+    "license": "Public domain",
+    "license_url": "",
+    "page": "https://commons.wikimedia.org/wiki/File:Siva-parvati-by-raja-ravi-varma.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Siva-parvati-by-raja-ravi-varma.jpg"
+  },
+  {
+    "key": "h",
+    "file": "p05.jpg",
+    "focus": "50% 45%",
+    "alt": "Kadelakalu Ganesha Idol",
+    "title": "File:Kadelakalu Ganesha Idol.jpg",
+    "author": "Rohanification",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Kadelakalu_Ganesha_Idol.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/1/16/Kadelakalu_Ganesha_Idol.jpg"
+  }
+]

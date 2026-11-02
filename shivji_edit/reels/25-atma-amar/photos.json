@@ -1,0 +1,62 @@
+[
+  {
+    "key": "h",
+    "file": "p01.jpg",
+    "focus": "50% 60%",
+    "alt": "Diwali diya",
+    "title": "File:Diwali diya.jpg",
+    "author": "Prakhar Chaudhary",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Diwali_diya.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/c/c6/Diwali_diya.jpg"
+  },
+  {
+    "key": "a",
+    "file": "p02.jpg",
+    "focus": "50% 50%",
+    "alt": "Krishna and Arjuna on Chariot Painting",
+    "title": "File:Krishna and Arjuna on Chariot Painting.jpg",
+    "author": "Unknown artist (photo: V Karnathia)",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Krishna_and_Arjuna_on_Chariot_Painting.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Krishna_and_Arjuna_on_Chariot_Painting.jpg"
+  },
+  {
+    "key": "b",
+    "file": "p03.jpg",
+    "focus": "50% 45%",
+    "alt": "Vishnu Vishvarupa",
+    "title": "File:Vishnu Vishvarupa.jpg",
+    "author": "Unknown artist",
+    "license": "Public domain",
+    "license_url": "",
+    "page": "https://commons.wikimedia.org/wiki/File:Vishnu_Vishvarupa.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/05/Vishnu_Vishvarupa.jpg"
+  },
+  {
+    "key": "c",
+    "file": "p04.jpg",
+    "focus": "50% 40%",
+    "alt": "18th century Bhagavad Gita and bhasya, Sanskrit, Kannada script, Karnataka",
+    "title": "File:18th century Bhagavad Gita and bhasya, Sanskrit, Kannada script, Karnataka.jpg",
+    "author": "Ms Sarah Welch",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:18th_century_Bhagavad_Gita_and_bhasya,_Sanskrit,_Kannada_script,_Karnataka.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/43/18th_century_Bhagavad_Gita_and_bhasya%2C_Sanskrit%2C_Kannada_script%2C_Karnataka.jpg"
+  },
+  {
+    "key": "e",
+    "file": "p05.jpg",
+    "focus": "50% 50%",
+    "alt": "An oil lamp 17 10 2010",
+    "title": "File:An oil lamp 17 10 2010.JPG",
+    "author": "Joydeep",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:An_oil_lamp_17_10_2010.JPG",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/3/34/An_oil_lamp_17_10_2010.JPG"
+  }
+]

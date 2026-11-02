@@ -1,0 +1,73 @@
+{
+ "pace": "short",
+ "hook_style": "bold",
+ "end_sound": "om",
+ "paintings": [
+  {
+   "key": "h",
+   "file": "File:Trimbakeshwar Shiva Temple, Trimbak, Nashik District, Maharastra (3).jpg",
+   "focus": "40% 45%"
+  },
+  {
+   "key": "a",
+   "file": "File:Śiva, wearing a necklace of skulls, stands behind a Śivalingam within a temple complex..jpg",
+   "inset": [
+    0.03,
+    0.02,
+    0.03,
+    0.07
+   ],
+   "focus": "35% 50%",
+   "author": "Chore Bagan Art Studio"
+  },
+  {
+   "key": "b",
+   "file": "File:Markandeya, ensnared by Yama’s pasha (noose), embraces a tall garlanded and bejewelled mukhalinga (a linga with a face)..jpg",
+   "inset": [
+    0.03,
+    0.03,
+    0.03,
+    0.2
+   ],
+   "focus": "45% 45%",
+   "author": "Company School artist"
+  },
+  {
+   "key": "c",
+   "file": "File:Kalantaka Kalasamhara.jpg",
+   "focus": "45% 50%",
+   "author": "Unknown artist"
+  },
+  {
+   "key": "e",
+   "file": "File:Trimbakeshwar Shiva Temple, Trimbak, Nashik District, Maharastra (6).jpg",
+   "focus": "45% 40%"
+  }
+ ],
+ "slug": "05-markandeya",
+ "title": "Markandeya: the boy who defeated death",
+ "raga": "bhairav",
+ "intro": {
+  "spoken": "एक बच्चा जिसने मौत को हरा दिया",
+  "caption": "एक बच्चा जिसने *मौत* को हरा दिया"
+ },
+ "lines": [
+  {
+   "spoken": "मार्कंडेय की उम्र सिर्फ़ सोलह साल लिखी थी,",
+   "caption": "मार्कंडेय की उम्र सिर्फ़ 16 साल लिखी थी,"
+  },
+  {
+   "spoken": "यमराज आए, तो वो शिवलिंग से लिपट गया,",
+   "caption": "यमराज आए, तो वो शिवलिंग से लिपट गया,"
+  },
+  {
+   "spoken": "महादेव प्रकट हुए, और यम को लौटना पड़ा। वो बन गए कालांतक।",
+   "caption": "महादेव प्रकट हुए, और यम को लौटना पड़ा… वो बन गए *कालांतक*"
+  }
+ ],
+ "end": {
+  "spoken": "ॐ त्र्यम्बकं यजामहे।",
+  "caption": "ॐ त्र्यम्बकं यजामहे"
+ },
+ "caption_post": "एक बच्चा जिसने मौत को हरा दिया 🔱 ऋषि मार्कंडेय की आयु सिर्फ़ 16 वर्ष लिखी थी। यमराज आए तो वो शिवलिंग से लिपट गए — महादेव प्रकट हुए और यम को लौटना पड़ा। तभी से शिव कालांतक कहलाए, और महामृत्युंजय मंत्र (ऋग्वेद 7.59.12) इन्हीं मृत्युंजय शिव की स्तुति है। कमेंट में लिखिए: ॐ त्र्यम्बकं यजामहे #mahadev #harharmahadev #shiva #bholenath #omnamahshivaya #shivbhakt #sanatandharma #shivkatha #mahamrityunjay"
+}

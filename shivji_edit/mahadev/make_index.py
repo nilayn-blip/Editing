@@ -1,0 +1,773 @@
+"""Build project/index.html and CREDITS.md for the Om Namah Shivaya edit from photos.json.
+
+Slow, cinematic aarti style: one beat per syllable of the Panchakshara mantra (न म शि वा य), each with its
+line from Adi Shankara's Shiva Panchakshara Stotram, then the syllables gather into ॐ नमः शिवाय.
+photos.json lists the Wikimedia Commons photos (title, author, licence, URLs, focal point) in beat order:
+five beats, then the climax/ending photo.
+
+Usage: python3 make_index.py
+"""
+import html
+import json
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+# Output times; keep in sync with soundtrack.py
+DUR = 36.0
+BEAT0, BEAT_LEN, N = 2.6, 4.4, 5
+CLIMAX = BEAT0 + N * BEAT_LEN  # 24.6
+END = 29.0
+CREDITS = 33.4
+
+# (syllable, verse opening, refrain, English gloss) from the Shiva Panchakshara Stotram (public domain)
+BEATS = [
+    ("न", "नागेन्द्रहाराय त्रिलोचनाय", "तस्मै नकाराय नमः शिवाय", "GARLANDED WITH THE SERPENT KING · THE THREE-EYED ONE"),
+    ("म", "मन्दाकिनीसलिलचन्दनचर्चिताय", "तस्मै मकाराय नमः शिवाय", "ANOINTED WITH THE WATERS OF THE MANDAKINI"),
+    ("शि", "श्रीनीलकण्ठाय वृषध्वजाय", "तस्मै शिकाराय नमः शिवाय", "THE BLUE-THROATED ONE · WHOSE BANNER BEARS NANDI"),
+    ("वा", "चन्द्रार्कवैश्वानरलोचनाय", "तस्मै वकाराय नमः शिवाय", "WHOSE EYES ARE THE MOON, THE SUN AND FIRE"),
+    ("य", "यक्षस्वरूपाय जटाधराय", "तस्मै यकाराय नमः शिवाय", "THE ETERNAL ONE WITH MATTED LOCKS"),
+]
+MANTRA = ["ॐ", "न", "मः", "शि", "वा", "य"]
+
+STAR = ('<svg class="star" viewBox="-10 -10 20 20"><path d="M0,-9 C1,-2 2,-1 9,0 C2,1 1,2 0,9 '
+        'C-1,2 -2,1 -9,0 C-2,-1 -1,-2 0,-9Z" fill="#f7c64a" /></svg>')
+
+CSS = """
+      @font-face {
+        font-family: "Tiro Devanagari Sanskrit";
+        src: url("assets/TiroDevanagariSanskrit-Regular.ttf") format("truetype");
+      }
+      @font-face {
+        font-family: "Cinzel";
+        src: url("assets/Cinzel.ttf") format("truetype");
+        font-weight: 400 900;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: #000;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #070200;
+        --gold-1: #fff4c8;
+        --gold-2: #f7c64a;
+        --gold-3: #c4801c;
+        --cream: #ffecbe;
+      }
+      .full {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* photos: full-bleed, cover, slow Ken Burns on the img */
+      #photos {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+      .ph {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+        opacity: 0;
+      }
+      .ph img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* grade: warm aarti light, vignette, grain */
+      #grade {
+        background: linear-gradient(180deg, rgba(255, 150, 40, 0.22) 0%, rgba(120, 40, 0, 0.1) 45%, rgba(255, 120, 20, 0.28) 100%);
+        mix-blend-mode: soft-light;
+      }
+      #vignette {
+        background: radial-gradient(ellipse 80% 65% at 50% 45%, rgba(0, 0, 0, 0) 55%, rgba(8, 2, 0, 0.75) 100%);
+      }
+      #grain {
+        position: absolute;
+        inset: -120px;
+        background: url("assets/grain.png");
+        mix-blend-mode: overlay;
+        opacity: 0.12;
+      }
+
+      /* type */
+      .deva {
+        font-family: "Tiro Devanagari Sanskrit", serif;
+        line-height: 1.25;
+        background: linear-gradient(180deg, var(--gold-1) 0%, var(--gold-2) 55%, var(--gold-3) 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        filter: drop-shadow(0 4px 6px rgba(20, 6, 0, 0.85)) drop-shadow(0 0 22px rgba(255, 150, 30, 0.6));
+        white-space: nowrap;
+      }
+      .latin {
+        font-family: "Cinzel", "Tiro Devanagari Sanskrit", serif;
+        color: var(--cream);
+        letter-spacing: 0.2em;
+        text-shadow: 0 2px 6px rgba(20, 6, 0, 0.9), 0 0 14px rgba(255, 150, 30, 0.5);
+        white-space: nowrap;
+      }
+      .stack {
+        position: absolute;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .rule {
+        position: relative;
+        width: 520px;
+        height: 24px;
+        margin: 8px 0 12px;
+      }
+      .rule .line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 11px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, var(--gold-2) 20%, var(--gold-2) 80%, transparent);
+        box-shadow: 0 0 8px rgba(255, 170, 40, 0.8);
+      }
+      .rule .gem {
+        position: absolute;
+        left: 250px;
+        top: 2px;
+        width: 20px;
+        height: 20px;
+        background: var(--gold-2);
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        box-shadow: 0 0 10px rgba(255, 170, 40, 0.9);
+      }
+      .band-bottom {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1180px;
+        background: linear-gradient(0deg, rgba(14, 4, 0, 0.94) 0%, rgba(14, 4, 0, 0.8) 40%, rgba(14, 4, 0, 0.35) 72%, rgba(14, 4, 0, 0) 100%);
+      }
+      .band-top {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 420px;
+        background: linear-gradient(180deg, rgba(14, 4, 0, 0.7) 0%, rgba(14, 4, 0, 0) 100%);
+      }
+
+      /* light */
+      #rays {
+        position: absolute;
+        left: -660px;
+        top: -1300px;
+        width: 2400px;
+        height: 2400px;
+        border-radius: 50%;
+        background: repeating-conic-gradient(
+          from 0deg,
+          rgba(255, 214, 140, 0.55) 0deg 3deg,
+          rgba(255, 214, 140, 0) 6deg 16deg
+        );
+        -webkit-mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.6) 35%, transparent 70%);
+        mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.6) 35%, transparent 70%);
+        filter: blur(14px);
+        mix-blend-mode: screen;
+        opacity: 0;
+      }
+      .haze {
+        position: absolute;
+        width: 900px;
+        height: 700px;
+        border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(255, 228, 190, 0.5) 0%, rgba(255, 200, 150, 0.18) 45%, rgba(255, 200, 150, 0) 70%);
+        filter: blur(30px);
+        mix-blend-mode: screen;
+        opacity: 0;
+      }
+      .leak {
+        position: absolute;
+        inset: -200px;
+        mix-blend-mode: screen;
+        opacity: 0;
+      }
+      #leak-l {
+        background: radial-gradient(ellipse 60% 45% at 25% 40%, rgba(255, 214, 140, 1) 0%, rgba(255, 160, 60, 0.6) 40%, rgba(255, 120, 30, 0) 75%);
+      }
+      #leak-r {
+        background: radial-gradient(ellipse 60% 45% at 75% 55%, rgba(255, 220, 150, 1) 0%, rgba(255, 150, 50, 0.6) 40%, rgba(255, 110, 20, 0) 75%);
+      }
+      #burst {
+        background: radial-gradient(circle at 50% 45%, rgba(255, 246, 220, 1) 0%, rgba(255, 200, 110, 0.75) 25%, rgba(255, 150, 40, 0) 60%);
+        mix-blend-mode: screen;
+        opacity: 0;
+      }
+      .ember {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: radial-gradient(circle, #fff8dc 0%, #ffd27a 35%, rgba(255, 170, 60, 0) 70%);
+        opacity: 0;
+      }
+
+      /* watermark */
+      #wm {
+        position: absolute;
+        right: 54px;
+        top: 150px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: "Cinzel", serif;
+        font-size: 30px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        color: var(--cream);
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85), 0 0 12px rgba(255, 150, 30, 0.45);
+        opacity: 0;
+      }
+      #wm .star {
+        width: 24px;
+        height: 24px;
+        filter: drop-shadow(0 0 6px rgba(255, 180, 60, 0.9));
+      }
+
+      /* syllable tracker: न म शि वा य lighting up one by one */
+      #tracker {
+        position: absolute;
+        left: 290px;
+        width: 500px;
+        top: 226px;
+        padding: 4px 0 0;
+        display: flex;
+        justify-content: center;
+        gap: 34px;
+        border-radius: 60px;
+        background: rgba(12, 4, 0, 0.62);
+        box-shadow: 0 0 30px rgba(12, 4, 0, 0.6);
+        border: 1px solid rgba(247, 198, 74, 0.35);
+      }
+      #tracker .tk {
+        font-family: "Tiro Devanagari Sanskrit", serif;
+        font-size: 58px;
+        line-height: 1.2;
+        color: #f7c64a;
+        text-shadow: 0 0 16px rgba(255, 160, 40, 0.9), 0 2px 4px rgba(0, 0, 0, 0.9);
+        opacity: 0;
+      }
+
+      /* hook */
+      #hook-om {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 560px;
+        display: flex;
+        justify-content: center;
+      }
+      #hook-om .deva {
+        font-size: 400px;
+        line-height: 1;
+      }
+      #hook-stack {
+        top: 1080px;
+      }
+      #hook-deva {
+        font-size: 96px;
+      }
+      #hook-l1 {
+        font-size: 32px;
+      }
+
+      /* syllable beats */
+      .beat .syl {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 760px;
+        display: flex;
+        justify-content: center;
+      }
+      .beat .syl .deva {
+        font-size: 400px;
+        line-height: 1.1;
+        filter: drop-shadow(0 6px 10px rgba(20, 6, 0, 0.9)) drop-shadow(0 0 40px rgba(255, 150, 30, 0.85));
+      }
+      .beat .stack {
+        top: 1288px;
+      }
+      .beat .verse {
+        font-size: 50px;
+        opacity: 0.9;
+      }
+      .beat .refrain {
+        font-size: 72px;
+        margin-top: 4px;
+      }
+      .beat .gloss {
+        font-size: 25px;
+        letter-spacing: 0.14em;
+        opacity: 0.9;
+      }
+
+      /* climax */
+      #mandala {
+        position: absolute;
+        left: 140px;
+        top: 450px;
+        width: 800px;
+        height: 800px;
+      }
+      #mantra {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 1260px;
+        display: flex;
+        justify-content: center;
+        align-items: baseline;
+        gap: 14px;
+      }
+      #mantra .deva {
+        font-size: 128px;
+      }
+      #mantra .sp {
+        width: 22px;
+      }
+      #climax-om {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 690px;
+        display: flex;
+        justify-content: center;
+      }
+      #climax-om .deva {
+        font-size: 300px;
+        line-height: 1;
+      }
+
+      /* ending */
+      #end-stack {
+        top: 1180px;
+      }
+      #end-deva {
+        font-size: 116px;
+      }
+      #end-l1 {
+        font-size: 34px;
+        letter-spacing: 0.16em;
+      }
+      #cta {
+        margin-top: 46px;
+        padding: 18px 40px;
+        border: 2px solid rgba(247, 198, 74, 0.85);
+        border-radius: 60px;
+        background: rgba(20, 8, 0, 0.55);
+        box-shadow: 0 0 24px rgba(255, 160, 40, 0.45);
+        font-family: "Cinzel", "Tiro Devanagari Sanskrit", serif;
+        font-size: 30px;
+        letter-spacing: 0.12em;
+        color: var(--cream);
+        white-space: nowrap;
+      }
+      #cta .d {
+        font-family: "Tiro Devanagari Sanskrit", serif;
+        letter-spacing: 0;
+        color: var(--gold-2);
+        font-size: 36px;
+      }
+
+      /* credits */
+      #credits-stack {
+        top: 640px;
+      }
+      #credits-stack .head {
+        font-size: 32px;
+        letter-spacing: 0.2em;
+        margin-bottom: 6px;
+      }
+      #credits-stack .sub {
+        font-size: 21px;
+        letter-spacing: 0.12em;
+        opacity: 0.8;
+        margin-bottom: 24px;
+      }
+      #credits-stack .cr {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 25px;
+        line-height: 1.62;
+        color: var(--cream);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+        white-space: nowrap;
+      }
+      #credits-stack .cr b {
+        font-family: "Cinzel", serif;
+        font-weight: 700;
+        color: var(--gold-2);
+        letter-spacing: 0.06em;
+      }
+      #credits-stack .cr i {
+        color: #e9d39a;
+        opacity: 0.85;
+      }
+      #credits-stack .foot {
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 21px;
+        line-height: 1.5;
+        color: var(--cream);
+        opacity: 0.75;
+        margin-top: 22px;
+        white-space: nowrap;
+      }
+      #black {
+        position: absolute;
+        inset: 0;
+        background: #000;
+      }
+"""
+
+
+def e(s):
+    return html.escape(s, quote=True)
+
+
+def build_html(photos):
+    beats_t = [round(BEAT0 + k * BEAT_LEN, 3) for k in range(N)]
+    imgs, sections, credits = [], [], []
+    for k, p in enumerate(photos):
+        imgs.append(
+            f'        <div class="ph" id="ph{k + 1}"><img id="img{k + 1}" src="assets/{p["file"]}" '
+            f'alt="{e(p["alt"])}" data-layout-allow-overflow style="object-position: {p["focus"]}" /></div>'
+        )
+        lic = p["license"].replace("Public domain", "Public Domain")
+        credits.append(f'          <div class="cr"><b>{e(p["label"])}</b> — {e(p["author"])} · <i>{e(lic)}</i></div>')
+    for k, (syl, verse, refrain, gloss) in enumerate(BEATS):
+        sections.append(f"""
+      <!-- syllable {k + 1}: {syl} -->
+      <section id="b{k + 1}" class="clip full beat" data-start="{beats_t[k]}" data-duration="{BEAT_LEN}" data-track-index="3">
+        <div class="syl"><div class="deva">{syl}</div></div>
+        <div class="stack">
+          <div class="deva verse">{e(verse)}</div>
+          <div class="deva refrain">{e(refrain)}</div>
+          <div class="rule"><div class="line"></div><div class="gem"></div></div>
+          <div class="latin gloss">{e(gloss)}</div>
+        </div>
+      </section>""")
+    mantra = "\n".join(
+        f'          <div class="deva mt" id="mt{i}">{m}</div>' + ('\n          <div class="sp"></div>' if m in ("ॐ", "मः") else "")
+        for i, m in enumerate(MANTRA)
+    )
+    tracker = "\n".join(f'        <div class="tk" id="tk{k}">{s[0]}</div>' for k, s in enumerate(BEATS))
+
+    return f"""<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>Om Namah Shivaya</title>
+    <script src="assets/gsap.min.js"></script>
+    <style>{CSS}    </style>
+  </head>
+  <body>
+    <!-- generated by ../make_index.py from ../photos.json; edit there -->
+    <div id="root" data-composition-id="main" data-start="0" data-width="1080" data-height="1920" data-duration="{DUR}">
+      <!-- photos (Wikimedia Commons, see CREDITS.md); wrapper is untimed so it can be blurred for the ending -->
+      <div id="photos">
+{chr(10).join(imgs)}
+      </div>
+      <audio id="score" src="assets/soundtrack.mp3" data-start="0" data-duration="{DUR}" data-track-index="5" data-volume="1"></audio>
+
+      <!-- grade, haze, light, embers, grain -->
+      <div id="light" class="clip full" data-start="0" data-duration="{DUR}" data-track-index="1">
+        <div id="grade" class="full"></div>
+        <div id="band-top" class="band-top"></div>
+        <div id="band-bottom" class="band-bottom"></div>
+        <div id="rays" data-layout-allow-overflow></div>
+        <div id="haze1" class="haze" style="left: -260px; top: 1100px"></div>
+        <div id="haze2" class="haze" style="left: 420px; top: 1300px"></div>
+        <div id="haze3" class="haze" style="left: 80px; top: 600px"></div>
+        <div id="leak-l" class="leak"></div>
+        <div id="leak-r" class="leak"></div>
+        <div id="burst" class="full"></div>
+        <div id="embers" class="full"></div>
+        <div id="vignette" class="full"></div>
+        <div id="grain"></div>
+      </div>
+
+      <!-- watermark + syllable tracker (persistent) -->
+      <div id="overlay" class="clip full" data-start="0" data-duration="{DUR}" data-track-index="2">
+        <div id="wm"><span>NIRVANA</span>{STAR}<span>NILAY</span></div>
+        <div id="tracker">
+{tracker}
+        </div>
+      </div>
+
+      <!-- hook -->
+      <section id="hook" class="clip full" data-start="0" data-duration="{BEAT0 + 0.2}" data-track-index="3">
+        <div id="hook-om"><div class="deva">ॐ</div></div>
+        <div id="hook-stack" class="stack">
+          <div id="hook-deva" class="deva">॥ पञ्चाक्षर मन्त्र ॥</div>
+          <div id="hook-rule" class="rule"><div class="line"></div><div class="gem"></div></div>
+          <div id="hook-l1" class="latin">THE FIVE SACRED SYLLABLES OF SHIVA</div>
+        </div>
+      </section>
+{"".join(sections)}
+
+      <!-- climax: the five syllables gather into the mantra -->
+      <section id="climax" class="clip full" data-start="{CLIMAX}" data-duration="{round(END - CLIMAX + 0.2, 2)}" data-track-index="4">
+        <svg id="mandala" data-layout-allow-overflow viewBox="-400 -400 800 800">
+          <g id="mandala-spin"></g>
+        </svg>
+        <div id="climax-om"><div class="deva">ॐ</div></div>
+        <div id="mantra">
+{mantra}
+        </div>
+      </section>
+
+      <!-- ending: Har Har Mahadev + call to action -->
+      <section id="ending" class="clip full" data-start="{END}" data-duration="{round(CREDITS - END + 0.2, 2)}" data-track-index="4">
+        <div id="end-stack" class="stack">
+          <div id="end-deva" class="deva">॥ हर हर महादेव ॥</div>
+          <div id="end-rule" class="rule"><div class="line"></div><div class="gem"></div></div>
+          <div id="end-l1" class="latin">OM NAMAH SHIVAYA</div>
+          <div id="cta">COMMENT <span class="d">ॐ नमः शिवाय</span> &amp; SHARE</div>
+        </div>
+      </section>
+
+      <!-- credits card (required by CC BY / CC BY-SA) -->
+      <section id="credits" class="clip full" data-start="{CREDITS}" data-duration="{round(DUR - CREDITS, 2)}" data-track-index="4">
+        <div id="credits-stack" class="stack">
+          <div class="latin head">PHOTOGRAPHS</div>
+          <div class="latin sub">WIKIMEDIA COMMONS · USED UNDER THEIR LICENCES</div>
+{chr(10).join(credits)}
+          <div class="foot">Photos cropped and animated. Licence texts: creativecommons.org/licenses</div>
+          <div class="foot" style="margin-top: 4px">Text: Shiva Panchakshara Stotram · Music: original synthesised score</div>
+        </div>
+      </section>
+
+      <div id="black"></div>
+    </div>
+
+    <script>
+      // Output times; keep in sync with make_index.py and soundtrack.py
+      const DUR = {DUR};
+      const BEAT0 = {BEAT0}, BEAT_LEN = {BEAT_LEN}, N = {N};
+      const CLIMAX = {CLIMAX}, END = {END}, CREDITS = {CREDITS};
+      const BEATS = Array.from({{ length: N }}, (_, k) => BEAT0 + k * BEAT_LEN);
+      const NPH = {len(photos)};
+      const NS = "http://www.w3.org/2000/svg";
+
+      // seeded PRNG (determinism: no Math.random)
+      let seed = 108;
+      const rand = () => ((seed = (seed * 16807) % 2147483647) - 1) / 2147483646;
+
+      // build: diya embers and the climax mandala
+      const embers = document.getElementById("embers");
+      const EMBERS = [];
+      for (let i = 0; i < 44; i++) {{
+        const el = document.createElement("div");
+        el.className = "ember";
+        const s = 0.5 + rand() * 1.4;
+        el.style.left = (rand() * 1060).toFixed(0) + "px";
+        el.style.top = (700 + rand() * 1300).toFixed(0) + "px";
+        el.style.width = el.style.height = (8 * s).toFixed(1) + "px";
+        embers.appendChild(el);
+        EMBERS.push({{ el, rise: 300 + rand() * 600, sway: 20 + rand() * 60, peak: 0.35 + rand() * 0.5 }});
+      }}
+      const spin = document.getElementById("mandala-spin");
+      const mk = (tag, attrs) => {{
+        const n = document.createElementNS(NS, tag);
+        for (const [k, v] of Object.entries(attrs)) n.setAttribute(k, v);
+        spin.appendChild(n);
+        return n;
+      }};
+      mk("circle", {{ r: "380", fill: "none", stroke: "#f7c64a", "stroke-width": "2", opacity: "0.55" }});
+      mk("circle", {{ r: "330", fill: "none", stroke: "#f7c64a", "stroke-width": "1", opacity: "0.35" }});
+      for (let k = 0; k < 36; k++) {{
+        const a = (k / 36) * 360;
+        mk("path", {{ d: "M0,-330 C14,-300 14,-270 0,-245 C-14,-270 -14,-300 0,-330Z", fill: "#f7c64a", opacity: "0.5", transform: `rotate(${{a}})` }});
+      }}
+      for (let k = 0; k < 108; k++) {{
+        const a = (k / 108) * Math.PI * 2;
+        mk("circle", {{ cx: (356 * Math.cos(a)).toFixed(2), cy: (356 * Math.sin(a)).toFixed(2), r: k % 9 === 0 ? "4.5" : "2", fill: "#ffe6a0", opacity: "0.8" }});
+      }}
+
+      // timeline
+      const tl = gsap.timeline({{ paused: true }});
+
+      // fade in / out
+      tl.fromTo("#black", {{ opacity: 1 }}, {{ opacity: 0, duration: 0.5, ease: "none" }}, 0);
+      tl.to("#black", {{ opacity: 1, duration: 0.8, ease: "none" }}, DUR - 0.8);
+
+      // film grain: jitter the oversized tile every 2 frames
+      for (let t = 0; t < DUR; t += 1 / 15) {{
+        tl.set("#grain", {{ x: Math.round(rand() * 200 - 100), y: Math.round(rand() * 200 - 100) }}, t);
+      }}
+
+      // god-rays and haze
+      tl.fromTo("#rays", {{ rotation: 0 }}, {{ rotation: 30, duration: DUR, ease: "none" }}, 0);
+      tl.fromTo("#rays", {{ opacity: 0 }}, {{ opacity: 0.4, duration: 1.0 }}, 0.1);
+      tl.to("#rays", {{ opacity: 0.14, duration: 1.0 }}, BEAT0 - 0.4);
+      tl.to("#rays", {{ opacity: 0.45, duration: 1.0 }}, CLIMAX);
+      tl.to("#rays", {{ opacity: 0.12, duration: 0.8 }}, CREDITS - 0.3);
+      ["#haze1", "#haze2", "#haze3"].forEach((h, i) => {{
+        tl.fromTo(h, {{ x: 0, y: 0, opacity: 0 }}, {{ x: (i % 2 ? -1 : 1) * 260, y: -380 - i * 80, opacity: 0.55, duration: DUR / 2, ease: "sine.inOut" }}, 0.5 + i * 0.8);
+        tl.to(h, {{ x: (i % 2 ? 1 : -1) * 120, y: -760 - i * 80, opacity: 0.2, duration: DUR / 2 - 1.5, ease: "sine.inOut" }}, DUR / 2 + 0.5 + i * 0.8);
+      }});
+
+      // embers rise and twinkle throughout
+      EMBERS.forEach((p, i) => {{
+        tl.fromTo(p.el, {{ y: 0, x: 0 }}, {{ y: -p.rise * 2.6, x: (i % 2 ? 1 : -1) * p.sway, duration: DUR, ease: "none" }}, 0);
+        tl.fromTo(p.el, {{ opacity: 0 }}, {{ opacity: p.peak, duration: 0.8 }}, 0.2 + (i % 5) * 0.1);
+        tl.to(p.el, {{ opacity: p.peak * 0.3, duration: 1.1, yoyo: true, repeat: 15, ease: "sine.inOut" }}, 1.0 + (i % 6) * 0.3);
+      }});
+
+      // watermark: fades in after the hook lands and stays
+      tl.fromTo("#wm", {{ opacity: 0, y: -10 }}, {{ opacity: 0.82, y: 0, duration: 0.8, ease: "power2.out" }}, 0.6);
+
+      // bands
+      tl.fromTo("#band-bottom", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.6 }}, BEAT0 - 0.4);
+      tl.fromTo("#band-top", {{ opacity: 0.5 }}, {{ opacity: 1, duration: 0.6 }}, BEAT0 - 0.4);
+
+      // hook: the Om ignites
+      tl.fromTo("#hook-om .deva", {{ scale: 1.5, opacity: 0, filter: "blur(24px)" }}, {{ scale: 1, opacity: 1, filter: "blur(0px)", duration: 1.0, ease: "power3.out" }}, 0.05);
+      tl.to("#hook-om .deva", {{ scale: 1.06, duration: 0.6, yoyo: true, repeat: 1, ease: "sine.inOut" }}, 1.05);
+      tl.fromTo("#hook-deva", {{ y: 24, opacity: 0 }}, {{ y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }}, 0.55);
+      tl.fromTo("#hook-rule", {{ scaleX: 0 }}, {{ scaleX: 1, duration: 0.7, ease: "power2.out" }}, 0.8);
+      tl.fromTo("#hook-l1", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.6 }}, 1.0);
+      tl.to(["#hook-om", "#hook-stack"], {{ opacity: 0, scale: 1.05, duration: 0.45, ease: "power1.in" }}, BEAT0 - 0.4);
+
+      // photos: crossfade under a gold light leak, slow Ken Burns alternating push and pan
+      const KB = [
+        {{ from: {{ scale: 1.03, x: 0, y: 0 }}, to: {{ scale: 1.17, x: 0, y: -24 }} }},   // push in
+        {{ from: {{ scale: 1.14, x: -55, y: 0 }}, to: {{ scale: 1.14, x: 55, y: -10 }} }}, // pan right
+        {{ from: {{ scale: 1.18, x: 0, y: -24 }}, to: {{ scale: 1.04, x: 0, y: 0 }} }},   // pull out
+        {{ from: {{ scale: 1.14, x: 55, y: 0 }}, to: {{ scale: 1.14, x: -55, y: -10 }} }}, // pan left
+      ];
+      const starts = BEATS.concat([CLIMAX]);
+      starts.forEach((t0, k) => {{
+        if (k >= NPH) return;
+        const id = `#ph${{k + 1}}`, img = `#img${{k + 1}}`;
+        const len = k < N ? BEAT_LEN : DUR - CLIMAX;
+        tl.fromTo(id, {{ opacity: 0 }}, {{ opacity: 1, duration: k === 0 ? 1.0 : 0.8, ease: "sine.inOut" }}, t0 - 0.5);
+        tl.fromTo(img, KB[k % 4].from, {{ ...KB[k % 4].to, duration: len + 1.0, ease: "sine.inOut" }}, t0 - 0.5);
+        if (k > 0) tl.set(`#ph${{k}}`, {{ opacity: 0 }}, t0 + 0.4);
+        const leak = k % 2 ? "#leak-r" : "#leak-l";
+        tl.fromTo(leak, {{ opacity: 0, x: k % 2 ? 80 : -80 }}, {{ opacity: 0.8, x: 0, duration: 0.5, ease: "sine.in" }}, t0 - 0.5);
+        tl.to(leak, {{ opacity: 0, x: k % 2 ? -60 : 60, duration: 0.8, ease: "sine.out" }}, t0);
+      }});
+
+      // syllable beats
+      BEATS.forEach((t0, k) => {{
+        const id = `#b${{k + 1}}`;
+        tl.fromTo(`${{id}} .syl .deva`, {{ scale: 1.35, opacity: 0, filter: "blur(22px)" }}, {{ scale: 1, opacity: 1, filter: "blur(0px)", duration: 1.0, ease: "power3.out" }}, t0 + 0.05);
+        tl.to(`${{id}} .syl .deva`, {{ scale: 1.04, y: -10, duration: BEAT_LEN - 1.5, ease: "sine.inOut" }}, t0 + 1.05);
+        tl.fromTo(`${{id}} .verse`, {{ y: 18, opacity: 0 }}, {{ y: 0, opacity: 0.9, duration: 0.7, ease: "power2.out" }}, t0 + 0.45);
+        tl.fromTo(`${{id}} .refrain`, {{ y: 24, opacity: 0 }}, {{ y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }}, t0 + 0.75);
+        tl.fromTo(`${{id}} .rule`, {{ scaleX: 0 }}, {{ scaleX: 1, duration: 0.7, ease: "power2.out" }}, t0 + 1.0);
+        tl.fromTo(`${{id}} .gloss`, {{ opacity: 0 }}, {{ opacity: 0.9, duration: 0.6 }}, t0 + 1.2);
+        tl.to([`${{id}} .syl`, `${{id}} .stack`], {{ opacity: 0, duration: 0.4, ease: "power1.in" }}, t0 + BEAT_LEN - 0.45);
+        // tracker: this syllable lights up and stays lit
+        tl.fromTo(`#tk${{k}}`, {{ opacity: 0.6, scale: 0.8 }}, {{ opacity: 1, scale: 1.25, duration: 0.5, ease: "back.out(2)" }}, t0 + 0.1);
+        tl.to(`#tk${{k}}`, {{ scale: 1, duration: 0.6, ease: "sine.inOut" }}, t0 + 0.6);
+      }});
+      tl.fromTo("#tracker", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.6 }}, 1.3);
+      tl.fromTo("#tracker .tk", {{ opacity: 0 }}, {{ opacity: 0.6, duration: 0.6, stagger: 0.08 }}, 1.3);
+
+      // climax: burst of light, mandala, Om, then the mantra gathers syllable by syllable
+      tl.fromTo("#burst", {{ opacity: 0 }}, {{ opacity: 0.95, duration: 0.25, ease: "power2.in" }}, CLIMAX - 0.15);
+      tl.to("#burst", {{ opacity: 0, duration: 1.4, ease: "power2.out" }}, CLIMAX + 0.1);
+      tl.to("#tracker", {{ opacity: 0, y: 30, duration: 0.5, ease: "power1.in" }}, CLIMAX - 0.2);
+      tl.fromTo("#photos", {{ filter: "blur(0px) brightness(1)" }}, {{ filter: "blur(10px) brightness(0.55)", duration: 1.2, ease: "power2.inOut" }}, CLIMAX + 0.2);
+      tl.fromTo("#mandala", {{ scale: 0.6, opacity: 0, transformOrigin: "50% 50%" }}, {{ scale: 1, opacity: 1, duration: 1.4, ease: "power3.out" }}, CLIMAX + 0.1);
+      tl.fromTo("#mandala-spin", {{ rotation: 0, svgOrigin: "0 0" }}, {{ rotation: 40, svgOrigin: "0 0", duration: DUR - CLIMAX, ease: "none" }}, CLIMAX);
+      tl.fromTo("#climax-om .deva", {{ scale: 0.6, opacity: 0, filter: "blur(18px)" }}, {{ scale: 1, opacity: 1, filter: "blur(0px)", duration: 1.0, ease: "power3.out" }}, CLIMAX + 0.2);
+      tl.to("#climax-om .deva", {{ scale: 1.05, duration: 0.7, yoyo: true, repeat: 3, ease: "sine.inOut" }}, CLIMAX + 1.2);
+      tl.fromTo("#mantra .mt", {{ y: 40, opacity: 0, scale: 1.3, filter: "blur(12px)" }}, {{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)", duration: 0.6, stagger: 0.32, ease: "power3.out" }}, CLIMAX + 0.7);
+      tl.to(["#mantra", "#climax-om"], {{ opacity: 0, duration: 0.4, ease: "power1.in" }}, END - 0.4);
+      tl.to("#mandala", {{ y: -330, scale: 0.72, duration: 1.0, ease: "power3.inOut" }}, END - 0.5);
+
+      // ending
+      tl.fromTo("#end-deva", {{ y: 26, opacity: 0, scale: 1.08 }}, {{ y: 0, opacity: 1, scale: 1, duration: 0.8, ease: "power3.out" }}, END + 0.1);
+      tl.fromTo("#end-rule", {{ scaleX: 0 }}, {{ scaleX: 1, duration: 0.7, ease: "power2.out" }}, END + 0.4);
+      tl.fromTo("#end-l1", {{ opacity: 0 }}, {{ opacity: 1, duration: 0.6 }}, END + 0.6);
+      tl.fromTo("#cta", {{ y: 20, opacity: 0, scale: 0.9 }}, {{ y: 0, opacity: 1, scale: 1, duration: 0.7, ease: "back.out(1.8)" }}, END + 1.1);
+      tl.to("#cta", {{ scale: 1.05, duration: 0.45, yoyo: true, repeat: 3, ease: "sine.inOut" }}, END + 1.9);
+      tl.to("#end-stack", {{ opacity: 0, duration: 0.4, ease: "power1.in" }}, CREDITS - 0.4);
+
+      // credits
+      tl.to("#photos", {{ filter: "blur(26px) brightness(0.3)", duration: 0.8 }}, CREDITS - 0.4);
+      tl.to("#mandala", {{ opacity: 0.25, duration: 0.6 }}, CREDITS - 0.4);
+      tl.to("#band-bottom", {{ opacity: 0.4, duration: 0.6 }}, CREDITS - 0.4);
+      tl.fromTo("#credits-stack", {{ y: 20, opacity: 0 }}, {{ y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }}, CREDITS);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
+"""
+
+
+def build_credits(photos):
+    lines = [
+        "# Photo credits: Om Namah Shivaya",
+        "",
+        "All photographs come from [Wikimedia Commons](https://commons.wikimedia.org/). Each is used under the licence",
+        "shown, as read from the Commons API (`prop=imageinfo&iiprop=url|extmetadata`). In the video the photos are",
+        "downscaled, cropped to 9:16, colour-graded and animated, with text on top. Those changes are released",
+        "under the same licence as the source photo where that licence is CC BY-SA. A credits card at the end of the",
+        "video lists every photographer and licence.",
+        "",
+        "| # | Used for | File | Author | Licence | Asset |",
+        "|---|---|---|---|---|---|",
+    ]
+    for k, p in enumerate(photos):
+        lic = p["license"]
+        lic_md = f"[{lic}]({p['license_url']})" if p.get("license_url") else lic
+        lines.append(f"| {k + 1} | {p['label']} | [{p['title'][5:]}]({p['page']}) | {p['author']} | {lic_md} | `{p['file']}` |")
+    lines += ["", "Original files:", ""]
+    lines += [f"{k + 1}. {p['original']}" for k, p in enumerate(photos)]
+    lines += [
+        "",
+        "The Sanskrit text is from Adi Shankara's Shiva Panchakshara Stotram, a traditional hymn in the public domain.",
+        "The English glosses are original.",
+        "The music and sound effects are synthesised from scratch by `../music.py`, `../sfx.py` and `soundtrack.py`.",
+        "The fonts, Tiro Devanagari Sanskrit and Cinzel, are under the SIL Open Font License. GSAP is vendored from the earlier Mahakal project.",
+        "",
+    ]
+    return "\n".join(lines)
+
+
+def main():
+    photos = json.load(open(os.path.join(HERE, "photos.json")))
+    assert len(photos) == N + 1, "five syllable photos + one climax/ending photo"
+    with open(os.path.join(HERE, "project", "index.html"), "w") as f:
+        f.write(build_html(photos))
+    with open(os.path.join(HERE, "CREDITS.md"), "w") as f:
+        f.write(build_credits(photos))
+
+
+if __name__ == "__main__":
+    main()
